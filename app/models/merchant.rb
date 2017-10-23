@@ -8,9 +8,9 @@ class Merchant < ApplicationRecord
 
   def join_orderitems(status)
     if [nil, ""].include?(status)
-      return Orderitem.joins('join products on orderitems.product_id = products.id').where("products.merchant_id = #{self.id}")
+      return Orderitem.joins('join products on orderitems.product_id = products.id').where("products.merchant_id = #{self.id}").joins('LEFT JOIN orders ON orderitems.order_id = orders.id').where("orders.status IS DISTINCT FROM 'pending'")
     else
-      return Orderitem.joins('join products on orderitems.product_id = products.id').where("products.merchant_id = #{self.id}").joins('LEFT JOIN orders ON orderitems.order_id = orders.id').where("orders.status = '#{status}'")
+      return Orderitem.joins('join products on orderitems.product_id = products.id').where("products.merchant_id = #{self.id}").joins('LEFT JOIN orders ON orderitems.order_id = orders.id').where("orders.status = '#{status}' AND orders.status IS DISTINCT FROM 'pending'")
     end
   end
 end

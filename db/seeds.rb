@@ -36,6 +36,7 @@ CSV.foreach(PRODUCT_FILE, :headers => true) do |row|
   product.categories = row['categories']
   product.merchant_id = row['merchant_id']
   product.quantity = row['quantity']
+  product.status = row['status']
   puts "Created product: #{product.inspect}"
   successful = product.save
   if !successful

@@ -13,6 +13,8 @@ class Product < ApplicationRecord
   #may need to include integers as well
   validates :merchant_id, presence: true
   validates :quantity, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0 }
+  validates :status, presence: true
+  validates :status, inclusion: { in: [ "active", "retired" ] }
 
 
   def self.get_products(a_category: "all", a_merchant: "all")

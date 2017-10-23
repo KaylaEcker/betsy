@@ -66,6 +66,20 @@ describe Product do
       tree1.quantity = -1
       tree1.valid?.must_equal false
     end
+
+    it "must have a status" do
+      tree1.status = nil
+      tree1.valid?.must_equal false
+    end
+
+    it "must have a status of 'active' or 'retired' " do
+      tree1.status = "retired"
+      tree1.valid?.must_equal true
+      tree1.status = "inactive"
+      tree1.valid?.must_equal false
+      tree1.status = true
+      tree1.valid?.must_equal false
+    end
   end
 
   describe "Product.get_products method" do

@@ -35,11 +35,8 @@ class Product < ApplicationRecord
     end
   end
 
-  def active_only(products)
-    products.select! do |product|
-      product.status == active
-    end
-    return product
+  def self.active_only
+    return Product.where(status: "active")
   end
 
   def self.categories

@@ -35,9 +35,9 @@ class Product < ApplicationRecord
     end
   end
 
-  def self.active_only
-    return Product.where(status: "active")
-  end
+  # def self.active_only
+  #   return Product.where(status: "active")
+  # end
 
   def self.categories
     categories = Product.pluck(:categories).flatten.uniq

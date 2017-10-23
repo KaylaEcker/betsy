@@ -32,6 +32,11 @@ describe Order do
       order.errors.messages[:customer_email].must_include "customer email cannot be blank"
     end
 
+    it "must have a valid email address" do
+      # orders(:one).valid?.must_equal true
+
+    end
+
     it "must have an address if the status of the order is not pending" do
       order = Order.new(status: "paid" )
       order.valid?.must_equal false
@@ -39,6 +44,8 @@ describe Order do
       order.errors.messages.must_include :address1
       order.errors.messages[:address1].must_include "address cannot be blank"
     end
+
+
 
 
 

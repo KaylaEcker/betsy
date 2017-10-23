@@ -1,1 +1,21 @@
-<h1>so fulfilled</h1>
+<h1>Manage Your Orders</h1>
+<% if @orders.length > 0 %>
+  <% @orders.each do |order_id, status_revenue_hash| %>
+    <ul>
+      <li><strong>Order#: </strong><%= order_id %></li>
+      <li><strong>Purchase Date: </strong><%= status_revenue_hash[:purchase_date] %></li>
+      <li><strong>Status: </strong><%= status_revenue_hash[:status] %></li>
+      <li><strong>Revenue: </strong><%= status_revenue_hash[:revenue] %></li>
+      <li>
+        <strong>Items sold:</strong>
+        <ul>
+          <% status_revenue_hash[:items].each do |item| %>
+            <li>
+              <%= item.quantity %> <%= link_to item.product.name, product_path(item.product_id) %>: <%= item.product.price * item.quantity %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+    </ul>
+  <% end %>
+<% end %>

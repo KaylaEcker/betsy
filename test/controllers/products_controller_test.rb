@@ -62,7 +62,7 @@ describe ProductsController do
 
     it "should be able to successfully create a new product" do
         proc {
-          post products_path, params: { name: "newbie", price: 2, category: "new category", quantity: 1, merchant_id: @merchant.id }
+          post products_path, params: { name: "newbie", price: 2, category: "new category", quantity: 1, merchant_id: @merchant.id, status: "active" }
         }.must_change 'Product.count', 1
       must_respond_with :redirect
     end
@@ -87,7 +87,7 @@ describe ProductsController do
 
     it "should record all the values of the product" do
       proc {
-        post products_path, params: { name: "Name", price: 50, category: "new category", description: "This is a new product", photo_url: "www.google.com", quantity: 1, merchant_id: merchants(:sappy1).id }
+        post products_path, params: { name: "Name", price: 50, category: "new category", description: "This is a new product", photo_url: "www.google.com", quantity: 1, merchant_id: merchants(:sappy1).id, status: "retired" }
       }.must_change 'Product.count', 1
 
       product = Product.find_by(name: "Name")

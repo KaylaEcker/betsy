@@ -18,8 +18,12 @@ class MerchantsController < ApplicationController
       end
       @orders[orderitem.order_id.to_s] = {status: orderitem.order.status, purchase_date: orderitem.order.purchase_datetime,revenue: new_revenue, items: new_items}
     end
-
-    @statuses = Order.statuses
+    @total_revenue = orderitems.sum {|orderitem| ( (orderitem.order.status == "cancelled") ? 0 : (orderitem.quantity * orderitem.product.price) ) }
+    @statuses = ["paid", "complete", "cancelled"]
+    @revenue_by_status = {}
+    @statuses.each do |a_status|
+      @revenue_by_status[a_status] = orderitems.sum {|orderitem| orderitem.order.status == a_status ? (orderitem.quantity * orderitem.product.price) : 0}
+    end
   end
 
   def create

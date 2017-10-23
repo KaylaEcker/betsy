@@ -3,6 +3,7 @@ class MerchantsController < ApplicationController
   end
 
   def fulfillment
+
   end
 
   def create

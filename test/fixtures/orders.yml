@@ -25,6 +25,7 @@ one:
   cc_expiration: MyString
   cc_security: 1
   billingzip: 1
+  status: paid
 
 two:
   customer_email: MyString
@@ -38,3 +39,4 @@ two:
   cc_expiration: MyString
   cc_security: 1
   billingzip: 1
+  status: complete

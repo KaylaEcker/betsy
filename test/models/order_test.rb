@@ -1,9 +1,9 @@
 require "test_helper"
 
 describe Order do
-  let(:one) { orders(:one) }
 
   describe "validations" do
+    let(:one) { orders(:one) }
     it "must have one or more order items" do
       one.orderitems.each do |o|
         o.must_be_kind_of Orderitem
@@ -18,7 +18,6 @@ describe Order do
   end
 
   describe "checkout validations" do
-    let(:pend_cust) {orders( :pending_customer) }
 
     it "can have nil values if the status of the order is pending" do
       order = Order.new(status: "pending")
@@ -33,8 +32,17 @@ describe Order do
     end
 
     it "must have a valid email address" do
-      # orders(:one).valid?.must_equal true
+      order = Order.new(status: "paid", customer_email: "yahoo")
+      order.valid?.must_equal false
+      order.errors.messages.must_include :customer_email
+      order.errors.messages[:customer_email].must_include "invalid email format"
+    end
 
+    it "will accept a valid email address" do
+      order = Order.new(status: "paid", customer_email: "cool@yahoo.com")
+
+      order.valid?.must_equal false
+      order.errors.messages.wont_include :customer_email
     end
 
     it "must have an address if the status of the order is not pending" do

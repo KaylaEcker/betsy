@@ -2,6 +2,9 @@ class MerchantsController < ApplicationController
   def new
   end
 
+  def fulfillment
+  end
+
   def create
   end
 

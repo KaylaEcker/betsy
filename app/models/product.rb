@@ -35,6 +35,13 @@ class Product < ApplicationRecord
     end
   end
 
+  def active_only(products)
+    products.select! do |product|
+      product.status == active
+    end
+    return product
+  end
+
   def self.categories
     categories = Product.pluck(:categories).flatten.uniq
   end

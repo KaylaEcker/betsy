@@ -5,6 +5,7 @@ before_action :get_categories, only: [:index, :edit, :new]
 
   def index
     @products = Product.get_products(a_category: params[:category], a_merchant: params[:merchant])
+    return active_only(@products)
   end
 
   def show

@@ -1,4 +1,9 @@
 <h1>Manage Your Orders</h1>
+<%= form_tag(merchant_fulfillment_path, method: :get) do %>
+  <%= label_tag(:status, "Status") %>
+  <%= select_tag "status", options_for_select(@statuses, params["status"]), include_blank: "all" %>
+  <%= submit_tag("Submit", class: "button") %>
+<% end %>
 <% if @orders.length > 0 %>
   <% @orders.each do |order_id, status_revenue_hash| %>
     <ul>

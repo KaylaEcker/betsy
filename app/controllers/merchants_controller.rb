@@ -19,7 +19,7 @@ class MerchantsController < ApplicationController
       @orders[orderitem.order_id.to_s] = {status: orderitem.order.status, purchase_date: orderitem.order.purchase_datetime,revenue: new_revenue, items: new_items}
     end
 
-    @statuses = Product.statuses
+    @statuses = Order.statuses
   end
 
   def create

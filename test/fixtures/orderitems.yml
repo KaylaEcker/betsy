@@ -9,5 +9,9 @@ one:
   order: one
   product: tree1
 
+two:
+  quantity: 1
+  order: pending_customer
+  product: tree1
 # column: value
 #

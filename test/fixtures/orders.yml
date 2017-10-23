@@ -1,5 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+pending_customer:
+  customer_email: nil
+  address1: nil
+  address2: nil
+  city: nil
+  state: nil
+  zipcode: nil
+  cc_name: nil
+  cc_number: nil
+  cc_expiration: nil
+  cc_security: nil
+  billingzip: nil
+
 one:
   customer_email: MyString
   address1: MyString

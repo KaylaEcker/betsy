@@ -8,6 +8,7 @@ before_action :get_categories, only: [:index, :edit, :new]
   end
 
   def show
+    render_404 if @product.status == "retired"
   end
 
   def edit
@@ -99,5 +100,4 @@ before_action :get_categories, only: [:index, :edit, :new]
       @product.add_category(params[:category])
     end
   end
-
 end

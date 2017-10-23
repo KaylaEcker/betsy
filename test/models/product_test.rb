@@ -166,9 +166,9 @@ describe Product do
     end
   end
 
-  describe "update categories method" do
+  describe "add category method" do
 
-    it "updates the categories of a product" do
+    it "adds to the categories of a product" do
       tree = products(:tree1)
       before = tree.categories.count
 

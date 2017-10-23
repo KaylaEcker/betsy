@@ -36,6 +36,13 @@ describe ProductsController do
       get product_path(-1)
       must_respond_with :not_found
     end
+
+    it "must render a 404 not found for retired products" do
+      one.status = "retired"
+      one.save
+      get product_path(one.id)
+      must_respond_with :not_found
+    end
   end
 
 

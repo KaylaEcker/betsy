@@ -8,7 +8,13 @@
   <%= number_field_tag(:quantity, @product.quantity, min: 0, step: 1) %>
   <%= label_tag(:categories, "Categories") %>
   <%= select_tag "categories", options_for_select(@categories, params["categories"]), include_blank: "none", :multiple => true %>
-  <%= label_tag(:category, "Category") %>
+  <%= label_tag(:category, "Category (if not provided above)") %>
   <%= text_field_tag(:category) %>
+  <%= label_tag(:description) %>
+  <%= text_field_tag(:description) %>
+  <%= label_tag(:photo_url, "Image URL: ") %>
+  <%= text_field_tag(:photo_url) %>
+
   <%= submit_tag(submit_name, class: "button", :maxlength => 30) %>
+  <%= button_to "Cancel", :root, method: :get %>
 <% end %>

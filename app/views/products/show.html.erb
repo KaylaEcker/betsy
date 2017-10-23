@@ -33,3 +33,9 @@
 <% else %>
   <%= link_to "Add to cart", add_order_item_path(session[:order_id], @product.id), method: :patch, class: :button %>
 <% end %>
+
+<% if @product.photo_url %>
+   <%= image_tag(@product.photo_url, class: "feature") %>
+<% else %>
+  No Image Available
+<% end %>

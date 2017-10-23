@@ -39,7 +39,7 @@ class Product < ApplicationRecord
   end
 
   def average_rating
-    return "Nothing to show" if reviews.count == 0
+    return "Be the first to review this item" if reviews.count == 0
     sum = 0
     reviews.each do |review|
       sum += review.rating

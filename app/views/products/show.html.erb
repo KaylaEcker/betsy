@@ -1,5 +1,12 @@
 <h1><%= @product.name %></h1>
-<h3>$<%= @product.price %></h3>
+<h3>List Price: US $<%= @product.price %></h3>
+<% if @product.quantity <= 5 %>
+  <li><span class="quant">Limited - Only <%= @product.quantity %> left in stock </span></li>
+  <li><span class="small">Ships from and sold by: <%= @product.name %> </span></li>
+<% else %>
+  <span class="small">Ships from and sold by: <%= @product.name %> </span>
+    <% end %>
+
 <h3>Categories: <%= @product.categories %></h3>
 
 <% if @merchant != @product.merchant %>
@@ -10,7 +17,7 @@
 
 <h3>Reviews: </h3>
 <% if @product.reviews.count < 1  %>
-  <p>Nothing to show!</p>
+  <p>"Be the first to review this item"</p>
 <% else %>
   <ul>
     <% @product.reviews.each do |review| %>

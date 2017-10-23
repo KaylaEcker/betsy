@@ -10,8 +10,9 @@
   <%= select_tag "categories", options_for_select(@categories, params["categories"]), include_blank: "none", :multiple => true %>
   <%= label_tag(:category, "Category") %>
   <%= text_field_tag(:category) %>
-  <%= label_tag(:status, "Active Status")%>
-  <%= radio_button_tag(:status, "active") %>
+  <%= radio_button_tag(:status, "active", :checked => true) %>
+  <%= label_tag(:status, "Active")%>
   <%= radio_button_tag(:status, "retired") %>
+  <%= label_tag(:status, "Retired") %>
   <%= submit_tag(submit_name, class: "button", :maxlength => 30) %>
 <% end %>

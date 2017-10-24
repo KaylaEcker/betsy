@@ -68,9 +68,11 @@ describe Order do
       order.errors.messages[:city].must_include "city cannot be blank"
     end
 
-    it "must have a city that is all letters" do
-
-
+    it "must have a valid city name" do
+      order = Order.new(status: "paid", city: "Too---long")
+      order.valid?.must_equal false
+      order.errors.messages.must_include :city
+      order.errors.messages[:city].must_include "invalid city name"
     end
 
     it "must have have a state" do

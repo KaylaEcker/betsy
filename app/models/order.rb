@@ -18,7 +18,16 @@ class Order < ApplicationRecord
 
   validates :address1, presence: { :if => lambda { self.status != "pending"}, message: "address cannot be blank"}
 
-  validates :city, presence: { :if => lambda { self.status != "pending"}, message: "city cannot be blank"}
+  validates :city,
+    presence: {
+      :if => lambda { self.status != "pending"}, message: "city cannot be blank"
+    },
+    format: {
+      :if => lambda { self.status != "pending"},
+      with:
+      /\A(?:[a-zA-Z]+(?:[.'\-,])?\s?)+\z/i,
+      message: "invalid city name"
+    }
 
   validates :state, presence: { :if => lambda { self.status != "pending"}, message: "state cannot be blank"}
 

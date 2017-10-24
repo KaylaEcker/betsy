@@ -3,7 +3,7 @@
 <h3>List Price: US $<%= @product.price %></h3>
 <% if @product.quantity <= 5 %>
   <li><span class="quant">Limited - Only <%= @product.quantity %> left in stock </span></li>
-  <li><span class="small">Ships from and sold by: <%= product.merchant.username %> </span></li>
+  <li><span class="small">Ships from and sold by: <%= @product.merchant.username %> </span></li>
 <% else %>
   <span class="small">Ships from and sold by: <%= @product.name %> </span>
     <% end %>

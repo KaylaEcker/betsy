@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20171024043050) do
     t.string "categories", default: [], array: true
     t.text "description"
     t.string "photo_url"
+    t.string "status"
     t.index ["merchant_id"], name: "index_products_on_merchant_id"
   end
 

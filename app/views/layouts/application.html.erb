@@ -21,6 +21,7 @@
               <%= link_to "Log Out", logout_path, method: :post, class: "button" %>
               <%= link_to "My account", merchant_path(session[:merchant_id]), class: "button" %>
               <%= link_to "Add new product", new_product_path, method: :get, class: "button" %>
+              <%= link_to "Fulfillment", merchant_fulfillment_path(session[:merchant_id]), method: :get, class: "button" %>
             <% else %>
               <%= link_to "Log in with Github", '/auth/github', class: "button" %>
             <% end %>

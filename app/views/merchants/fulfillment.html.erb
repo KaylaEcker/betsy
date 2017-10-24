@@ -1,0 +1,47 @@
+<h1>Manage Your Orders</h1>
+<h3>Total Revenue: <%= @total_revenue %></h3>
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Revenue</th>
+    </tr>
+  </thead>
+  <% @revenue_by_status.each do |status, revenue| %>
+    <tr>
+      <td><%= status %></td>
+      <td><%= revenue %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= form_tag(merchant_fulfillment_path, method: :get) do %>
+  <%= label_tag(:status, "Status") %>
+  <%= select_tag "status", options_for_select(@statuses, params["status"]), include_blank: "all" %>
+  <%= submit_tag("Submit", class: "button") %>
+<% end %>
+<% if @orders.length > 0 %>
+  <% @orders.each do |order_id, status_revenue_hash| %>
+    <ul>
+      <li><strong>Order#: </strong><%= link_to order_id, merchant_order_path(@merchant.id, order_id)%></li>
+      <li><strong>Purchase Date: </strong><%= status_revenue_hash[:purchase_date] %></li>
+      <li><strong>Status: </strong><%= status_revenue_hash[:status] %></li>
+      <li><strong>Revenue: </strong><%= status_revenue_hash[:revenue] %></li>
+      <li>
+        <strong>Items sold:</strong>
+        <ul>
+          <% status_revenue_hash[:items].each do |item| %>
+            <li>
+              <%= item.quantity %> <%= link_to item.product.name, product_path(item.product_id) %>: <%= item.product.price * item.quantity %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+      <% if status_revenue_hash[:status] == "paid" %>
+        <li><%= link_to "Mark shipped", '#'%></li>
+      <% elsif status_revenue_hash[:status] == "complete" %>
+        <li>Products have been shipped</li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>

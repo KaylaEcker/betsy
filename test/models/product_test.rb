@@ -5,6 +5,7 @@ describe Product do
   let(:product) { Product.new }
   let(:tree1) {products(:tree1)}
   let(:tree2) {products(:tree2)}
+  let(:tree3) {products(:tree3)}
 
   before do
     tree1.valid?.must_equal true
@@ -64,6 +65,20 @@ describe Product do
       tree1.quantity = 0
       tree1.valid?.must_equal true
       tree1.quantity = -1
+      tree1.valid?.must_equal false
+    end
+
+    it "must have a status" do
+      tree1.status = nil
+      tree1.valid?.must_equal false
+    end
+
+    it "must have a status of 'active' or 'retired' " do
+      tree1.status = "retired"
+      tree1.valid?.must_equal true
+      tree1.status = "inactive"
+      tree1.valid?.must_equal false
+      tree1.status = true
       tree1.valid?.must_equal false
     end
   end
@@ -126,6 +141,8 @@ describe Product do
       tree1.save
       tree2.categories.clear
       tree2.save
+      tree3.categories.clear
+      tree3.save
 
       categories = Product.categories
       categories.must_be_kind_of Array
@@ -152,9 +169,9 @@ describe Product do
     end
   end
 
-  describe "update categories method" do
+  describe "add category method" do
 
-    it "updates the categories of a product" do
+    it "adds to the categories of a product" do
       tree = products(:tree1)
       before = tree.categories.count
 
@@ -172,6 +189,27 @@ describe Product do
 
       tree.categories.count.must_equal before
     end
-
   end
+
+  describe "self.active_only" do
+    let(:tree1) {products(:tree1)}
+    let(:tree2) {products(:tree2)}
+
+    it "returns only products with an active status" do
+      Product.active_only.pluck(:status).must_include "active"
+      Product.active_only.pluck(:status).wont_include "retired"
+    end
+  end
+
+  describe "self.retired_only" do
+    let(:tree1) {products(:tree1)}
+    let(:tree2) {products(:tree2)}
+
+    it "returns only products with an active status" do
+      skip
+      Product.retired_only.pluck(:status).must_include "retired"
+      Product.retired_only.pluck(:status).wont_include "active"
+    end
+  end
+
 end

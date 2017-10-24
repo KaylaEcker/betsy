@@ -7,6 +7,6 @@ class Orderitem < ApplicationRecord
   validates :quantity, numericality: { only_integer: true }
 
   def subtotal
-    (quantity * product.price).round(2)
+    (self.quantity * self.product.price).round(2)
 	  end
 end

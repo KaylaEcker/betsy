@@ -17,29 +17,34 @@
  */
 
 
-.flash-success {
+/* FLASH NOTIFICATIONS */
+
+.flash {
+  border: 1px solid;
+  border-radius: 3px;
+  margin: 5px;
+  min-height: 50px;
+  font-size: 1.1rem;
+  display: none;
+}
+.success {
   background-color: #DFF0D8;
-  border: 1px #D9ECCC solid;
-  border-radius: 3px;
-  margin: 5px;
-  height: 50px;
+  border-color: #D9ECCC;
   color: #4C7D45;
-  font-size: 1.1rem;
+  display: block;
 }
-.flash-success p {
-  margin-left: 10px;
-  line-height: 50px;
-}
-.flash-error {
+.error {
   background-color: #F2DEDE;
-  border: 1px #DDB5B5 solid;
-  border-radius: 3px;
-  margin: 5px;
-  height: 50px;
+  border-color: #DDB5B5;
   color: #AB4B4A;
-  font-size: 1.1rem;
+  display: block;
 }
-.flash-error p {
+.flash p {
   margin-left: 10px;
+  margin-bottom: 0px;
   line-height: 50px;
+}
+.flash .error-messages {
+  margin-left: 50px;
+  padding-bottom: 10px;
 }

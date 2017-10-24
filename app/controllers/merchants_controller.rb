@@ -1,8 +1,17 @@
 class MerchantsController < ApplicationController
-  before_action :find_merchant, only: [:show, :edit, :update, :destroy, :fulfillment]
-  before_action :account_owner?, only: [:show, :edit, :update, :destroy, :fulfillment]
+  before_action :find_merchant, only: [:show, :edit, :update, :destroy, :fulfillment, :show_order]
+  before_action :account_owner?, only: [:show, :edit, :update, :destroy, :fulfillment, :show_order]
 
   def new
+  end
+
+  def show_order
+    @order = Order.find_by(id: params[:order_id])
+    if @order == nil
+      flash[:status] = :error
+      flash[:result_text] = "Invalid order"
+      return redirect_back(fallback_location: root_path)
+    end
   end
 
   def fulfillment

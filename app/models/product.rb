@@ -42,9 +42,9 @@ class Product < ApplicationRecord
   end
 
   # IF NEEDED UNCOMMENT @retired_products IN  CONTROLLER
-  def self.retired_only
-    return Product.where(status: "retired")
-  end
+  # def self.retired_only
+  #   return Product.where(status: "retired")
+  # end
 
   def self.categories
     categories = Product.pluck(:categories).flatten.uniq

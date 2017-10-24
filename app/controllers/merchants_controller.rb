@@ -12,6 +12,7 @@ class MerchantsController < ApplicationController
       flash[:result_text] = "Invalid order"
       return redirect_back(fallback_location: root_path)
     end
+    @title = "Review Order #{@order.id}"
   end
 
   def fulfillment
@@ -36,6 +37,7 @@ class MerchantsController < ApplicationController
       @statuses.each do |a_status|
         @revenue_by_status[a_status] = orderitems.sum {|orderitem| orderitem.order.status == a_status ? (orderitem.quantity * orderitem.product.price) : 0}
       end
+      @title = "Fulfillment"
     else
       flash[:status] = :error
       flash[:result_text] = "Please log in first"
@@ -56,6 +58,7 @@ class MerchantsController < ApplicationController
   end
 
   def show
+    @title = "My Account"
   end
 
   private

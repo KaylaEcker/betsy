@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
       flash[:result_text] = "Merchant can't leave reviews of their own products, sorry! Wink-wink."
       redirect_to product_path(@review.product_id) #, status: 403
     end
+    @title = "Review for #{@review.product.name}"
   end
 
   def create

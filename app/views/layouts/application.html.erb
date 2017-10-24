@@ -4,11 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <% if @title != nil %>
+      <title>Treebae | <%= @title %></title>
+    <% else %>
+      <title>Treebae | For the Modern Treehugger</title>
+    <% end %>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <%= favicon_link_tag %>
   </head>
 
   <body>

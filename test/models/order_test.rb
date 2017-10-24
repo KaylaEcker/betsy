@@ -128,7 +128,6 @@ describe Order do
       order.errors.messages[:cc_number].must_include "invalid credit card number"
     end
 
-    #TODO: Decide date format
     it "must have a cc_expiration" do
       order = Order.new(status: "paid" )
       order.valid?.must_equal false
@@ -137,12 +136,14 @@ describe Order do
       order.errors.messages[:cc_expiration].must_include "credit card expiration date cannot be blank"
     end
 
-    #TODO: Decide date format
-    it "must have a valid expiration date" do
+    it "must have a valid expiration date format" do
+      skip
+      order = Order.new(status: "paid", cc_expiration: "13/2020" )
+      order.valid?.must_equal false
 
-
+      order.errors.messages.must_include :cc_expiration
+      order.errors.messages[:cc_expiration].must_include "invalid expiration date format"
     end
-
 
     it "must have a cc_security" do
       order = Order.new(status: "paid" )

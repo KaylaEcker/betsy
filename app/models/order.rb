@@ -66,7 +66,16 @@ class Order < ApplicationRecord
       message: "invalid credit card number"
     }
 
-  validates :cc_expiration, presence: { :if => lambda { self.status != "pending"}, message: "credit card expiration date cannot be blank"}
+  validates :cc_expiration,
+    presence: {
+      :if => lambda { self.status != "pending"}, message: "credit card expiration date cannot be blank"
+    },
+    format: {
+      :if => lambda { self.status != "pending"},
+      with:
+      /\A(0[1-9]|1[0-2]|[1-9])\/(20[1-9][1-9])\z/,
+      message: "invalid expiration date format"
+    }
 
   validates :cc_security,
     presence: {
@@ -89,6 +98,4 @@ class Order < ApplicationRecord
       /\A([0-9]{5}(?:-[0-9]{4})?)*\z/,
       message: "invalid billing zipcode"
     }
-
-
 end

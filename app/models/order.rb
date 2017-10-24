@@ -98,4 +98,5 @@ class Order < ApplicationRecord
       /\A([0-9]{5}(?:-[0-9]{4})?)*\z/,
       message: "invalid billing zipcode"
     }
+
 end

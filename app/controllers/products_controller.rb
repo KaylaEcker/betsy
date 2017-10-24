@@ -4,10 +4,19 @@ before_action :find_merchant, except: [:index, :destroy]
 before_action :get_categories, only: [:index, :edit, :new]
 
   def index
-    @products = Product.get_products(a_category: params[:category], a_merchant: params[:merchant])
+    @products = Product.get_products(a_category: params[:category], a_merchant: params[:merchant]) & Product.active_only
+
+    # IF NEEDED UNCOMMENT self.retired_only IN MODEL
+    # @retired_products = Product.get_products(a_category: params[:category], a_merchant: params[:merchant]) & Product.retired_only
+
+    # UNCOMMENT IF NEEDED
+    # @all_products = Product.get_products(a_category: params[:category], a_merchant: params[:merchant])
   end
 
   def show
+    unless @merchant == @product.merchant
+      render_404 if @product.status == "retired"
+    end
   end
 
   def edit
@@ -77,7 +86,7 @@ before_action :get_categories, only: [:index, :edit, :new]
   end
 
   def product_params
-    return params.permit(:name, :price, :merchant_id, :quantity, :description, :photo_url)
+    return params.permit(:name, :price, :merchant_id, :quantity, :description, :photo_url, :status)
   end
 
   def find_merchant
@@ -99,5 +108,4 @@ before_action :get_categories, only: [:index, :edit, :new]
       @product.add_category(params[:category])
     end
   end
-
 end

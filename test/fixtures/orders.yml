@@ -40,3 +40,32 @@ two:
   cc_security: 1
   billingzip: 1
   status: complete
+
+three:
+  customer_email: MyString
+  address1: MyString
+  address2: MyString
+  city: MyString
+  state: MyString
+  zipcode: 1
+  cc_name: MyString
+  cc_number: 1
+  cc_expiration: MyString
+  cc_security: 1
+  billingzip: 1
+  status: pending
+
+four:
+  customer_email: MyString
+  address1: MyString
+  address2: MyString
+  city: MyString
+  state: MyString
+  zipcode: 1
+  cc_name: MyString
+  cc_number: 1
+  cc_expiration: MyString
+  cc_security: 1
+  billingzip: 1
+  status: cancelled
+

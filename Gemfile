@@ -58,6 +58,7 @@ group :development do
   gem 'minitest-colorize', git: 'https://github.com/ysbaddaden/minitest-colorize'
   gem 'terminal-notifier-guard', '~> 1.6.4' # https://github.com/Springest/terminal-notifier-guard
   gem 'terminal-notifier', '~> 1.6.2' # https://github.com/alloy/terminal-notifier
+  gem 'colorize'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

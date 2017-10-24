@@ -47,6 +47,9 @@ describe Orderitem do
     one.valid?.must_equal false
   end
 
+  it "calculates subtotal for order items" do
+    one.subtotal.must_equal 10.0
+  end
 
 
 end

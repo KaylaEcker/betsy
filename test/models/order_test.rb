@@ -83,10 +83,11 @@ describe Order do
       order.errors.messages[:state].must_include "state cannot be blank"
     end
 
-    it "must have a state that is two capital letters" do
-
-
-
+    it "must have a valid state code" do
+      order = Order.new(status: "paid", state: "PK")
+      order.valid?.must_equal false
+      order.errors.messages.must_include :state
+      order.errors.messages[:state].must_include "invalid state abbreviation"
     end
 
     it "must have a zipcode" do

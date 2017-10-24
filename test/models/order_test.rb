@@ -18,13 +18,20 @@ describe Order do
   end
 
   describe "checkout validations" do
-
     it "can have nil values if the status of the order is pending" do
       order = Order.new(status: "pending")
       order.valid?.must_equal true
     end
 
-    it "must have email if the status of the order is not pending" do
+    it "must have customer_name" do
+      order = Order.new(status: "paid" )
+      order.valid?.must_equal false
+
+      order.errors.messages.must_include :customer_name
+      order.errors.messages[:customer_name].must_include "name cannot be blank"
+    end
+
+    it "must have customer_email" do
       order = Order.new(status: "paid" )
       order.valid?.must_equal false
       order.errors.messages.must_include :customer_email
@@ -126,7 +133,7 @@ describe Order do
       order.errors.messages[:cc_security].must_include "CVV cannot be blank"
     end
 
-    it "must hav a billingzip" do
+    it "must have a billingzip" do
       order = Order.new(status: "paid" )
       order.valid?.must_equal false
 

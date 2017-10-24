@@ -3,6 +3,8 @@ class Order < ApplicationRecord
   has_many :products, :through => :orderitems
   validates :status, presence: true
 
+  validates :customer_name, presence: { :if => lambda { self.status != "pending"}, message: "name cannot be blank"}
+
   validates :customer_email,
     presence: {
       :if => lambda { self.status != "pending"},

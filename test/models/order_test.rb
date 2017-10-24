@@ -53,12 +53,85 @@ describe Order do
       order.errors.messages[:address1].must_include "address cannot be blank"
     end
 
+    it "must have a city" do
+      order = Order.new(status: "paid" )
+      order.valid?.must_equal false
+
+      order.errors.messages.must_include :city
+      order.errors.messages[:city].must_include "city cannot be blank"
+    end
+
+    it "must have a city that is all letters" do
+
+
+    end
+
+    it "must have have a state" do
+      order = Order.new(status: "paid" )
+      order.valid?.must_equal false
+
+      order.errors.messages.must_include :state
+      order.errors.messages[:state].must_include "state cannot be blank"
+    end
+
+    it "must have a state that is two capital letters" do
 
 
 
+    end
+
+    it "must have a zipcode" do
+      order = Order.new(status: "paid" )
+      order.valid?.must_equal false
+
+      order.errors.messages.must_include :zipcode
+      order.errors.messages[:zipcode].must_include "zipcode cannot be blank"
+    end
+
+    it "must have a zipcode that is 5 numbers" do
 
 
 
+    end
+
+    it "must have a cc_name" do
+      order = Order.new(status: "paid" )
+      order.valid?.must_equal false
+
+      order.errors.messages.must_include :cc_name
+      order.errors.messages[:cc_name].must_include "name for credit card cannot be blank"
+    end
+
+    it "must have a cc_number" do
+      order = Order.new(status: "paid" )
+      order.valid?.must_equal false
+
+      order.errors.messages.must_include :cc_number
+      order.errors.messages[:cc_number].must_include "credit card number cannot be blank"
+    end
+
+    it "must have a cc_expiration" do
+      order = Order.new(status: "paid" )
+      order.valid?.must_equal false
+
+      order.errors.messages.must_include :cc_expiration
+      order.errors.messages[:cc_expiration].must_include "credit card expiration date cannot be blank"
+    end
+
+    it "must have a cc_security" do
+      order = Order.new(status: "paid" )
+      order.valid?.must_equal false
+
+      order.errors.messages.must_include :cc_security
+      order.errors.messages[:cc_security].must_include "CVV cannot be blank"
+    end
+
+    it "must hav a billingzip" do
+      order = Order.new(status: "paid" )
+      order.valid?.must_equal false
+
+      order.errors.messages.must_include :billingzip
+      order.errors.messages[:billingzip].must_include "billing zipcode cannot be blank"
+    end
   end
-
 end

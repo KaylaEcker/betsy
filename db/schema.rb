@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20171024043050) do
     t.text "description"
     t.string "photo_url"
     t.string "status"
+    t.boolean "active_status"
     t.index ["merchant_id"], name: "index_products_on_merchant_id"
   end
 

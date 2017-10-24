@@ -93,7 +93,6 @@ describe Order do
     it "must have a zipcode" do
       order = Order.new(status: "paid" )
       order.valid?.must_equal false
-
       order.errors.messages.must_include :zipcode
       order.errors.messages[:zipcode].must_include "zipcode cannot be blank"
     end
@@ -137,7 +136,7 @@ describe Order do
     end
 
     it "must have a valid expiration date format" do
-      skip
+
       order = Order.new(status: "paid", cc_expiration: "13/2020" )
       order.valid?.must_equal false
 

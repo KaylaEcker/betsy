@@ -1,6 +1,6 @@
 class MerchantsController < ApplicationController
-  before_action :find_merchant, only: [:show, :edit, :update, :destroy, :fulfillment, :show_order]
-  before_action :account_owner?, only: [:show, :edit, :update, :destroy, :fulfillment, :show_order]
+  before_action :find_merchant, only: [:show, :edit, :update, :destroy, :fulfillment, :show_order, :ship_orderitems]
+  before_action :account_owner?, only: [:show, :edit, :update, :destroy, :fulfillment, :show_order, :ship_orderitems]
 
   def new
   end
@@ -13,6 +13,8 @@ class MerchantsController < ApplicationController
       return redirect_back(fallback_location: root_path)
     end
     @title = "Review Order #{@order.id}"
+    @orderitems = @order.orderitems.select { |item| item.product.merchant_id == @merchant.id }
+    @unshipped = (@orderitems.select { |item| item.status != "shipped"}.length >0 )
   end
 
   def fulfillment
@@ -29,7 +31,11 @@ class MerchantsController < ApplicationController
           new_items = @orders[orderitem.order_id.to_s][:items]
           new_items << orderitem
         end
-        @orders[orderitem.order_id.to_s] = {status: orderitem.order.status, purchase_date: orderitem.order.purchase_datetime,revenue: new_revenue, items: new_items}
+        @orders[orderitem.order_id.to_s] = {status: orderitem.order.status, purchase_date: orderitem.order.purchase_datetime,revenue: new_revenue, items: new_items, unshipped: ""}
+      end
+      @orders.each do |order_id, hash|
+        unshipped = hash[:items].select { |item| item.status != "shipped"}.length > 0
+        @orders[order_id][:unshipped] = unshipped
       end
       @total_revenue = orderitems.sum {|orderitem| ( (orderitem.order.status == "cancelled") ? 0 : (orderitem.quantity * orderitem.product.price) ) }
       @statuses = ["paid", "complete", "cancelled"]
@@ -42,6 +48,31 @@ class MerchantsController < ApplicationController
       flash[:status] = :error
       flash[:result_text] = "Please log in first"
       redirect_to root_path
+    end
+  end
+
+  def ship_orderitems
+    order = Order.find_by(id: params[:order_id].to_i)
+    orderitems = order.orderitems.select { |item| item.product.merchant_id == @merchant.id }
+    if orderitems.length < 1
+      flash[:status] = :error
+      flash[:result_text] = "Invalid order"
+      return redirect_back(fallback_location: root_path)
+    end
+    saveditems = 0
+    orderitems.each do |item|
+      item.status = "shipped"
+      saveditems +=1 if item.save
+    end
+    order.status_check
+    if saveditems == orderitems.length
+      flash[:status] = :success
+      flash[:result_text] = "Order marked as shipped"
+      return redirect_back(fallback_location: merchant_fulfillment_path(@merchant.id))
+    else
+      flash[:status] = :error
+      flash[:result_text] = "Order could not be marked as shipped"
+      redirect_back(fallback_location: root_path)
     end
   end
 

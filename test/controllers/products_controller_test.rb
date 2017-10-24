@@ -2,6 +2,7 @@ require "test_helper"
 
 describe ProductsController do
   let(:one) {products(:tree1)}
+  let(:two) {products(:tree2)}
   let(:three) {products(:tree3)}
 
   describe "index" do
@@ -51,7 +52,7 @@ describe ProductsController do
     it "must render a 404 not found to merchants trying to see a retired product they do not own " do
       @merchant = merchants(:sappy2)
       login(@merchant, :github)
-      flash[:success].must_equal "sappy2 is logged in!"
+      flash[:result_text].must_equal "You successfully logged in as #{@merchant.username}."
       get product_path(three.id)
       must_respond_with :not_found
     end
@@ -59,7 +60,7 @@ describe ProductsController do
     it "must get show for retired products if their owner is logged in" do
       @merchant = merchants(:sappy1)
       login(@merchant, :github)
-      flash[:success].must_equal "sappy1 is logged in!"
+      flash[:result_text].must_equal "You successfully logged in as #{@merchant.username}."
       get product_path(three.id)
       must_respond_with :success
     end
@@ -304,6 +305,43 @@ describe ProductsController do
         flash[:status].must_equal :error
         must_redirect_to edit_product_path(one.id)
       end
+    end
+  end
+  describe "retire action" do
+    it "retire can't be used by a guest" do
+      get retire_path(one.id)
+      flash[:status].must_equal :error
+      flash[:result_text].must_equal "Unauthorized user"
+      must_redirect_to root_path
+    end
+    it "retire can't be used by a merchant other than the product's owner" do
+      merchant = merchants(:sappy1)
+      login(merchant, :github)
+      flash[:result_text].must_equal "You successfully logged in as #{merchant.username}."
+      get retire_path(two.id)
+      flash[:status].must_equal :error
+      flash[:result_text].must_equal "Unauthorized user"
+      must_redirect_to root_path
+    end
+    it "retire can be used by the merchant who own the product" do
+      merchant = merchants(:sappy1)
+      login(merchant, :github)
+      flash[:result_text].must_equal "You successfully logged in as #{merchant.username}."
+      get retire_path(one.id)
+      flash[:status].must_equal :success
+      must_redirect_to root_path
+    end
+    it "changes the status of a product" do
+        merchant = merchants(:sappy1)
+        login(merchant, :github)
+        one.status = "active"
+        one.save.must_equal true
+        get retire_path(one.id)
+        flash[:status].must_equal :success
+        Product.find_by(id: one.id).status.must_equal "retired"
+        get retire_path(one.id)
+        flash[:status].must_equal :success
+        Product.find_by(id: one.id).status.must_equal "active"
     end
   end
 end

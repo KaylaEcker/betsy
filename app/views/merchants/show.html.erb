@@ -20,7 +20,7 @@
         <td><%= product.quantity %></td>
         <td><%= pretty_date(product.created_at) %></td>
         <td><%= link_to "Update", edit_product_path(product.id), class: "button" %></td>
-        <td><%= link_to "Retire", "retire_product_path", class: "button" %></td> <%# TODO: ADD RETIRE PATH %>
+        <td><%= link_to (product.status == "active") ? "Retire" : "Activate", retire_path(product.id), class: "button" %></td>
       </tr>
     <%  end %>
   </table>

@@ -1,5 +1,7 @@
 require 'csv'
 
+errors = "No Error"
+
 MERCHANT_FILE = Rails.root.join('db', 'merchant_seeds.csv')
 puts "Loading raw merchant data from #{MERCHANT_FILE}"
 
@@ -15,6 +17,7 @@ CSV.foreach(MERCHANT_FILE, :headers => true) do |row|
   successful = merchant.save
   if !successful
     merchant_failures << merchant
+    errors = "Error!!!!"
   end
 end
 
@@ -41,6 +44,7 @@ CSV.foreach(PRODUCT_FILE, :headers => true) do |row|
   successful = product.save
   if !successful
     product_failures << product
+    @errors = "Error!!!!"
   end
 end
 
@@ -71,6 +75,7 @@ CSV.foreach(ORDER_FILE, :headers => true) do |row|
   successful = order.save
   if !successful
     order_failures << order
+    @errors = "Error!!!!"
   end
 end
 
@@ -92,6 +97,7 @@ CSV.foreach(ORDERITEM_FILE, :headers => true) do |row|
   successful = order_item.save
   if !successful
     order_item_failures << order_item
+    @errors = "Error!!!!"
   end
 end
 
@@ -126,5 +132,8 @@ puts "Manually resetting PK sequence on each table"
 ActiveRecord::Base.connection.tables.each do |t|
   ActiveRecord::Base.connection.reset_pk_sequence!(t)
 end
+
+puts @errors
+
 
 puts "done"

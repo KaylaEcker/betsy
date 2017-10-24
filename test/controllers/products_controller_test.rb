@@ -47,7 +47,7 @@ describe ProductsController do
 
 
   describe "new product" do
-    it "should get new if a mercant is signed in" do
+    it "should get new if a merchant is signed in" do
       @merchant = merchants(:sappy1)
       login(@merchant, :github)
       get new_product_path

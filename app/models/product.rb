@@ -27,17 +27,24 @@ class Product < ApplicationRecord
     else
       # category_products = Product.where("categories @> ?", "{#{a_category}}")
       # merchant_products = Product.where(merchant_id: a_merchant)
-      #
-      # # products = Product.where("categories @> ARRAY#{a_category} AND merchant_id = #{a_merchant}")
+
+
+      # products = Product.where("categories @> ARRAY#{a_category} AND merchant_id = #{a_merchant}")
       #
       # products = category_products & merchant_products
       return Product.where("products.categories @> ARRAY[?]::varchar[]", a_category) & Product.where(merchant_id: a_merchant)
     end
   end
 
-  # def self.active_only
-  #   return Product.where(status: "active")
-  # end
+
+  def self.active_only
+    return Product.where(status: "active")
+  end
+
+  # IF NEEDED UNCOMMENT @retired_products IN  CONTROLLER
+  def self.retired_only
+    return Product.where(status: "retired")
+  end
 
   def self.categories
     categories = Product.pluck(:categories).flatten.uniq

@@ -51,13 +51,20 @@ class Order < ApplicationRecord
       message: "invalid zipcode"
     }
 
-
-
-
-
   validates :cc_name, presence: { :if => lambda { self.status != "pending"}, message: "name for credit card cannot be blank"}
 
-  validates :cc_number, presence: { :if => lambda { self.status != "pending"}, message: "credit card number cannot be blank"}
+
+  # https://gist.github.com/nerdsrescueme/1237767
+  validates :cc_number,
+    presence: {
+      :if => lambda { self.status != "pending"}, message: "credit card number cannot be blank"
+    },
+    format: {
+      :if => lambda { self.status != "pending"},
+      with:
+      /\A(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6011[0-9]{12}|3(?:0[0-5]|[68][0-9])[0-9]{11}|3[47][0-9]{13})\z/,
+      message: "invalid credit card number"
+    }
 
   validates :cc_expiration, presence: { :if => lambda { self.status != "pending"}, message: "credit card expiration date cannot be blank"}
 

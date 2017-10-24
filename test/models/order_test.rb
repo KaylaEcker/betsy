@@ -121,6 +121,13 @@ describe Order do
       order.errors.messages[:cc_number].must_include "credit card number cannot be blank"
     end
 
+    it "must have a valid cc_number" do
+      order = Order.new(status: "paid", cc_number: 123456789)
+      order.valid?.must_equal false
+      order.errors.messages.must_include :cc_number
+      order.errors.messages[:cc_number].must_include "invalid credit card number"
+    end
+
     it "must have a cc_expiration" do
       order = Order.new(status: "paid" )
       order.valid?.must_equal false

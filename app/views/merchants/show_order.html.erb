@@ -1,0 +1,26 @@
+<h1>Order: <%= @order.id %></h1>
+<h3>Order Details</h3>
+<ul>
+  <li>Status: <%= @order.status %></li>
+  <li>Purchase Date: <%= @order.purchase_datetime %></li>
+  <li>Name: <%= @order.cc_name %></li>
+  <li>Email: <%= @order.customer_email %></li>
+  <li>Credit Card: **** **** **** <%= @order.cc_number[-4..-1] %></li>
+  <li>Expiration: <%= @order.cc_expiration %></li>
+  <h4>Mailing Address</h4>
+  <li>
+    <% address_connector = ((@order.address2 == "" || @order.address2 == nil) ? ", " : ", #{@order.address2}, ")%>
+    <%= @order.address1 + address_connector + @order.city + ", " + @order.state + " " +  @order.zipcode %>
+  </li>
+</ul>
+
+<h3>Purchased Items</h3>
+<% @order.orderitems.each do |item| %>
+  <% if item.product.merchant_id == @merchant.id %>
+    <ul>
+      <li>
+        <%= item.quantity %> <%= link_to item.product.name, product_path(item.product_id) %>: <%= item.product.price * item.quantity %>
+      </li>
+    </ul>
+  <% end %>
+<% end %>

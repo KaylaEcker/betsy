@@ -14,7 +14,9 @@ before_action :get_categories, only: [:index, :edit, :new]
   end
 
   def show
-    render_404 if @product.status == "retired"
+    unless @merchant == @product.merchant
+      render_404 if @product.status == "retired"
+    end
   end
 
   def edit

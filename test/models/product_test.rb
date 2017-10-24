@@ -5,6 +5,7 @@ describe Product do
   let(:product) { Product.new }
   let(:tree1) {products(:tree1)}
   let(:tree2) {products(:tree2)}
+  let(:tree3) {products(:tree3)}
 
   before do
     tree1.valid?.must_equal true
@@ -140,6 +141,8 @@ describe Product do
       tree1.save
       tree2.categories.clear
       tree2.save
+      tree3.categories.clear
+      tree3.save
 
       categories = Product.categories
       categories.must_be_kind_of Array

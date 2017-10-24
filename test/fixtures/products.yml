@@ -16,3 +16,11 @@ tree2:
   categories: [outdoor]
   quantity: 10
   status: "retired"
+
+tree3:
+  name: Tree3
+  price: 30
+  merchant: sappy1
+  categories: [christmas]
+  quantity: 12
+  status: "retired"

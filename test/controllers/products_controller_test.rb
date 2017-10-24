@@ -2,6 +2,7 @@ require "test_helper"
 
 describe ProductsController do
   let(:one) {products(:tree1)}
+  let(:three) {products(:tree3)}
 
   describe "index" do
     it "must get the index view" do
@@ -37,11 +38,16 @@ describe ProductsController do
       must_respond_with :not_found
     end
 
-    it "must render a 404 not found for retired products" do
-      one.status = "retired"
-      one.save
-      get product_path(one.id)
+    it "must render a 404 not found for nonvalid product id" do
+      get product_path(-1)
       must_respond_with :not_found
+    end
+
+    it "must get for retired products if their owner is logged in" do
+      @merchant = merchants(:sappy1)
+      login(@merchant, :github)
+      get product_path(three.id)
+      must_respond_with :success
     end
   end
 

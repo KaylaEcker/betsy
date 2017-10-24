@@ -1,3 +1,9 @@
+require 'simplecov'
+SimpleCov.start 'rails' do
+  add_filter "/channels/"
+  add_filter "/jobs/"
+  add_filter "/mailers/"
+end
 ENV["RAILS_ENV"] = "test"
 require File.expand_path("../../config/environment", __FILE__)
 require "rails/test_help"
@@ -29,7 +35,7 @@ class ActiveSupport::TestCase
   def login(merchant, provider)
     OmniAuth.config.mock_auth[provider] = OmniAuth::AuthHash.new(mock_auth_hash(merchant))
     get auth_callback_path(provider)
-      
+
   end
 
   def mock_auth_hash(merchant)

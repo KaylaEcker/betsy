@@ -2,6 +2,7 @@ require "test_helper"
 
 describe ProductsController do
   let(:one) {products(:tree1)}
+  let(:three) {products(:tree3)}
 
   describe "index" do
     it "must get the index view" do
@@ -36,11 +37,37 @@ describe ProductsController do
       get product_path(-1)
       must_respond_with :not_found
     end
+
+    it "must render a 404 not found for nonvalid product id" do
+      get product_path(-1)
+      must_respond_with :not_found
+    end
+
+    it "must render a 404 not found for retired products for guest users" do
+      get product_path(three.id)
+      must_respond_with :not_found
+    end
+
+    it "must render a 404 not found to merchants trying to see a retired product they do not own " do
+      @merchant = merchants(:sappy2)
+      login(@merchant, :github)
+      flash[:result_text].must_equal "You successfully logged in as sappy2."
+      get product_path(three.id)
+      must_respond_with :not_found
+    end
+
+    it "must get show for retired products if their owner is logged in" do
+      @merchant = merchants(:sappy1)
+      login(@merchant, :github)
+      flash[:result_text].must_equal "You successfully logged in as sappy1."
+      get product_path(three.id)
+      must_respond_with :success
+    end
   end
 
 
   describe "new product" do
-    it "should get new if a mercant is signed in" do
+    it "should get new if a merchant is signed in" do
       @merchant = merchants(:sappy1)
       login(@merchant, :github)
       get new_product_path
@@ -64,7 +91,7 @@ describe ProductsController do
 
     it "should be able to successfully create a new product" do
         proc {
-          post products_path, params: { name: "newbie", price: 2, category: "new category", quantity: 1, merchant_id: @merchant.id }
+          post products_path, params: { name: "newbie", price: 2, category: "new category", quantity: 1, merchant_id: @merchant.id, status: "active" }
         }.must_change 'Product.count', 1
       must_respond_with :redirect
     end
@@ -89,7 +116,7 @@ describe ProductsController do
 
     it "should record all the values of the product" do
       proc {
-        post products_path, params: { name: "Name", price: 50, category: "new category", description: "This is a new product", photo_url: "www.google.com", quantity: 1, merchant_id: merchants(:sappy1).id }
+        post products_path, params: { name: "Name", price: 50, category: "new category", description: "This is a new product", photo_url: "www.google.com", quantity: 1, merchant_id: merchants(:sappy1).id, status: "retired" }
       }.must_change 'Product.count', 1
 
       product = Product.find_by(name: "Name")

@@ -1,4 +1,6 @@
 require 'csv'
+require 'colorize'
+
 
 MERCHANT_FILE = Rails.root.join('db', 'merchant_seeds.csv')
 puts "Loading raw merchant data from #{MERCHANT_FILE}"
@@ -15,14 +17,9 @@ CSV.foreach(MERCHANT_FILE, :headers => true) do |row|
   successful = merchant.save
   if !successful
     merchant_failures << merchant
+    errors = "!!!!Error!!!!"
   end
 end
-
-puts "Added #{Merchant.count} merchant records"
-puts "#{merchant_failures.length} merchants failed to save"
-
-
-
 
 PRODUCT_FILE = Rails.root.join('db', 'product_seeds.csv')
 puts "Loading raw product data from #{PRODUCT_FILE}"
@@ -36,16 +33,14 @@ CSV.foreach(PRODUCT_FILE, :headers => true) do |row|
   product.categories = row['categories']
   product.merchant_id = row['merchant_id']
   product.quantity = row['quantity']
+  product.status = row['status']
   puts "Created product: #{product.inspect}"
   successful = product.save
   if !successful
     product_failures << product
+    @errors = "Error!!!!"
   end
 end
-
-puts "Added #{Product.count} product records"
-puts "#{product_failures.length} products failed to save"
-
 
 ORDER_FILE = Rails.root.join('db', 'order_seeds.csv')
 puts "Loading raw order data from #{ORDER_FILE}"
@@ -54,6 +49,7 @@ order_failures = []
 CSV.foreach(ORDER_FILE, :headers => true) do |row|
   order = Order.new
   order.id = row['id']
+  order.customer_name = row['customer_name']
   order.customer_email = row['customer_email']
   order.address1 = row['address1']
   order.address2 = row['address2']
@@ -70,11 +66,9 @@ CSV.foreach(ORDER_FILE, :headers => true) do |row|
   successful = order.save
   if !successful
     order_failures << order
+    @errors = "Error!!!!"
   end
 end
-
-puts "Added #{Order.count} order records"
-puts "#{order_failures.length} orders failed to save"
 
 
 ORDERITEM_FILE = Rails.root.join('db', 'orderitem_seeds.csv')
@@ -91,11 +85,11 @@ CSV.foreach(ORDERITEM_FILE, :headers => true) do |row|
   successful = order_item.save
   if !successful
     order_item_failures << order_item
+    @errors = "Error!!!!"
   end
 end
 
-puts "Added #{Orderitem.count} order_item records"
-puts "#{order_item_failures.length} order_items failed to save"
+
 
 
 # REVIEW_FILE = Rails.root.join('db', 'review_seeds.csv')
@@ -125,5 +119,27 @@ puts "Manually resetting PK sequence on each table"
 ActiveRecord::Base.connection.tables.each do |t|
   ActiveRecord::Base.connection.reset_pk_sequence!(t)
 end
+
+ "\n\n=====================================================\n\n".colorize(:magenta )
+puts "    SEEDING SUMMARIZE\n\n".colorize(:magenta )
+puts "\nAdded #{Merchant.count} merchant records"
+puts "#{merchant_failures.length} merchants failed to save"
+puts "\n------------------------------------"
+puts "\nAdded #{Product.count} product records"
+puts "#{product_failures.length} products failed to save"
+puts "\n------------------------------------"
+puts "\nAdded #{Order.count} order records"
+puts "#{order_failures.length} orders failed to save"
+puts "\n------------------------------------"
+puts "\nAdded #{Orderitem.count} order_item records"
+puts "#{order_item_failures.length} order_items failed to save"
+puts "\n------------------------------------"
+
+if merchant_failures.length > 0 || product_failures.length > 0 || order_failures.length > 0 || order_item_failures.length > 0
+  puts "\n\n  ERRORS HAPPENED!! :( !! :( !! :( !! :( !! :( !! :(".colorize(:light_red )
+else
+  puts "\n\n  PERFECT SEEDING!!!! :) :) :) ".colorize(:green )
+end
+puts "\n=====================================================".colorize(:magenta )
 
 puts "done"

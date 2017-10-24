@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20171024172616) do
     t.datetime "updated_at", null: false
     t.string "status"
     t.datetime "purchase_datetime"
+    t.string "customer_name"
   end
 
   create_table "products", force: :cascade do |t|
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(version: 20171024172616) do
     t.string "categories", default: [], array: true
     t.text "description"
     t.string "photo_url"
+    t.string "status"
     t.index ["merchant_id"], name: "index_products_on_merchant_id"
   end
 

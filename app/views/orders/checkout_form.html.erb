@@ -5,6 +5,9 @@
   Personal Information
 </h3>
 <%= form_tag(checkout_path, method: :patch) do %>
+  <%= label_tag(:customer_name, "Name") %>
+  <%= email_field_tag(:customer_name) %>
+
   <%= label_tag(:customer_email, "Email") %>
   <%= email_field_tag(:customer_email) %>
 
@@ -18,7 +21,7 @@
   <%= text_field_tag :city %>
 
   <%= label_tag(:state, "State") %>
-  <%= text_field_tag :state %>
+  <%= select_tag :state, options_for_select(us_states) %>
 
   <%= label_tag(:zipcode, "Zip code") %>
   <%= text_field_tag :zipcode, nil, maxlength: 5 %>

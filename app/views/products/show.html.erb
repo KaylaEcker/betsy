@@ -8,9 +8,7 @@
   <span class="small">Ships from and sold by: <%= @product.name %> </span>
     <% end %>
 
-<h3>Categories: <%= @product.categories %></h3>
 =======
-<h3>$<%= @product.price %></h3>
 <h3>Categories: <%= @product.categories.join(", ") %></h3>
 <h3>Description:</h3>
 <p><%= product_description(@product) %></p>

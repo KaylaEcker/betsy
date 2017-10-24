@@ -1,10 +1,12 @@
 class MerchantsController < ApplicationController
+  before_action :find_merchant, only: [:show, :edit, :update, :destroy, :fulfillment]
+  before_action :account_owner?, only: [:show, :edit, :update, :destroy, :fulfillment]
+
   def new
   end
 
   def fulfillment
-    if params[:id] = session[:merchant_id]
-      @merchant = Merchant.find_by(id: params[:id])
+    if params[:id].to_i == session[:merchant_id]
       status = params[:status]
       orderitems = @merchant.join_orderitems(status)
       @orders = {}
@@ -46,4 +48,24 @@ class MerchantsController < ApplicationController
 
   def show
   end
+
+  private
+
+  def find_merchant
+    @merchant = Merchant.find_by_id(params[:id])
+    unless @merchant
+      flash[:status] = :error
+      flash[:result_text] = "Invalid request"
+      return redirect_back fallback_location: root_path
+    end
+  end
+
+  def account_owner?
+    if session[:merchant_id] != @merchant.id
+      flash[:status] = :error
+      flash[:result_text] = "Unauthorized user"
+      return redirect_back fallback_location: root_path
+    end
+  end
+
 end

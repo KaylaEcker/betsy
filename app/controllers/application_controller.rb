@@ -3,6 +3,9 @@ class ApplicationController < ActionController::Base
 
   before_action :assign_order
 
+  def render_404
+   render file: "/public/404.html", status: 404
+  end
 
   private
   def assign_order
@@ -15,4 +18,5 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
 end

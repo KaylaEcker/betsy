@@ -40,11 +40,20 @@ class Order < ApplicationRecord
       message: "invalid state abbreviation"
     }
 
+  validates :zipcode,
+    presence: {
+      :if => lambda { self.status != "pending"}, message: "zipcode cannot be blank"
+    },
+    format: {
+      :if => lambda { self.status != "pending"},
+      with:
+      /\A([0-9]{5}(?:-[0-9]{4})?)*\z/,
+      message: "invalid zipcode"
+    }
 
 
 
 
-  validates :zipcode, presence: { :if => lambda { self.status != "pending"}, message: "zipcode cannot be blank"}
 
   validates :cc_name, presence: { :if => lambda { self.status != "pending"}, message: "name for credit card cannot be blank"}
 

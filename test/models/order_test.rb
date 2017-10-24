@@ -98,10 +98,11 @@ describe Order do
       order.errors.messages[:zipcode].must_include "zipcode cannot be blank"
     end
 
-    it "must have a zipcode that is 5 numbers" do
-
-
-
+    it "must have a valid US zipcode" do
+      order = Order.new(status: "paid", zipcode: "ABCDE")
+      order.valid?.must_equal false
+      order.errors.messages.must_include :zipcode
+      order.errors.messages[:zipcode].must_include "invalid zipcode"
     end
 
     it "must have a cc_name" do

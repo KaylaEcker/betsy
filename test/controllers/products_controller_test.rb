@@ -51,7 +51,7 @@ describe ProductsController do
     it "must render a 404 not found to merchants trying to see a retired product they do not own " do
       @merchant = merchants(:sappy2)
       login(@merchant, :github)
-      flash[:success].must_equal "sappy2 is logged in!"
+      flash[:result_text].must_equal "You successfully logged in as sappy2."
       get product_path(three.id)
       must_respond_with :not_found
     end
@@ -59,7 +59,7 @@ describe ProductsController do
     it "must get show for retired products if their owner is logged in" do
       @merchant = merchants(:sappy1)
       login(@merchant, :github)
-      flash[:success].must_equal "sappy1 is logged in!"
+      flash[:result_text].must_equal "You successfully logged in as sappy1."
       get product_path(three.id)
       must_respond_with :success
     end

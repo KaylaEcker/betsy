@@ -2,7 +2,7 @@
 <h3>List Price: US $<%= @product.price %></h3>
 <% if @product.quantity <= 5 %>
   <li><span class="quant">Limited - Only <%= @product.quantity %> left in stock </span></li>
-  <li><span class="small">Ships from and sold by: <%= @product.name %> </span></li>
+  <li><span class="small">Ships from and sold by: <%= product.merchant.username %> </span></li>
 <% else %>
   <span class="small">Ships from and sold by: <%= @product.name %> </span>
     <% end %>
@@ -17,7 +17,7 @@
 
 <h3>Reviews: </h3>
 <% if @product.reviews.count < 1  %>
-  <p>"Be the first to review this item"</p>
+  <p>Be the first to review this item</p>
 <% else %>
   <ul>
     <% @product.reviews.each do |review| %>

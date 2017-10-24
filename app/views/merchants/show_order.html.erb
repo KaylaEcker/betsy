@@ -1,7 +1,12 @@
 <h1>Order: <%= @order.id %></h1>
 <h3>Order Details</h3>
 <ul>
-  <li>Status: <%= @order.status %></li>
+  <li>
+    Status: <%= @order.status %>
+    <% if @order.status == 'paid' %>
+      <%= link_to 'Mark shipped', merchant_ship_path(@merchant.id, @order.id), method: :patch, class: 'button' %>
+    <% end %>
+  </li>
   <li>Purchase Date: <%= @order.purchase_datetime %></li>
   <li>Name: <%= @order.cc_name %></li>
   <li>Email: <%= @order.customer_email %></li>

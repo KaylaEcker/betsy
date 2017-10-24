@@ -25,7 +25,12 @@
     <ul>
       <li><strong>Order#: </strong><%= link_to order_id, merchant_order_path(@merchant.id, order_id)%></li>
       <li><strong>Purchase Date: </strong><%= status_revenue_hash[:purchase_date] %></li>
-      <li><strong>Status: </strong><%= status_revenue_hash[:status] %></li>
+      <li>
+        <strong>Status: </strong><%= status_revenue_hash[:status] %>
+        <% if status_revenue_hash[:status] == "paid" %>
+          <%= link_to "Mark shipped", merchant_ship_path(@merchant.id, order_id), method: :patch, class: 'button' %>
+        <% end %>
+      </li>
       <li><strong>Revenue: </strong><%= status_revenue_hash[:revenue] %></li>
       <li>
         <strong>Items sold:</strong>

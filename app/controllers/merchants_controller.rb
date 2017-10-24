@@ -1,6 +1,6 @@
 class MerchantsController < ApplicationController
-  before_action :find_merchant, only: [:show, :edit, :update, :destroy, :fulfillment, :show_order]
-  before_action :account_owner?, only: [:show, :edit, :update, :destroy, :fulfillment, :show_order]
+  before_action :find_merchant, only: [:show, :edit, :update, :destroy, :fulfillment, :show_order, :ship_order]
+  before_action :account_owner?, only: [:show, :edit, :update, :destroy, :fulfillment, :show_order, :ship_order]
 
   def new
   end
@@ -41,6 +41,26 @@ class MerchantsController < ApplicationController
       flash[:result_text] = "Please log in first"
       redirect_to root_path
     end
+  end
+
+  def ship_order
+    order = Order.find_by(id: params[:order_id], status: 'paid')
+    unless order
+      flash[:status] = :error
+      flash[:result_text] = "Invalid order"
+      return redirect_back(fallback_location: root_path)
+    end
+    order.status = "complete"
+    if order.save
+      flash[:status] = :success
+      flash[:result_text] = "Order marked as shipped"
+      return redirect_back(fallback_location: merchant_fulfillment_path(@merchant.id))
+    else
+      flash[:status] = :error
+      flash[:result_text] = "Order could not be marked as shipped"
+      redirect_back(fallback_location: root_path)
+    end
+
   end
 
   def create

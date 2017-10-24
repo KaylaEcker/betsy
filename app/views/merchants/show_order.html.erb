@@ -2,11 +2,13 @@
 <h3>Order Details</h3>
 <ul>
   <li>
-    Status: <%= @order.status %>
-    <% if @order.status == 'paid' %>
+    <% if @unshipped %>
       <%= link_to 'Mark shipped', merchant_ship_path(@merchant.id, @order.id), method: :patch, class: 'button' %>
+    <% else %>
+      Items shipped
     <% end %>
   </li>
+  <li>Status: <%= @order.status %></li>
   <li>Purchase Date: <%= @order.purchase_datetime %></li>
   <li>Name: <%= @order.cc_name %></li>
   <li>Email: <%= @order.customer_email %></li>
@@ -20,12 +22,10 @@
 </ul>
 
 <h3>Purchased Items</h3>
-<% @order.orderitems.each do |item| %>
-  <% if item.product.merchant_id == @merchant.id %>
-    <ul>
-      <li>
-        <%= item.quantity %> <%= link_to item.product.name, product_path(item.product_id) %>: <%= item.product.price * item.quantity %>
-      </li>
-    </ul>
-  <% end %>
+<% @orderitems.each do |item| %>
+  <ul>
+    <li>
+      <%= item.quantity %> <%= link_to item.product.name, product_path(item.product_id) %>: <%= item.product.price * item.quantity %>
+    </li>
+  </ul>
 <% end %>

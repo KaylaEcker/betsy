@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :merchants, :except => [:delete]
   get '/merchants/:id/fulfillment', to: 'merchants#fulfillment', as: 'merchant_fulfillment'
   get 'merchants/:id/orders/:order_id', to: 'merchants#show_order', as: 'merchant_order'
-  patch 'merchants/:id/orders/:order_id', to: 'merchants#ship_order', as: 'merchant_ship'
+  patch 'merchants/:id/orders/:order_id', to: 'merchants#ship_orderitems', as: 'merchant_ship'
   get 'orders/cart', to: 'orders#show_cart', as: 'show_cart'
   patch 'orders/:id/quantity/:product_id', to: 'orders#update_quantity', as: 'update_quantity'
   # if users go back from their cart to an updated quantity page, redirect to show cart

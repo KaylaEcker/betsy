@@ -51,7 +51,7 @@ class Product < ApplicationRecord
   end
 
   def average_rating
-    return "Nothing to show" if reviews.count == 0
+    return "No reviews yet" if reviews.count == 0
     sum = 0
     reviews.each do |review|
       sum += review.rating
@@ -64,6 +64,8 @@ class Product < ApplicationRecord
       categories << category
     end
   end
+
+
 
   # def first_10_reviews
   #   return reviews.all.limit(10)

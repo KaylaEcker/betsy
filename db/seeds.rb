@@ -49,6 +49,7 @@ order_failures = []
 CSV.foreach(ORDER_FILE, :headers => true) do |row|
   order = Order.new
   order.id = row['id']
+  order.customer_name = row['customer_name']
   order.customer_email = row['customer_email']
   order.address1 = row['address1']
   order.address2 = row['address2']

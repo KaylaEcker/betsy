@@ -12,7 +12,11 @@
   <%= select_tag "categories", options_for_select(@categories, params["categories"]), include_blank: "none", :multiple => true %>
   <%= label_tag(:category, "Category") %>
   <%= text_field_tag(:category) %>
-  <%= label_tag(:photo_url, "Photo URL") %>
+  <%= label_tag(:description) %>
+  <%= text_field_tag(:description, @product.description) %>
+  <%= label_tag(:photo_url, "Image URL: ") %>
   <%= text_field_tag(:photo_url, @product.photo_url) %>
+
   <%= submit_tag(submit_name, class: "button", :maxlength => 30) %>
+  <%= button_to "Cancel", :root, method: :get %>
 <% end %>

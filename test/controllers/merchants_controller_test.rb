@@ -70,6 +70,12 @@ describe MerchantsController do
     end
   end
 
+  describe "#ship_order" do
+    it do
+      skip
+    end
+  end
+
   describe "logged in merchants" do
 
     it "merchants can access their own account page" do

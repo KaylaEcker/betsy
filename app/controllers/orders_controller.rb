@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
   end
 
   def checkout_form
+    @title = "Checkout"
   end
 
   def checkout
@@ -31,9 +32,7 @@ class OrdersController < ApplicationController
     #modify the cart
     @cart.status = "paid"
     @cart.purchase_datetime = DateTime.now
-    puts "**********"
     puts @cart.purchase_datetime.to_date
-    puts "**********"
 
     @cart.update_attributes(checkout_params)
 
@@ -61,6 +60,7 @@ class OrdersController < ApplicationController
 
   def confirmation
     @total = @order.orderitems.sum { |orderitem| (orderitem.quantity * orderitem.product.price) }
+    @title = "Thank You"
   end
 
   def new
@@ -81,6 +81,7 @@ class OrdersController < ApplicationController
   end
 
   def show_cart
+    @title = "My Cart"
   end
 
   def add_item

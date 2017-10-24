@@ -17,7 +17,20 @@
  */
 
 
-.flash {
+.flash-success {
+  background-color: #DFF0D8;
+  border: 1px #D9ECCC solid;
+  border-radius: 3px;
+  margin: 5px;
+  height: 50px;
+  color: #4C7D45;
+  font-size: 1.1rem;
+}
+.flash-success p {
+  margin-left: 10px;
+  line-height: 50px;
+}
+.flash-error {
   background-color: #F2DEDE;
   border: 1px #DDB5B5 solid;
   border-radius: 3px;
@@ -25,5 +38,8 @@
   height: 50px;
   color: #AB4B4A;
   font-size: 1.1rem;
+}
+.flash-error p {
+  margin-left: 10px;
   line-height: 50px;
 }

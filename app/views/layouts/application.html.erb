@@ -28,8 +28,16 @@
         </ul>
       </nav>
     </header>
-    <section class="flash <%= flash[:status] %>">
-      <p><%= flash[:status] == :error ? "A problem occurred: " : "Well done! " %><%= flash[:result_text] %></p>
+    <section class="flash-<%= flash[:status] %>">
+      <% if flash[:status] == "error" %>
+        <p><strong>An error occured: </strong><%= flash[:result_text] %></p>
+      <% end %>
+      <% if flash[:status] == "success" %>
+        <p><strong>Well done! </strong><%= flash[:result_text] %></p>
+      <% end %>
+
+
+
       <% if flash[:messages] %>
         <ul>
           <% flash[:messages].each do |name, problems| %>

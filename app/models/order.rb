@@ -4,6 +4,7 @@ class Order < ApplicationRecord
   validates :status, presence: true
 
   def status_check
+    return if self.status != "paid"
     unshipped = self.orderitems.select { |item| item.status != "shipped"}
     return if unshipped.length != 0
     self.status = "complete"

@@ -79,6 +79,16 @@ class Order < ApplicationRecord
       message: "invalid CVV"
     }
 
+  validates :billingzip,
+    presence: {
+      :if => lambda { self.status != "pending"}, message: "billing zipcode cannot be blank"
+    },
+    format: {
+      :if => lambda { self.status != "pending"},
+      with:
+      /\A([0-9]{5}(?:-[0-9]{4})?)*\z/,
+      message: "invalid billing zipcode"
+    }
 
-  validates :billingzip, presence: { :if => lambda { self.status != "pending"}, message: "billing zipcode cannot be blank"}
+
 end

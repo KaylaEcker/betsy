@@ -166,5 +166,12 @@ describe Order do
       order.errors.messages.must_include :billingzip
       order.errors.messages[:billingzip].must_include "billing zipcode cannot be blank"
     end
+
+    it "must have a valid US billing zipcode" do
+      order = Order.new(status: "paid", billingzip: "ABCDE")
+      order.valid?.must_equal false
+      order.errors.messages.must_include :billingzip
+      order.errors.messages[:billingzip].must_include "invalid billing zipcode"
+    end
   end
 end

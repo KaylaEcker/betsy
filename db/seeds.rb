@@ -119,28 +119,19 @@ ActiveRecord::Base.connection.tables.each do |t|
   ActiveRecord::Base.connection.reset_pk_sequence!(t)
 end
 
-puts "\n\n=====================================================\n\n".colorize(:magenta )
-
+ "\n\n=====================================================\n\n".colorize(:magenta )
 puts "    SEEDING SUMMARIZE\n\n".colorize(:magenta )
-
 puts "\nAdded #{Merchant.count} merchant records"
 puts "#{merchant_failures.length} merchants failed to save"
-
 puts "\n------------------------------------"
-
 puts "\nAdded #{Product.count} product records"
 puts "#{product_failures.length} products failed to save"
-
 puts "\n------------------------------------"
-
 puts "\nAdded #{Order.count} order records"
 puts "#{order_failures.length} orders failed to save"
-
 puts "\n------------------------------------"
-
 puts "\nAdded #{Orderitem.count} order_item records"
 puts "#{order_item_failures.length} order_items failed to save"
-
 puts "\n------------------------------------"
 
 if merchant_failures.length > 0 || product_failures.length > 0 || order_failures.length > 0 || order_item_failures.length > 0

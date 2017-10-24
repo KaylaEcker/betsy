@@ -242,7 +242,7 @@ describe OrdersController do
         flash[:status].must_equal :success
         flash[:result_text].must_equal "Your order has been placed"
         order_datetime = Order.find_by(id: @order.id).purchase_datetime
-        order_datetime.to_date.must_equal Date.today
+        order_datetime.to_date.must_equal DateTime.now.to_date
         order_datetime.must_be :<, DateTime.now
       end
     end

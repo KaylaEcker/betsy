@@ -27,7 +27,7 @@
                       <% end %>
                   </div>
               </li>
-              <li class="cart large-2 small-2 columns"><span class="big-red">
+              <li class="cart large-2 small-2 columns"><span class="big-red"><%= number_to_currency(order_item.subtotal) %></span></li>
               <li class="cart large-4 small-4 columns">
                 <%= link_to "Remove", remove_from_cart_path(@cart.id, order_item.product.id), method: :delete, class: "button" %>
               </li>

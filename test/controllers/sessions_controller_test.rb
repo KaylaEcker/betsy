@@ -38,7 +38,7 @@ describe SessionsController do
     login(@merchant, :github)
     post logout_path
     flash[:status].must_equal :success
-    flash[:result_text].must_equal "Successfully logged out"
+    flash[:result_text].must_equal "You successfully logged out."
   end
 
 

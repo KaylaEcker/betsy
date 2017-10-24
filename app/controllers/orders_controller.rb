@@ -31,6 +31,10 @@ class OrdersController < ApplicationController
     #modify the cart
     @cart.status = "paid"
     @cart.purchase_datetime = DateTime.now
+    puts "**********"
+    puts @cart.purchase_datetime.to_date
+    puts "**********"
+
     @cart.update_attributes(checkout_params)
     #checkout the cart
     if @cart.save

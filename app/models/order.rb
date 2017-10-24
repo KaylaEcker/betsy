@@ -68,7 +68,17 @@ class Order < ApplicationRecord
 
   validates :cc_expiration, presence: { :if => lambda { self.status != "pending"}, message: "credit card expiration date cannot be blank"}
 
-  validates :cc_security, presence: { :if => lambda { self.status != "pending"}, message: "CVV cannot be blank"}
+  validates :cc_security,
+    presence: {
+      :if => lambda { self.status != "pending"}, message: "CVV cannot be blank"
+    },
+    format: {
+      :if => lambda { self.status != "pending"},
+      with:
+      /\A[0-9]{3,4}\z/,
+      message: "invalid CVV"
+    }
+
 
   validates :billingzip, presence: { :if => lambda { self.status != "pending"}, message: "billing zipcode cannot be blank"}
 end

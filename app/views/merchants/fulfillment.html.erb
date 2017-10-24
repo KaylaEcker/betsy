@@ -25,7 +25,9 @@
     <ul>
       <li><strong>Order#: </strong><%= link_to order_id, merchant_order_path(@merchant.id, order_id)%></li>
       <li><strong>Purchase Date: </strong><%= status_revenue_hash[:purchase_date] %></li>
-      <li><strong>Status: </strong><%= status_revenue_hash[:status] %></li>
+      <li>
+        <strong>Status: </strong><%= status_revenue_hash[:status] %>
+      </li>
       <li><strong>Revenue: </strong><%= status_revenue_hash[:revenue] %></li>
       <li>
         <strong>Items sold:</strong>
@@ -37,9 +39,11 @@
           <% end %>
         </ul>
       </li>
-      <% if status_revenue_hash[:status] == "paid" %>
-        <li><%= link_to "Mark shipped", '#'%></li>
-      <% elsif status_revenue_hash[:status] == "complete" %>
+      <% if status_revenue_hash[:status] == "cancelled" %>
+        <li>Order was cancelled</li>
+      <% elsif status_revenue_hash[:unshipped] == true %>
+        <li><%= link_to "Mark shipped", merchant_ship_path(@merchant.id, order_id), method: :patch, class: 'button' %></li>
+      <% else %>
         <li>Products have been shipped</li>
       <% end %>
     </ul>

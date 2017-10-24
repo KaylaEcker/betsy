@@ -24,5 +24,10 @@ four:
   order: four
   product: tree1
 
+5:
+  quantity: 2
+  order: one
+  product: tree2
+
 # column: value
 #

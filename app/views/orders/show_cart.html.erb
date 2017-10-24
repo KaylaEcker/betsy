@@ -1,21 +1,45 @@
-<h1>
-  <span>Your Cart</span>
-  <% if @cart.orderitems.length > 0 %>
-    <%= link_to "Check Out", checkout_form_path, class: 'button' %>
-  <% end %>
-</h1>
-<ul>
-  <% if @cart.orderitems.count > 0 %>
-    <% @cart.orderitems.each do |item| %>
-      <li>
-        <%= item.product.name %>
-        <%= form_tag(update_quantity_path(@cart.id, item.product.id), method: :patch) do %>
-          <%= label_tag(:quantity, "Quantity (max #{item.product.quantity})") %>
-          <%= number_field_tag(:quantity, item.quantity, in: (1..(item.product.quantity))) %>
-          <%= submit_tag("Submit", class: "button", method: :patch) %>
-        <% end %>
-        <%= link_to "Delete", remove_from_cart_path(@cart.id, item.product.id), method: :delete %>
-      </li>
-    <% end %>
-  <% end %>
-</ul>
+<h3><strong><% if @cart.orderitems.length > 0 %>
+  <span>Shopping Cart</span>
+  <% elsif @cart.orderitems.length < 1 %>
+  <p>
+    Shopping cart is empty
+  </p>
+  <% end %></strong></h3>
+  <article class="cart large-10 small-10 columns">
+    <section class="row cart-header">
+      <p class="cart large-4 small-4 columns">Product</p>
+      <p class="cart large-2 small-2 columns"><span class="small-gray">Quantity</span></p>
+      <p class="cart large-2 small-2 columns"><span class="small-gray">Price</span></p>
+      <p class="cart large-4 small-4 columns"><span class="small-gray">Remove From Cart</span</p>
+    </section>
+
+    <section>
+      <% if @cart.orderitems %>
+          <% @cart.orderitems.each do |order_item| %>
+            <ul class="row cart-items" class="cart large-10 small-10 columns">
+              <li class="cart product-name large-4 small-4 columns"><%= link_to order_item.product.name, product_path(order_item.product_id) %></li>
+              <li class="cart large-2 small-2 columns">
+                  <div class="add-to-cart">
+                    <%= form_tag(update_quantity_path(@cart.id, order_item.product.id), method: :patch) do %>
+                      <%= label_tag(:quantity, "(max #{order_item.product.quantity})") %>
+                      <%= number_field_tag(:quantity, order_item.quantity, in: (1..(order_item.product.quantity))) %>
+                      <%= submit_tag("Submit", class: "button", method: :patch) %>
+                      <% end %>
+                  </div>
+              </li>
+              <li class="cart large-2 small-2 columns"><span class="big-red">
+              <li class="cart large-4 small-4 columns">
+                <%= link_to "Remove", remove_from_cart_path(@cart.id, order_item.product.id), method: :delete, class: "button" %>
+              </li>
+            </ul>
+          <% end %>
+      <% end %>
+    </section>
+  </article>
+
+  <article class="checkout large-2 small-2 columns">
+      <ul>
+        <li><%= link_to "Proceed to Checkout", checkout_path, class: "button" %></li>
+        <li><%= link_to "Continue Shopping", root_path, class: "button" %></li>
+      </ul>
+  </article>

@@ -1,7 +1,7 @@
 <%= form_tag(path, method: method) do %>
-  
+
   <%= hidden_field_tag(:merchant_id, @merchant.id) %>
-  
+
   <%= label_tag(:name, "Name") %>
   <%= text_field_tag(:name, @product.name, :maxlength => 30) %>
 
@@ -19,9 +19,9 @@
   <%= label_tag(:category, "Category") %>
   <%= text_field_tag(:category) %>
 
-  <%= radio_button_tag(:status, "active", :checked => true) %>
+  <%= radio_button_tag(:status, "active", :checked => (@product.status == "active")) %>
   <%= label_tag(:status, "Active")%>
-  <%= radio_button_tag(:status, "retired") %>
+  <%= radio_button_tag(:status, "retired", :checked => (@product.status == "retired")) %>
   <%= label_tag(:status, "Retired") %>
 
   <%= label_tag(:description) %>

@@ -6,7 +6,7 @@
 </h3>
 <%= form_tag(checkout_path, method: :patch) do %>
   <%= label_tag(:customer_name, "Name") %>
-  <%= email_field_tag(:customer_name) %>
+  <%= text_field_tag(:customer_name) %>
 
   <%= label_tag(:customer_email, "Email") %>
   <%= email_field_tag(:customer_email) %>

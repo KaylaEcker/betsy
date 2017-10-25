@@ -13,4 +13,10 @@ class Merchant < ApplicationRecord
       return Orderitem.joins('join products on orderitems.product_id = products.id').where("products.merchant_id = #{self.id}").joins('LEFT JOIN orders ON orderitems.order_id = orders.id').where("orders.status = '#{status}' AND orders.status IS DISTINCT FROM 'pending'")
     end
   end
+
+  def self.active_merchants
+    merchants = Product.where(status: "active").pluck(:merchant_id).uniq
+    return merchants.map { |m| Merchant.find_by(id: m) }
+  end
+
 end

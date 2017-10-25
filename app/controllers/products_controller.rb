@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-before_action :find_product, only: [:show, :edit, :update]
+before_action :find_product, only: [:show, :edit, :update, :retire]
 before_action :find_merchant, except: [:index, :destroy]
 before_action :get_categories, only: [:index, :edit, :new]
 
@@ -79,6 +79,24 @@ before_action :get_categories, only: [:index, :edit, :new]
       flash[:messages] = @product.errors.messages
       return redirect_to new_product_path
     end
+  end
+
+  def retire
+    unless @merchant == @product.merchant
+      flash[:status] = :error
+      flash[:result_text] = "Unauthorized user"
+      return redirect_to root_path
+    end
+    @product.status == "active" ? @product.status = "retired" : @product.status = "active"
+    if @product.save
+      flash[:status] = :success
+      flash[:result_text] = "Product status was updated to #{@product.status}."
+    else
+      flash[:status] = :error
+      flash[:result_text] = "Product status couldn't be updated."
+      flash[:messages] = @product.errors.messages
+    end
+    return redirect_back fallback_location: root_path
   end
 
   private

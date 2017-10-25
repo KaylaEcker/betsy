@@ -2,8 +2,19 @@
 
 <%= form_for @review do |f| %>
   <%= f.hidden_field :product_id %>
-  <%= f.label :Rating %>
-  <%= f.select :rating, options_for_select(1..5) %>
+  <%= f.label :rating %>
+  <div class='rating-labels'>
+    <%= f.radio_button(:rating, 5) %>
+    <label for='review_rating_5'></label>
+    <%= f.radio_button(:rating, 4) %>
+    <label for='review_rating_4'></label>
+    <%= f.radio_button(:rating, 3) %>
+    <label for='review_rating_3'></label>
+    <%= f.radio_button(:rating, 2) %>
+    <label for='review_rating_2'></label>
+    <%= f.radio_button(:rating, 1) %>
+    <label for='review_rating_1'></label>
+  </div>
   <%= f.label :Title %>
   <%= f.text_field :title %>
   <%= f.label :Review %>

@@ -68,8 +68,45 @@ body{
   background-color: rgb(255, 204, 153);
 }
 
+.space {
+  display: inline-block;
+  width: 0.385em;
+}
+
 /*star ratings for reviews*/
+.dynamic-star {
+  color: #fcfcfc;
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  text-shadow: 0 1px 1.5px gray;
+  unicode-bidi: bidi-override;
+  width: 65px;
+}
+
+.overlay {
+  color: black;
+  padding: 0;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.underlay {
+  color: #fcfcfc;
+  display: block;
+  padding: 0;
+  z-index: 0;
+}
+
 .star {
+  float: left;
   text-shadow: 0 1px 1.5px gray;
 }
 

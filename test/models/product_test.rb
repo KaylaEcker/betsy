@@ -202,15 +202,4 @@ describe Product do
     end
   end
 
-  describe "self.retired_only" do
-    # let(:tree1) {products(:tree1)}
-    # let(:tree2) {products(:tree2)}
-    #
-    # it "returns only products with an active status" do
-    #   skip
-    #   Product.retired_only.pluck(:status).must_include "retired"
-    #   Product.retired_only.pluck(:status).wont_include "active"
-    # end
-  end
-
 end

@@ -10,7 +10,7 @@ describe OrdersController do
       must_respond_with :success
     end
 
-    it "gets the show_cart page with an invalid session[:order_id] once the session[:order_id] has been automatically reset to a valid valu]e" do
+    it "gets the show_cart page with an invalid session[:order_id] once the session[:order_id] has been automatically reset to a valid value" do
       invalid_id = -1
       get show_cart_path
       session[:order_id] = invalid_id
@@ -395,6 +395,42 @@ describe OrdersController do
     end
 
   end #checkout
+
+  describe "#confirmation" do
+    before do
+      get root_path #do this to get session
+      @order = Order.find_by(id: session[:order_id])
+      patch add_order_item_path(session[:order_id], product.id)
+      flash[:result_text].must_equal "1 #{product.name} added to your cart"
+      patch checkout_path, params: {
+          customer_name: "Roger Rabbit",
+          customer_email: "test@test.com",
+          address1: "123 Test Street",
+          address2: "Apt 2",
+          city: "Seattle",
+          state: "WA",
+          zipcode: "98102",
+          cc_name: "Test Name",
+          cc_number: "4111111111111111",
+          cc_expiration: "10/18",
+          cc_security: "012",
+          billingzip: "98101"
+        }
+      must_respond_with :redirect
+      flash[:result_text].must_equal "Your order has been placed"
+    end
+
+    it "must get the confirmation page for a valid order" do
+      get order_confirmation_path(@order.id)
+      must_respond_with :success
+    end
+
+    it "must not get the confirmation page for an invalid order" do
+      get order_confirmation_path(-1)
+      must_respond_with :redirect
+      flash[:result_text].must_equal "Invalid order"
+    end
+  end
 
 
 end #OrdersController

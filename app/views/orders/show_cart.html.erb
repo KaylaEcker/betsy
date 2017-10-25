@@ -1,45 +1,47 @@
-<h3><strong><% if @cart.orderitems.length > 0 %>
-  <span>Shopping Cart</span>
-  <% elsif @cart.orderitems.length < 1 %>
+<h3><strong><% if @cart.orderitems.length < 1 %>
   <p>
     <span>Shopping cart is empty</span>
   </p>
-  <% end %></strong></h3>
-  <article class="cart large-10 small-10 columns">
-    <section class="row cart-header">
-      <p class="cart large-4 small-4 columns">Product</p>
-      <p class="cart large-2 small-2 columns"><span class="small-gray">Quantity</span></p>
-      <p class="cart large-2 small-2 columns"><span class="small-gray">Subtotal</span></p>
-      <p class="cart large-4 small-4 columns"><span class="small-gray">Remove From Cart</span</p>
+  <img src="https://slack-imgs.com/?c=1&url=https%3A%2F%2Fcdn.drawception.com%2Fimages%2Fpanels%2F2015%2F7-9%2Fq5m87wMn8B-8.png" alt "sad tree" />
+  <% elsif @cart.orderitems.length > 0 %>
+  <span>Shopping Cart</span>
+</strong></h3>
+<article class="cart large-10 small-10 columns">
+  <section class="row cart-header">
+    <p class="cart large-4 small-4 columns">Product</p>
+    <p class="cart large-2 small-2 columns"><span class="small-gray">Quantity</span></p>
+    <p class="cart large-2 small-2 columns"><span class="small-gray">Subtotal</span></p>
+    <p class="cart large-4 small-4 columns"><span class="small-gray">Remove From Cart</span</p>
     </section>
 
     <section>
       <% if @cart.orderitems %>
-          <% @cart.orderitems.each do |order_item| %>
-            <ul class="row cart-items" class="cart large-10 small-10 columns">
-              <li class="cart product-name large-4 small-4 columns"><%= link_to order_item.product.name, product_path(order_item.product_id) %></li>
-              <li class="cart large-2 small-2 columns">
-                  <div class="add-to-cart">
-                    <%= form_tag(update_quantity_path(@cart.id, order_item.product.id), method: :patch) do %>
-                      <%= label_tag(:quantity, "(max #{order_item.product.quantity})") %>
-                      <%= number_field_tag(:quantity, order_item.quantity, in: (1..(order_item.product.quantity))) %>
-                      <%= submit_tag("Submit", class: "button", method: :patch) %>
-                      <% end %>
-                  </div>
-              </li>
-              <li class="cart large-2 small-2 columns"><span class="big-red"><%= number_to_currency(order_item.subtotal) %></span></li>
-              <li class="cart large-4 small-4 columns">
-                <%= link_to "Remove", remove_from_cart_path(@cart.id, order_item.product.id), method: :delete, class: "button" %>
-              </li>
-            </ul>
-          <% end %>
+      <% @cart.orderitems.each do |order_item| %>
+      <ul class="row cart-items" class="cart large-10 small-10 columns">
+        <li class="cart product-name large-4 small-4 columns"><%= link_to order_item.product.name, product_path(order_item.product_id) %></li>
+        <li class="cart large-2 small-2 columns">
+          <div class="add-to-cart">
+            <%= form_tag(update_quantity_path(@cart.id, order_item.product.id), method: :patch) do %>
+            <%= label_tag(:quantity, "(max #{order_item.product.quantity})") %>
+            <%= number_field_tag(:quantity, order_item.quantity, in: (1..(order_item.product.quantity))) %>
+            <%= submit_tag("Submit", class: "button", method: :patch) %>
+            <% end %>
+          </div>
+        </li>
+        <li class="cart large-2 small-2 columns"><span class="big-red"><%= number_to_currency(order_item.subtotal) %></span></li>
+        <li class="cart large-4 small-4 columns">
+          <%= link_to "Remove", remove_from_cart_path(@cart.id, order_item.product.id), method: :delete, class: "button" %>
+        </li>
+      </ul>
+      <% end %>
       <% end %>
     </section>
   </article>
 
   <article class="checkout large-2 small-2 columns">
-      <ul>
-        <li><%= link_to "Proceed to Checkout", checkout_path, class: "button" %></li>
-        <li><%= link_to "Continue Shopping", root_path, class: "button" %></li>
-      </ul>
+    <ul>
+      <li><%= link_to "Proceed to Checkout", checkout_path, class: "button" %></li>
+      <li><%= link_to "Continue Shopping", root_path, class: "button" %></li>
+    </ul>
   </article>
+  <% end %>

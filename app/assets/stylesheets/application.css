@@ -90,11 +90,14 @@ body{
   content: "\2605";
   text-shadow: 0 1px 1.5px gray;
 }
+
 .rating-labels label:hover::before {
   color: darkgray;
 }
+
 .rating-labels label:hover ~ label::before {
   color: darkgray;
+}
 
 header h2 {
     font-family: 'Calligraffitti';

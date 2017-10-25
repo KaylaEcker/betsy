@@ -73,11 +73,6 @@ class OrdersController < ApplicationController
   end
 
   def show
-    unless @cart
-      flash[:status] = :error
-      flash[:result_text] = "Invalid order information"
-      redirect_to root_path, status: 404
-    end
   end
 
   def show_cart
@@ -179,6 +174,11 @@ class OrdersController < ApplicationController
 
   def find_order
     @order = Order.find_by(id: params[:id])
+    if @order == nil
+      flash[:status] = :error
+      flash[:result_text] = "Invalid order"
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   def checkout_params

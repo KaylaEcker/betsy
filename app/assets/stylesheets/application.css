@@ -49,6 +49,10 @@ header h2 {
 
 }
 
+.content {
+  width: 100%
+}
+
 .flash {
   border: 1px solid;
   border-radius: 3px;
@@ -79,7 +83,9 @@ header h2 {
   padding-bottom: 10px;
 }
 
-
+.product-card {
+  disply: inline-block;
+}
 
 .cart {
   float: right;
@@ -108,7 +114,7 @@ header h2 {
 .drop-down:hover .dropdown-content {
   display: block;
 }
-  
+
 .space {
   display: inline-block;
   width: 0.385em;
@@ -191,4 +197,8 @@ header h2 {
 
 header h2 {
     font-family: 'Calligraffitti';
+<<<<<<< HEAD
+
+=======
+>>>>>>> ecb4add9953087b34f31c0296ada94a45d305816
 }

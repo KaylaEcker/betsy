@@ -10,18 +10,22 @@
 
 <% end %>
 
+<section class = "row">
 
-<article class = "card">
 
-  <% @products.each do |product| %>
-    <% if product.photo_url %>
-      <figure>
-        <img src= "<%= product.photo_url %>" alt "<%= product.photo_url %>" height: "250" width: "250" />
-      </figure>
+    <% @products.each do |product| %>
+    <article class = "product-card columns small-12 large-4">
+      <% if product.photo_url %>
+        <figure>
+          <img src= "<%= product.photo_url %>" alt "<%= product.photo_url %>" height: "250" width: "250" />
+        </figure>
+      <% end %>
+      <h4><%= link_to(product.name, product_path(product.id)) %></h4>
+      <h4>US $<%= product.price%></h4>
+      <%= link_to "Add to cart", add_order_item_path(session[:order_id], product.id), method: :patch, class: :button %>
+    </article>
     <% end %>
-    <h4><%= link_to(product.name, product_path(product.id)) %></h4>
-    <h4>US $<%= product.price%></h4>
-    <%= link_to "Add to cart", add_order_item_path(session[:order_id], product.id), method: :patch, class: :button %>
-  <% end %>
 
-</article>
+
+
+</section>

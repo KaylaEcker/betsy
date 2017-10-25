@@ -33,9 +33,11 @@ describe MerchantsController do
       must_respond_with :redirect
       flash[:result_text].must_equal "Invalid request"
     end
+
   end
 
   describe "#show_order" do
+
     it "gets the show order page with a valid merchant logged in" do
       login(merchant, merchant.oauth_provider.to_sym)
       session[:merchant_id].to_i.must_equal merchant.id

@@ -23,18 +23,32 @@
       <h2 class="column small-8">
         <%= link_to "treebae", root_path%>
       </h2>
-      <a class = cart "column small-1" href= <%=show_cart_path %> ><img src="https://cdn3.iconfinder.com/data/icons/christmas-vector-line-2/128/76-512.png"  alt = "Shopping Cart" height="42" width="42"/></li>
-        <div class= drop-down "column small-3">
+
+      <a class = cart "column small-2 float-right" href= <%=show_cart_path %> ><img src="https://cdn3.iconfinder.com/data/icons/christmas-vector-line-2/128/76-512.png"  alt = "Shopping Cart" height="42" width="42"/>
+
+      <section class = "column small-2">
         <% if session[:merchant_id] %>
-        <%= link_to "Log Out", logout_path, method: :post, class: "button" %>
-        <%= link_to "My account", merchant_path(session[:merchant_id]), class: "button" %>
-        <%= link_to "Add new product", new_product_path, method: :get, class: "button" %>
-        <%= link_to "Fulfillment", merchant_fulfillment_path(session[:merchant_id]), method: :get, class: "button" %>
+          <div class= "drop-down">
+            <span class = "button" >You</span>
+
+            <div class = "dropdown-content">
+
+              <%= link_to "Log Out", logout_path, method: :post, class: "button" %>
+              <%= link_to "My account", merchant_path(session[:merchant_id]), class: "button" %>
+              <%= link_to "Add new product", new_product_path, method: :get, class: "button" %>
+              <%= link_to "Fulfillment", merchant_fulfillment_path(session[:merchant_id]), method: :get, class: "button" %>
+
+            </div>
+          </div>
         <% else %>
-        <%= link_to "Log in with Github", '/auth/github', class: "button" %>
+            <%= link_to "Log in with Github", '/auth/github', class: "button" %>
         <% end %>
-        </div>
-      </nav>
+      </section>
+    </nav>
+
+
+
+
     </header>
     <section class="flash <%= flash[:status] %>">
       <% if flash[:status] == "error" %>

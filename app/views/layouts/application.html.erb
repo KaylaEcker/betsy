@@ -16,9 +16,8 @@
   <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Calligraffitti' %>
   <%= favicon_link_tag %>
 </head>
-
 <body>
-  <header>
+  <header class = "page-header row">
     <nav class = row>
       <h2 class="column small-8">
         <%= link_to "treebae", root_path%>
@@ -45,11 +44,9 @@
         <% end %>
       </section>
     </nav>
+  </header>
 
 
-
-
-    </header>
     <section class="flash <%= flash[:status] %>">
       <% if flash[:status] == "error" %>
       <p><strong>An error occured: </strong><%= flash[:result_text] %></p>

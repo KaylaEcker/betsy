@@ -71,3 +71,11 @@ body{
 header h2 {
     font-family: 'Calligraffitti';
 }
+
+.cart {
+  float: right;
+}
+
+ul {
+  list-style-type: none;
+}

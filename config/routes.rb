@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'products#index'
 
   resources :products, :except => [:delete]
+  get '/products/:id/retire', to: 'products#retire', as: 'retire'
   resources :merchants, :except => [:delete]
   get '/merchants/:id/fulfillment', to: 'merchants#fulfillment', as: 'merchant_fulfillment'
   get 'merchants/:id/orders/:order_id', to: 'merchants#show_order', as: 'merchant_order'

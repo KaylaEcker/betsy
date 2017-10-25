@@ -95,4 +95,7 @@ body{
 }
 .rating-labels label:hover ~ label::before {
   color: darkgray;
+
+header h2 {
+    font-family: 'Calligraffitti';
 }

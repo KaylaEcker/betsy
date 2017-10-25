@@ -1,11 +1,11 @@
-id,name,price,categories,merchant_id,quantity,status
-1,product1,0.97,{indoor},1,89,retired
-2,product2,3.49,{outdoor},1,84,active
-3,product3,3.28,{independence day},2,86,active
-4,product4,6.65,{outdoor},7,76,retired
-5,product5,8.29,{valentines},4,97,active
-6,product6,9.39,{large},5,71,retired
-7,product7,1.89,{indoor},9,56,active
-8,product8,8.09,{outdoor},8,92,active
-9,product9,5.5,{indoor},3,73,active
-10,product10,3.32,{outdoor},3,88,active
+id,name,price,categories,merchant_id,quantity,status,photo_url
+1,heartree,0.97,{indoor},1,89,active,https://images.pexels.com/photos/207962/pexels-photo-207962.jpeg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb
+3,Chemistree,3.28,{indoor},2,86,active,https://i.pinimg.com/736x/ec/f0/c2/ecf0c28e20b1ac071c2e6dc33e7bb5dc--christmas-tree-ideas-merry-christmas.jpg
+2,GoatTree,3.49,{outdoor},1,84,active,https://media.mnn.com/assets/images/2015/03/GoatsInTress02-e-0302.jpg
+4,Squirrel,6.65,{outdoor},7,76,active,https://images.pexels.com/photos/162061/squirrel-ulm-garden-summer-162061.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb
+5,puffintree,8.29,,4,97,active,https://images.pexels.com/photos/618288/pexels-photo-618288.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb
+6,periodic tree,9.39,{outdoor},5,71,active,https://sciencenotes.org/wp-content/uploads/2014/12/Element-Chemis-tree.png
+7,Ent,1.89,{indoor},9,56,active,https://02varvara.files.wordpress.com/2007/11/treebeard-the-ent-e1269783419659.jpg
+8,Baobob,8.09,{outdoor},8,92,active,https://upload.wikimedia.org/wikipedia/commons/a/a8/Adansonia_grandidieri04.jpg
+9,Weeping Willow,5.5,{indoor},3,73,active,https://i.pinimg.com/736x/9b/00/53/9b0053be9b5ed08a474d07e6e1338a77--weeping-willow-willow-tree.jpg
+10,Groot,3.32,{outdoor},3,88,active,https://geekdad.com/wp-content/uploads/2017/05/baby-groot-guardians.jpg

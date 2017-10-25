@@ -69,6 +69,18 @@ body{
 }
 
 /*star ratings for reviews*/
+.star {
+  text-shadow: 0 1px 1.5px gray;
+}
+
+.checked {
+  color: black;
+}
+
+.unchecked {
+  color: #fcfcfc;
+}
+
 .rating-labels {
   display: inline-block;
   transform: rotateY(180deg);

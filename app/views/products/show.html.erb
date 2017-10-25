@@ -35,7 +35,14 @@
   <ul>
     <% @product.reviews.each do |review| %>
       <li>Title:  <%=review.title%></li>
-      <li>Rating:  <%=review.rating.to_s%></li>
+      <li>Rating:
+        <% review.rating.times do %>
+          <span class="checked star">&#x2605</span>
+        <% end %>
+        <% (5 - review.rating).times do %>
+          <span class="unchecked star">&#x2605</span>
+        <% end %>
+      </li>
       <li><%=review.review_text%></li>
     <% end %>
   </ul>

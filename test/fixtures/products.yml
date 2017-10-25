@@ -15,7 +15,7 @@ tree2:
   merchant: sappy2
   categories: [outdoor]
   quantity: 10
-  status: "retired"
+  status: "active"
 
 tree3:
   name: Tree3

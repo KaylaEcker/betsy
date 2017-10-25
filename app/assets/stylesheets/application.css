@@ -48,3 +48,26 @@
   margin-left: 50px;
   padding-bottom: 10px;
 }
+
+/*background*/
+
+html {
+  background: url("https://slack-imgs.com/?c=1&url=https%3A%2F%2F78.media.tumblr.com%2Fc5c216b73a8bfb67f14a2039a2028f0e%2Ftumblr_oe0u0sDBLb1vuuoz3o1_540.gif") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body{
+  position: relative;
+  top: 1vw;
+  margin: 5vw;
+  padding: 5vw;
+  font-family: monospace;
+  background-color: rgb(255, 204, 153);
+}
+
+header h2 {
+    font-family: 'Calligraffitti';
+}

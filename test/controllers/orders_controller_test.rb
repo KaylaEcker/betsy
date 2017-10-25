@@ -179,7 +179,20 @@ describe OrdersController do
       end
 
       it "reduces inventory" do
-        patch checkout_path
+        patch checkout_path, params: {
+            customer_name: "Roger Rabbit",
+            customer_email: "test@test.com",
+            address1: "123 Test Street",
+            address2: "Apt 2",
+            city: "Seattle",
+            state: "WA",
+            zipcode: "98102",
+            cc_name: "Test Name",
+            cc_number: "4111111111111111",
+            cc_expiration: "10/18",
+            cc_security: "012",
+            billingzip: "98101"
+          }
         Product.find_by(name: product.name).quantity.must_equal product.quantity - 1
         must_respond_with :redirect
       end
@@ -228,7 +241,20 @@ describe OrdersController do
 
       it "changes the order status from pending to paid" do
         @order.status.must_equal "pending"
-        patch checkout_path
+        patch checkout_path, params: {
+            customer_name: "Roger Rabbit",
+            customer_email: "test@test.com",
+            address1: "123 Test Street",
+            address2: "Apt 2",
+            city: "Seattle",
+            state: "WA",
+            zipcode: "98102",
+            cc_name: "Test Name",
+            cc_number: "4111111111111111",
+            cc_expiration: "10/18",
+            cc_security: "012",
+            billingzip: "98101"
+          }
         must_respond_with :redirect
         flash[:status].must_equal :success
         flash[:result_text].must_equal "Your order has been placed"
@@ -237,7 +263,20 @@ describe OrdersController do
 
       it "changes the purchase_datetime to the datetime the order was placed" do
         @order.purchase_datetime.must_equal nil
-        patch checkout_path
+        patch checkout_path, params: {
+            customer_name: "Roger Rabbit",
+            customer_email: "test@test.com",
+            address1: "123 Test Street",
+            address2: "Apt 2",
+            city: "Seattle",
+            state: "WA",
+            zipcode: "98102",
+            cc_name: "Test Name",
+            cc_number: "4111111111111111",
+            cc_expiration: "10/18",
+            cc_security: "012",
+            billingzip: "98101"
+          }
         must_respond_with :redirect
         flash[:status].must_equal :success
         flash[:result_text].must_equal "Your order has been placed"
@@ -261,7 +300,20 @@ describe OrdersController do
       end
 
       it "shows that the cart is now empty" do
-        patch checkout_path
+        patch checkout_path, params: {
+            customer_name: "Roger Rabbit",
+            customer_email: "test@test.com",
+            address1: "123 Test Street",
+            address2: "Apt 2",
+            city: "Seattle",
+            state: "WA",
+            zipcode: "98102",
+            cc_name: "Test Name",
+            cc_number: "4111111111111111",
+            cc_expiration: "10/18",
+            cc_security: "012",
+            billingzip: "98101"
+          }
         order = Order.find_by(id: session[:order_id])
         order.wont_equal nil
         order.orderitems.count.must_equal 0
@@ -269,7 +321,20 @@ describe OrdersController do
 
       it "sets a new session order id when checkout process complete" do
         old_order_id = session[:order_id]
-        patch checkout_path
+        patch checkout_path, params: {
+            customer_name: "Roger Rabbit",
+            customer_email: "test@test.com",
+            address1: "123 Test Street",
+            address2: "Apt 2",
+            city: "Seattle",
+            state: "WA",
+            zipcode: "98102",
+            cc_name: "Test Name",
+            cc_number: "4111111111111111",
+            cc_expiration: "10/18",
+            cc_security: "012",
+            billingzip: "98101"
+          }
         order = Order.find_by(id: session[:order_id])
         order.id.wont_equal old_order_id
       end
@@ -291,11 +356,26 @@ describe OrdersController do
 
       it "updates fields for user input" do
         order = Order.find_by(id: session[:order_id])
-        patch checkout_path, params: {customer_email: "test@test.com", address1: "123 Test Street", address2: "Apt 2", city: "Seattle", state: "WA", zipcode: "98102", cc_name: "Test Name", cc_number: "4111111111111111", cc_expiration: "01/20", cc_security: "012", billingzip: "98101"}
+        patch checkout_path, params: {
+            customer_name: "Roger Rabbit",
+            customer_email: "test@test.com",
+            address1: "123 Test Street",
+            address2: "Apt 2",
+            city: "Seattle",
+            state: "WA",
+            zipcode: "98102",
+            cc_name: "Test Name",
+            cc_number: "4111111111111111",
+            cc_expiration: "10/18",
+            cc_security: "012",
+            billingzip: "98101"
+          }
+
         must_respond_with :redirect
         flash[:status].must_equal :success
         flash[:result_text].must_equal "Your order has been placed"
         paid_order = Order.find_by(id: order.id)
+        paid_order.customer_name.must_equal "Roger Rabbit"
         paid_order.customer_email.must_equal "test@test.com"
         paid_order.address1.must_equal "123 Test Street"
         paid_order.address2.must_equal "Apt 2"
@@ -304,10 +384,11 @@ describe OrdersController do
         paid_order.zipcode.must_equal "98102"
         paid_order.cc_name.must_equal "Test Name"
         paid_order.cc_number.must_equal "4111111111111111"
-        paid_order.cc_expiration.must_equal "01/20"
+        paid_order.cc_expiration.must_equal "10/18"
         paid_order.cc_security.must_equal "012"
         paid_order.billingzip.must_equal "98101"
       end
+
       it "validates user input" do
         skip
       end

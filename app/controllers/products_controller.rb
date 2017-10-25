@@ -17,6 +17,7 @@ before_action :get_categories, only: [:index, :edit, :new]
     unless @merchant == @product.merchant
       render_404 if @product.status == "retired"
     end
+    @title = @product.name
   end
 
   def edit
@@ -25,6 +26,7 @@ before_action :get_categories, only: [:index, :edit, :new]
       flash[:result_text] = "Unauthorized user"
       return redirect_to root_path
     end
+    @title = "Edit #{@product.name}"
   end
 
   def update
@@ -55,6 +57,7 @@ before_action :get_categories, only: [:index, :edit, :new]
     end
 
     @product = Product.new(merchant_id: session[:merchant_id])
+    @title = "New Product"
   end
 
   def create

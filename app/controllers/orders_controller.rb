@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
   end
 
   def checkout_form
+    @title = "Checkout"
   end
 
   def checkout
@@ -31,11 +32,10 @@ class OrdersController < ApplicationController
     #modify the cart
     @cart.status = "paid"
     @cart.purchase_datetime = DateTime.now
-    puts "**********"
     puts @cart.purchase_datetime.to_date
-    puts "**********"
 
     @cart.update_attributes(checkout_params)
+
     #checkout the cart
     if @cart.save
       @cart.orderitems.each do |orderitem|
@@ -49,6 +49,8 @@ class OrdersController < ApplicationController
       flash[:result_text] = "Your order has been placed"
       return redirect_to order_confirmation_path(@cart.id)
     else
+      puts "NOT SAVING"
+      puts @cart.errors.messages
       flash[:status] = :error
       flash[:result_text] = "Your order could not be placed at this time"
       return redirect_to show_cart_path
@@ -58,6 +60,7 @@ class OrdersController < ApplicationController
 
   def confirmation
     @total = @order.orderitems.sum { |orderitem| (orderitem.quantity * orderitem.product.price) }
+    @title = "Thank You"
   end
 
   def new
@@ -78,6 +81,7 @@ class OrdersController < ApplicationController
   end
 
   def show_cart
+    @title = "My Cart"
   end
 
   def add_item
@@ -178,6 +182,6 @@ class OrdersController < ApplicationController
   end
 
   def checkout_params
-    params.permit(:customer_email, :address1, :address2, :city, :state, :zipcode, :cc_name, :cc_number, :cc_expiration, :cc_security, :billingzip)
+    params.permit(:customer_name, :customer_email, :address1, :address2, :city, :state, :zipcode, :cc_name, :cc_number, :cc_expiration, :cc_security, :billingzip)
   end
 end

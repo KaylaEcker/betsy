@@ -1,3 +1,8 @@
+
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+<h1 class=heading>Popular treeBae Deals</h1>
+<%= form_tag(root_path, method: :get) do %>
+
 <h1>treebae Products</h1>
 <section class = "row filter">
   <%= form_tag(root_path, method: :get) do %>
@@ -30,4 +35,5 @@
       <%= link_to "Add to cart", add_order_item_path(session[:order_id], product.id), method: :patch, class: :button %>
     </article>
     <% end %>
+      <% end %>
 </section>

@@ -25,12 +25,12 @@
     <section>
       <% if @cart.orderitems %>
       <% @cart.orderitems.each do |order_item| %>
-      <ul class="row cart-items" class="cart large-10 small-10 columns">
-        <li class="cart product-name large-4 small-12 columns">
+      <ul class="row cart-items" class="cart large-10 small-10 column">
+        <li class="cart product-name large-4 small-4 columns">
         <img src="<%= order_item.product.photo_url %>" alt "<%= order_item.product.photo_url %>"/>
         </li>
 
-        <li class="cart large-2 small-12 columns">
+        <li class="cart large-2 small-12 column">
           <div class="big-red">
           <%= link_to order_item.product.name, product_path(order_item.product_id) %>
           </div>
@@ -39,7 +39,7 @@
           </div>
         </li>
 
-        <li class="cart large-2 small-6 columns">
+        <li class="cart large-2 small-6 column">
           <div class="add-to-cart">
             <%= form_tag(update_quantity_path(@cart.id, order_item.product.id), method: :patch) do %>
             <%= label_tag(:quantity, "(max #{order_item.product.quantity})") %>

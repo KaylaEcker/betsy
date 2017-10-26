@@ -40,6 +40,10 @@ header h2 a{
   font-size: 3.5rem;
 }
 
+header h2 a:hover {
+  color: #006400
+}
+
 select {
   -webkit-appearance: none;
   height: 40px;
@@ -314,4 +318,3 @@ border-radius: 8px;
 .hugger {
   width: 70px;
 }
-

@@ -1,4 +1,4 @@
-<h1 class="text-center">Popular treeBae Deals</h1>
+<h1 class="text-center">treebae Deals</h1>
 <%= form_tag(root_path, method: :get) do %>
 <section class="row filter">
   <%= form_tag(root_path, method: :get) do %>
@@ -20,12 +20,12 @@
     <article class = "product-card columns small-10 medium-5 large-3 text-center">
       <% if product.photo_url %>
         <figure>
-          <img src= "<%= product.photo_url %>" alt "<%= product.photo_url %>" />
+          <a href="<%= product_path(product.id)%>"><img src= "<%= product.photo_url %>" alt "<%= product.photo_url %>" /></a>
         </figure>
       <% end %>
       <div class="product-card-details">
         <h4><%= link_to(product.name.capitalize, product_path(product.id)) %></h4>
-        <h5>$<%= product.price%></h4>
+        <h5><%= number_to_currency(product.price) %></h4>
         <%= link_to "Add to cart", add_order_item_path(session[:order_id], product.id), method: :patch, class: :button %>
       </div>
     </article>

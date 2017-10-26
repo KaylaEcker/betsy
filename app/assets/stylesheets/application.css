@@ -28,33 +28,31 @@ ul {
 }
 
 body{
-  font-family: sans-serif;
+  color: #2E4434;
   position: relative;
-  background: #eef0f2;
-  }
+  background-color: #f3fbef;
+}
 
-header h2 a{
-  text-shadow: 2px 2px black;
-  color: #407c00;
+body, h1, h2, h3, h4, h5, h6, div, article, section, p, span, .button {
+  font-family: 'Roboto', sans-serif;
+}
+
+header h2{
   font-size: 3.5rem;
 }
 
-header h2 a:hover {
-  color: #006400
+a {
+  color: #426421;
+}
+
+a:hover {
+  color: #2E4434;
 }
 
 select {
-  -webkit-appearance: none;
+  border-radius: 10px;
   height: 40px;
-}
-
-.pdetails {
-  padding-left: 3%;
-}
-
-.pdetails h2 {
-  margin-right: 5%;
-  display: inline-block;
+  -webkit-appearance: none;
 }
 
 .mini-heading a{
@@ -166,6 +164,7 @@ select {
 
 .dropdown-content {
   display: none;
+  font-size: 0.5em;
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
@@ -183,23 +182,19 @@ select {
   width: 0.385em;
 }
 
-.pshow {
-  box-shadow: 0px 5px 0px grey;
-  padding-bottom: 60px;
-  margin-bottom: 60px;
-}
-
 
 .button {
-color: black;
-background-color: #7DD181;
-border: 2px solid #468c4f;
+color: #F3FBEF;
+background-color: #426421;
 border-radius: 8px;
   }
 
 .button:hover {
-  background-color: #468c4f; /* Green */
-  color: white;
+  background-color: #2E4434;
+}
+
+.button:focus {
+  background-color: #2E4434;
 }
 
 /***********star ratings for reviews********************/
@@ -213,7 +208,7 @@ border-radius: 8px;
   position: relative;
   text-shadow: 0 1px 1.5px gray;
   unicode-bidi: bidi-override;
-  width: 65px;
+  width: 80px;
 }
 
 .overlay {
@@ -256,7 +251,7 @@ border-radius: 8px;
   display: none;
 }
 .rating-labels input[type="radio"]:checked ~ label::before {
-  color: black;
+  color: #2E4434;
 }
 
 .rating-labels label {
@@ -264,16 +259,16 @@ border-radius: 8px;
 }
 
 .rating-labels label::before {
-  color: #fcfcfc;
+  color: white;
   content: "\2605";
-  text-shadow: 0 1px 1.5px gray;
+  text-shadow: 0 1px 1.5px #2E4434;
 }
 
 .rating-labels label:hover::before {
-  color: darkgray;
+  color: #86967D;
 }
 
 .rating-labels label:hover ~ label::before {
-  color: darkgray;
+  color: #86967D;
 
 }

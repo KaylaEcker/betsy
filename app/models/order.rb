@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+
   has_many :orderitems
   has_many :products, :through => :orderitems
   validates :status, presence: true
@@ -67,15 +68,7 @@ class Order < ApplicationRecord
     }
 
   validates :cc_expiration,
-    presence: {
-      :if => lambda { self.status != "pending"}, message: "credit card expiration date cannot be blank"
-    },
-    format: {
-      :if => lambda { self.status != "pending"},
-      with:
-      /\A(0[1-9]|1[0-2]|[1-9])\/(20[0-9][0-9]|[0-9][0-9])\z/,
-      message: "invalid expiration date format"
-    }
+  expirationDate: true
 
   validates :cc_security,
     presence: {
@@ -87,6 +80,7 @@ class Order < ApplicationRecord
       /\A[0-9]{3,4}\z/,
       message: "invalid CVV"
     }
+
 
   validates :billingzip,
     presence: {

@@ -92,6 +92,7 @@ header h2 {
   disply: inline-block;
 }
 
+
 .dropdown-content {
   display: none;
   position: absolute;
@@ -104,4 +105,88 @@ header h2 {
 
 .drop-down:hover .dropdown-content {
   display: block;
+}
+  
+.space {
+  display: inline-block;
+  width: 0.385em;
+}
+
+/*star ratings for reviews*/
+.dynamic-star {
+  color: #fcfcfc;
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  text-shadow: 0 1px 1.5px gray;
+  unicode-bidi: bidi-override;
+  width: 65px;
+}
+
+.overlay {
+  color: black;
+  padding: 0;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.underlay {
+  color: #fcfcfc;
+  display: block;
+  padding: 0;
+  z-index: 0;
+}
+
+.star {
+  float: left;
+  text-shadow: 0 1px 1.5px gray;
+}
+
+.checked {
+  color: black;
+}
+
+.unchecked {
+  color: #fcfcfc;
+}
+
+.rating-labels {
+  display: inline-block;
+  transform: rotateY(180deg);
+}
+
+.rating-labels input[type="radio"] {
+  display: none;
+}
+.rating-labels input[type="radio"]:checked ~ label::before {
+  color: black;
+}
+
+.rating-labels label {
+  display: inline-block;
+}
+
+.rating-labels label::before {
+  color: #fcfcfc;
+  content: "\2605";
+  text-shadow: 0 1px 1.5px gray;
+}
+
+.rating-labels label:hover::before {
+  color: darkgray;
+}
+
+.rating-labels label:hover ~ label::before {
+  color: darkgray;
+}
+
+header h2 {
+    font-family: 'Calligraffitti';
 }

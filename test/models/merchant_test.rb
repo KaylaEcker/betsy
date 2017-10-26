@@ -75,6 +75,43 @@ describe Merchant do
     end
   end
 
+  describe "active merchants" do
+
+
+    it "returns a uniq array of active merchants" do
+      merchants = Merchant.active_merchants
+      merchants.must_be_kind_of Array
+      merchants.each do |m|
+        m.must_be_instance_of Merchant
+      end
+
+      merchants.uniq.must_equal merchants
+    end
+
+    it "will include merchants that have both retired and active products" do
+      Merchant.active_merchants.must_include merchants(:sappy1)
+    end
+
+    it "will return an empty arrray if no merchants have any products" do
+      Orderitem.all.destroy_all
+      Review.all.destroy_all
+      Product.all.destroy_all
+
+      Merchant.active_merchants.must_be_kind_of Array
+      Merchant.active_merchants.length.must_equal 0
+    end
+
+    it "will return an empty array if no merchants have any active products" do
+      Product.all.each do |p|
+        p.status = "retired"
+        p.save
+      end
+
+      Merchant.active_merchants.must_be_instance_of Array
+      Merchant.active_merchants.length.must_equal 0
+    end
+
+  end
 
 
 end #describe merchant

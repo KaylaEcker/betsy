@@ -134,16 +134,32 @@ describe Order do
       order.valid?.must_equal false
 
       order.errors.messages.must_include :cc_expiration
-      order.errors.messages[:cc_expiration].must_include "credit card expiration date cannot be blank"
+      order.errors.messages[:cc_expiration].must_include "expiration date can\'t be blank"
     end
 
     it "must have a valid expiration date format" do
 
-      order = Order.new(status: "paid", cc_expiration: "13/2020" )
+      order = Order.new(status: "paid", cc_expiration: "13/2000" )
       order.valid?.must_equal false
 
       order.errors.messages.must_include :cc_expiration
       order.errors.messages[:cc_expiration].must_include "invalid expiration date format"
+    end
+
+    it "can't have an expiration date in the past" do
+      order = Order.new(status: "paid", cc_expiration: "11/16" )
+      order.valid?.must_equal false
+
+      order.errors.messages.must_include :cc_expiration
+
+      order.errors.messages[:cc_expiration].must_include "expiration date can\'t be in the past"
+    end
+
+    it "can have an expiration date in the future" do
+      order = Order.new(status: "paid", cc_expiration: "12/17" )
+      order.valid?.must_equal false
+      order.errors.messages.wont_include :cc_expiration
+      order.errors.messages[:cc_expiration].wont_include "expiration date can\'t be in the past"
     end
 
     it "must have a cc_security" do

@@ -11,8 +11,8 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
- *= require_self
  *= require foundation_and_overrides
+ *= require_self
 
  */
 
@@ -28,13 +28,12 @@ ul {
 }
 
 body{
+  font-family: sans-serif;
   position: relative;
-  font-family: monospace;
   background: #eef0f2;
   }
 
 header h2 a{
-  font-family: 'Calligraffitti';
   text-shadow: 2px 2px black;
   color: #407c00;
   font-size: 3.5rem;
@@ -60,13 +59,11 @@ select {
 }
 
 .heading {
-  font-family: 'Indie Flower', cursive;
   text-shadow: 1px 2px 	#7Da50f;
   text-align: center;
 }
 
 .mini-heading a{
-  font-family: 'Gloria Hallelujah', cursive;
   color: black;
   text-shadow: 1px 2px 	#7Da50f;
 }
@@ -76,13 +73,15 @@ select {
 }
 
 .mini-heading{
-  font-family: 'Gloria Hallelujah', cursive;
   color: black;
   text-shadow: 1px 2px 	#7Da50f;
 }
 
+.inline-list li {
+  display: inline-block;
+}
+
 .price-heading a{
-  font-family: 'Roboto Slab', serif;
   text-shadow: .1px 1px black;
 }
 
@@ -92,9 +91,8 @@ select {
 
 .page-header {
   margin-bottom: 50px;
-  max-width: 100%;
-  box-shadow: 5px 5px 5px black;
-  padding: 25px 20px 10px 20px;
+  margin-top: 10px;
+  max-width: 95%;
   left: 0;
   top: 0;
 }
@@ -196,10 +194,6 @@ select {
 .flash .error-messages {
   margin-left: 50px;
   padding-bottom: 10px;
-}
-
-.cart {
-  float: right;
 }
 
 .float-right {
@@ -315,7 +309,6 @@ select {
 
 .button {
 color: black;
-font-family: 'Indie Flower', cursive;
 background-color: #7DD181;
 border: 2px solid #468c4f;
 border-radius: 8px;
@@ -324,9 +317,4 @@ border-radius: 8px;
 .button:hover {
   background-color: #468c4f; /* Green */
   color: white;
-  }
-
-
-.hugger {
-  width: 70px;
 }

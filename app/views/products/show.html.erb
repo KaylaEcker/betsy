@@ -72,13 +72,11 @@
       </span>
       <% end %>
 
-
-
-  <h3>Reviews: </h3>
-  <% if @product.reviews.count < 1  %>
-    <p>Be the first to review this item</p>
-  <% else %>
   <section>
+    <h3>Reviews: </h3>
+    <% if @product.reviews.count < 1  %>
+      <p>Be the first to review this item</p>
+    <% else %>
     <ul>
       <% @product.reviews.each do |review| %>
         <li class = "pshow">

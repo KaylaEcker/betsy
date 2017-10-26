@@ -55,7 +55,6 @@ header h2 {
   top: 0;
 }
 
-
 .bg {
   background-color: brown;
   opacity: 0.4;
@@ -64,6 +63,7 @@ header h2 {
 .content {
   width: 100%
 }
+
 .full-width {
   width: 100%;
   max-width: 95%;
@@ -102,23 +102,27 @@ header h2 {
   font-size: 1.1rem;
   display: none;
 }
+
 .success {
   background-color: #DFF0D8;
   border-color: #D9ECCC;
   color: #4C7D45;
   display: block;
 }
+
 .error {
   background-color: #F2DEDE;
   border-color: #DDB5B5;
   color: #AB4B4A;
   display: block;
 }
+
 .flash p {
   margin-left: 10px;
   margin-bottom: 0px;
   line-height: 50px;
 }
+
 .flash .error-messages {
   margin-left: 50px;
   padding-bottom: 10px;

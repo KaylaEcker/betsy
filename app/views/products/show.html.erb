@@ -2,7 +2,7 @@
 <% if @product.status == "retired" %>
   <h4 class=heading>Retired product</h4>
 <% end %>
-
+<div class=price-heading>
 <h3>List Price: US $<%= @product.price %></h3>
 <% if @product.quantity <= 5 %>
   <li><span class="quant">Limited - Only <%= @product.quantity %> left in stock </span></li>
@@ -65,3 +65,4 @@
 <% else %>
   <%= link_to "Add to cart", add_order_item_path(session[:order_id], @product.id), method: :patch, class: :button %>
 <% end %>
+</div>

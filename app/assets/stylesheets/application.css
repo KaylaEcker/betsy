@@ -48,6 +48,11 @@ header h2 {
 font-family: 'Gloria Hallelujah', cursive;
 }
 
+.price-heading {
+  font-family: 'Roboto Slab', serif;
+  text-shadow: .1px 1px 	black;
+}
+
 .row {
   width: 100%;
 }

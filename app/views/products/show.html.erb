@@ -50,30 +50,35 @@
 </section>
 
 
-<section>
-  <% if @merchant != @product.merchant %>
-    <%= link_to("Leave a review", new_review_path(@product.id), method: :get, class: "button") %>
-  <% end %>
-
-  <h3>Average Rating:</h3>
-  <% if @product.reviews.count > 0 %>
-  <div class="dynamic-star">
-    <span class="dynamic-star overlay" style="<%= "width: #{@product.average_rating / 5.0 * 100}%" %>" >
-      <span>&#x2605</span><span>&#x2605</span><span>&#x2605</span><span>&#x2605</span><span>&#x2605</span>
-    </span>
-    <div class="dynamic-star underlay" >
-      <span>&#x2605</span><span>&#x2605</span><span>&#x2605</span><span>&#x2605</span><span>&#x2605</span>
+<section class = "full-width">
+    <div class ="float-right review">
+      <% if @merchant != @product.merchant %>
+        <%= link_to("Leave a review", new_review_path(@product.id), method: :get, class: "button") %>
+      <% end %>
     </div>
-  </div>
-  <span>
-    <%= @product.average_rating %>
-  </span>
-  <% end %>
+
+      <h3>Average Rating:</h3>
+      <% if @product.reviews.count > 0 %>
+      <div class="dynamic-star">
+        <span class="dynamic-star overlay" style="<%= "width: #{@product.average_rating / 5.0 * 100}%" %>" >
+          <span>&#x2605</span><span>&#x2605</span><span>&#x2605</span><span>&#x2605</span><span>&#x2605</span>
+        </span>
+        <div class="dynamic-star underlay" >
+          <span>&#x2605</span><span>&#x2605</span><span>&#x2605</span><span>&#x2605</span><span>&#x2605</span>
+        </div>
+      </div>
+      <span>
+        <%= @product.average_rating %>
+      </span>
+      <% end %>
+
+
 
   <h3>Reviews: </h3>
   <% if @product.reviews.count < 1  %>
     <p>Be the first to review this item</p>
   <% else %>
+  <section class = "pshow">
     <ul>
       <% @product.reviews.each do |review| %>
         <li>
@@ -89,5 +94,7 @@
         <li><%=review.review_text%></li>
       <% end %>
     </ul>
+  </section>
+
   <% end %>
 </section>

@@ -40,6 +40,10 @@ header h2 a{
   font-size: 3.5rem;
 }
 
+header h2 a:hover {
+  color: #006400
+}
+
 select {
   -webkit-appearance: none;
   height: 40px;
@@ -61,11 +65,23 @@ select {
   text-align: center;
 }
 
-.mini-heading {
-font-family: 'Gloria Hallelujah', cursive;
+.mini-heading a{
+  font-family: 'Gloria Hallelujah', cursive;
+  color: black;
+  text-shadow: 1px 2px 	#7Da50f;
 }
 
-.price-heading {
+.mini-heading a:hover{
+  color: #006400;
+}
+
+.mini-heading{
+  font-family: 'Gloria Hallelujah', cursive;
+  color: black;
+  text-shadow: 1px 2px 	#7Da50f;
+}
+
+.price-heading a{
   font-family: 'Roboto Slab', serif;
   text-shadow: .1px 1px black;
 }
@@ -314,4 +330,3 @@ border-radius: 8px;
 .hugger {
   width: 70px;
 }
-

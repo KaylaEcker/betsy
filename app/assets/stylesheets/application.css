@@ -65,11 +65,23 @@ select {
   text-align: center;
 }
 
-.mini-heading {
-font-family: 'Gloria Hallelujah', cursive;
+.mini-heading a{
+  font-family: 'Gloria Hallelujah', cursive;
+  color: black;
+  text-shadow: 1px 2px 	#7Da50f;
 }
 
-.price-heading {
+.mini-heading a:hover{
+  color: #006400;
+}
+
+.mini-heading{
+  font-family: 'Gloria Hallelujah', cursive;
+  color: black;
+  text-shadow: 1px 2px 	#7Da50f;
+}
+
+.price-heading a{
   font-family: 'Roboto Slab', serif;
   text-shadow: .1px 1px black;
 }

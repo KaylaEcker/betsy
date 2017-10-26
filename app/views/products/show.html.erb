@@ -11,6 +11,9 @@
   <article class= "pdetails column small-12 medium-12 large-5">
     <div>
       <h2><%= @product.name %></h2>
+      <% if @product.status == "retired" %>
+        <h4 class=heading>Retired product</h4>
+      <% end %>
         <% if @product.reviews.count > 0 %>
           <div class="dynamic-star">
             <span class="dynamic-star overlay" style="<%= "width: #{@product.average_rating / 5.0 * 100}%" %>" >

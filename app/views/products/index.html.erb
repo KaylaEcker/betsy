@@ -13,7 +13,7 @@
     <%= select_tag "merchant", options_from_collection_for_select(Merchant.active_merchants, "id", "username", selected: params[:merchant].to_i), include_blank: "all" %>
   </div>
   <div class = "column small-2">
-    <%= submit_tag("Submit", class: "button nomar") %>
+    <%= submit_tag("Submit", class: "button") %>
   </div>
   <% end %>
 </section>
@@ -21,6 +21,7 @@
 <section class = "row full-width">
     <% @products.each do |product| %>
     <article class = "product-card columns small-10 medium-5 large-3">
+
       <% if product.photo_url %>
         <figure>
           <img src= "<%= product.photo_url %>" alt "<%= product.photo_url %>" height: "250" width: "250" />

@@ -26,8 +26,12 @@ ul {
 body{
   position: relative;
   font-family: monospace;
-  background-color: rgb(255, 204, 153);
-}
+    background: url("https://st.depositphotos.com/1020341/1966/i/950/depositphotos_19664225-stock-photo-white-wood-background.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
 
 header h2 {
   font-family: 'Calligraffitti';
@@ -36,17 +40,11 @@ header h2 {
 .page-header {
   max-width: 100%;
   background-color: #fbcea1;
-  /*background: url("https://slack-imgs.com/?c=1&url=https%3A%2F%2F78.media.tumblr.com%2Fc5c216b73a8bfb67f14a2039a2028f0e%2Ftumblr_oe0u0sDBLb1vuuoz3o1_540.gif") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
-  /*border-bottom: 1px solid #EEEEEE;*/
+  opacity: 0.2;
   box-shadow: 5px 5px 5px #d6b695;
   padding: 25px 20px 10px 20px;
   left: 0;
   top: 0;
-
 }
 
 .flash {

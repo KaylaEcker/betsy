@@ -1,8 +1,8 @@
-<h1 class=heading><%= @product.name %></h1>
+<h1 class=heading><%= @product.name.capitalize %></h1>
 <% if @product.status == "retired" %>
   <h4 class=heading>Retired product</h4>
 <% end %>
-
+<div class=price-heading>
 <h3>List Price: US $<%= @product.price %></h3>
 <% if @product.quantity <= 5 %>
   <li><span class="quant">Limited - Only <%= @product.quantity %> left in stock </span></li>
@@ -12,8 +12,7 @@
     <% end %>
 
 <h3>Categories: <%= @product.categories.join(", ") %></h3>
-<h3>Description:</h3>
-<p><%= product_description(@product) %></p>
+<h3>Description: <%= product_description(@product) %></h3>
 
 <% if @product.photo_url %>
   <img src= "<%= @product.photo_url %>" alt "<%= @product.photo_url %>" height: "250" width: "250" />
@@ -25,7 +24,7 @@
   <%= link_to("Leave a review", new_review_path(@product.id), method: :get, class: "button") %>
 <% end %>
 
-<h3>Average Rating:</h3>
+<h3 class=price-heading>Average Rating:</h3>
 <% if @product.reviews.count > 0 %>
 <div class="dynamic-star">
   <span class="dynamic-star overlay" style="<%= "width: #{@product.average_rating / 5.0 * 100}%" %>" >
@@ -40,7 +39,7 @@
 </span>
 <% end %>
 
-<h3>Reviews: </h3>
+<h3 class=price-heading>Reviews: </h3>
 <% if @product.reviews.count < 1  %>
   <p>Be the first to review this item</p>
 <% else %>
@@ -65,3 +64,4 @@
 <% else %>
   <%= link_to "Add to cart", add_order_item_path(session[:order_id], @product.id), method: :patch, class: :button %>
 <% end %>
+</div>

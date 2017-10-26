@@ -21,24 +21,21 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 </head>
 <body>
-  <header class = "page-header row">
-    <nav class = bg>
-
-    </nav>
-    <nav class = row>
+  <header class="page-header row">
+    <nav class="row">
       <h2 class="column small-8">
-        <img src = https://files.slack.com/files-pri/T57TQUXU7-F7QDJLY4B/treehuggernobackground.png class=hugger></url>
+        <%= image_tag("treehuggernobackground.png", class: "hugger", alt: "treehugger") %>
         <%= link_to "treebae", root_path%>
       </h2>
 
-      <a class = cart "column small-2 float-right" href= <%=show_cart_path %> ><img src="https://cdn3.iconfinder.com/data/icons/christmas-vector-line-2/128/76-512.png"  alt = "Shopping Cart" height="42" width="42"/>
+      <a class="cart column small-2 float-right" href="<%= show_cart_path %>" ><img src="https://cdn3.iconfinder.com/data/icons/christmas-vector-line-2/128/76-512.png"  alt="Shopping Cart" height="42" width="42"/>
 
-      <section class = "column small-2">
+      <section class="column small-2">
         <% if session[:merchant_id] %>
-          <div class= "dropdown">
+          <div class="dropdown">
             <h3>You</h3>
 
-            <div class = "dropdown-content">
+            <div class="dropdown-content">
 
             <h4><%= link_to "Log Out", logout_path, method: :post %></h4>
             <h4><%= link_to "My account", merchant_path(session[:merchant_id])%></h4>
@@ -75,7 +72,7 @@
       <% end %>
     </section>
 
-    <secion class = "full-width">
+    <secion class="full-width">
       <%= yield %>
     </secion>
 

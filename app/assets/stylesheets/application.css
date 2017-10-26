@@ -48,11 +48,17 @@ select {
   font-size: 1.5em;
 }
 
+section, article {
+  margin-bottom: 2%;
+}
+
 .sadtree {
   display: block;
   width: 40%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .heading {
@@ -160,12 +166,17 @@ font-family: 'Gloria Hallelujah', cursive;
   padding-bottom: 10px;
 }
 
-.cart {
+.cart_sym {
   float: right;
 }
 
 .float-right {
   float: right;
+}
+
+.cart img {
+  height: 200px;
+  width: auto;
 }
 
 .dropdown {

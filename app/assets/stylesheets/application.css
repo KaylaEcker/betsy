@@ -45,7 +45,7 @@ header h2 {
 select {
   -webkit-appearance: none;
   height: 40px;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 section, article {
@@ -177,6 +177,9 @@ font-family: 'Gloria Hallelujah', cursive;
 .cart img {
   height: 200px;
   width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .dropdown {

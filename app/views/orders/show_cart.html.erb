@@ -26,11 +26,20 @@
       <% if @cart.orderitems %>
       <% @cart.orderitems.each do |order_item| %>
       <ul class="row cart-items" class="cart large-10 small-10 columns">
-        <li class="cart product-name large-4 small-4 columns"><%= link_to order_item.product.name, product_path(order_item.product_id) %>
+        <li class="cart product-name large-4 small-12 columns">
         <img src="<%= order_item.product.photo_url %>" alt "<%= order_item.product.photo_url %>"/>
         </li>
 
-        <li class="cart large-2 small-2 columns">
+        <li class="cart large-2 small-12 columns">
+          <div class="big-red">
+          <%= link_to order_item.product.name, product_path(order_item.product_id) %>
+          </div>
+          <div>
+            <%= number_to_currency(order_item.subtotal) %>
+          </div>
+        </li>
+
+        <li class="cart large-2 small-6 columns">
           <div class="add-to-cart">
             <%= form_tag(update_quantity_path(@cart.id, order_item.product.id), method: :patch) do %>
             <%= label_tag(:quantity, "(max #{order_item.product.quantity})") %>
@@ -39,8 +48,8 @@
             <% end %>
           </div>
         </li>
-        <li class="cart large-2 small-2 columns"><span class="big-red"><%= number_to_currency(order_item.subtotal) %></span></li>
-        <li class="cart large-4 small-4 columns">
+
+        <li class="cart large-4 small-6 columns">
           <%= link_to "Remove", remove_from_cart_path(@cart.id, order_item.product.id), method: :delete, class: "button" %>
         </li>
       </ul>

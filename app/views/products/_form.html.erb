@@ -1,3 +1,4 @@
+<div class=price-heading>
 <%= form_tag(path, method: method) do %>
 
   <%= hidden_field_tag(:merchant_id, @merchant.id) %>
@@ -34,3 +35,4 @@
   <%= button_to "Cancel", :root, method: :get %>
 
 <% end %>
+</div>

@@ -30,11 +30,7 @@ ul {
 body{
   position: relative;
   font-family: monospace;
-    background: url("https://st.depositphotos.com/1020341/1966/i/950/depositphotos_19664225-stock-photo-white-wood-background.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background: #eef0f2;
   }
 
 header h2 {
@@ -48,9 +44,28 @@ select {
   font-size: 1.5em;
 }
 
+.pdetails {
+  padding-left: 3%;
+}
+
+.pdetails h2 {
+  margin-right: 5%;
+  display: inline-block;
+}
+
 .heading {
   font-family: 'Indie Flower', cursive;
-  text-shadow: 2px 2px black;
+  text-shadow: 1px 2px 	#00008B;
+  text-align: center;
+}
+
+.mini-heading {
+font-family: 'Gloria Hallelujah', cursive;
+}
+
+.price-heading {
+  font-family: 'Roboto Slab', serif;
+  text-shadow: .1px 1px black;
 }
 
 .row {
@@ -58,6 +73,7 @@ select {
 }
 
 .page-header {
+  margin-bottom: 50px;
   max-width: 100%;
   box-shadow: 5px 5px 5px black;
   padding: 25px 20px 10px 20px;
@@ -123,6 +139,11 @@ select {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.review .button {
+  position: relative;
+  top: 8px;
 }
 
 .flash {
@@ -264,3 +285,28 @@ select {
 
 .rating-labels label:hover ~ label::before {
   color: darkgray;
+<<<<<<< HEAD
+}
+
+.pshow {
+  box-shadow: 0px 5px 0px grey;
+  padding-bottom: 60px;
+  margin-bottom: 60px;
+}
+=======
+
+}
+
+.button {
+color: black;
+font-family: 'Indie Flower', cursive;
+background-color: #7DD181;
+border: 2px solid #468c4f;
+border-radius: 8px;
+  }
+
+.button:hover {
+  background-color: #468c4f; /* Green */
+  color: white;
+  }
+>>>>>>> d3a8eb3616543fb758eaa77c81bd505b2c99a644

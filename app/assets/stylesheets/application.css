@@ -46,7 +46,6 @@ header h2 a:hover {
 select {
   -webkit-appearance: none;
   height: 40px;
-  font-size: 1.5em;
 }
 
 .pdetails {
@@ -56,11 +55,6 @@ select {
 .pdetails h2 {
   margin-right: 5%;
   display: inline-block;
-}
-
-.heading {
-  text-shadow: 1px 2px 	#7Da50f;
-  text-align: center;
 }
 
 .mini-heading a{
@@ -79,10 +73,6 @@ select {
 
 .inline-list li {
   display: inline-block;
-}
-
-.price-heading a{
-  text-shadow: .1px 1px black;
 }
 
 .row {
@@ -124,37 +114,6 @@ select {
 .filter .button {
   position: relative;
   top: 22px;
-}
-
-.product-card {
-  height: 550px;
-  border: 1px solid black;
-  background-color: white;
-  margin: 4.15%;
-  position: relative;
-}
-
-.product-card img {
-  display: block;
-  max-width: 100%;
-  max-height: 300px;
-  overflow: hidden;
-  margin-top: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 30px;
-}
-
-.product-card h4 {
-  text-align: center;
-  margin-bottom: 25px;
-}
-
-
-.product-card .button {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .review .button {
@@ -224,7 +183,26 @@ select {
   width: 0.385em;
 }
 
-/*star ratings for reviews*/
+.pshow {
+  box-shadow: 0px 5px 0px grey;
+  padding-bottom: 60px;
+  margin-bottom: 60px;
+}
+
+
+.button {
+color: black;
+background-color: #7DD181;
+border: 2px solid #468c4f;
+border-radius: 8px;
+  }
+
+.button:hover {
+  background-color: #468c4f; /* Green */
+  color: white;
+}
+
+/***********star ratings for reviews********************/
 .dynamic-star {
   color: #fcfcfc;
   display: inline-block;
@@ -298,23 +276,4 @@ select {
 .rating-labels label:hover ~ label::before {
   color: darkgray;
 
-}
-
-.pshow {
-  box-shadow: 0px 5px 0px grey;
-  padding-bottom: 60px;
-  margin-bottom: 60px;
-}
-
-
-.button {
-color: black;
-background-color: #7DD181;
-border: 2px solid #468c4f;
-border-radius: 8px;
-  }
-
-.button:hover {
-  background-color: #468c4f; /* Green */
-  color: white;
 }

@@ -1,3 +1,39 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//INDEX//////////////////////////////////////////////////////////
+.product-card {
+  height: 350px;
+  border: 1px solid darkgray;
+  border-radius: 10px;
+  background-color: white;
+  margin: 4.15%;
+  position: relative;
+}
+
+.product-card figure {
+  height: 200px
+}
+
+.product-card img {
+  display: block;
+  max-width: 100%;
+  max-height: 90%;
+  overflow: hidden;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
+
+.product-card-details {
+  height: 150px;
+  overflow: hidden;
+}
+
+.product-card .button {
+  display: block;
+  margin-left: 25%;
+  margin-right: 25%;
+}

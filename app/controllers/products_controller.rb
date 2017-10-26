@@ -5,7 +5,7 @@ before_action :get_categories, only: [:index, :edit, :new]
 
   def index
     @products = Product.get_products(a_category: params[:category], a_merchant: params[:merchant]) & Product.active_only
-
+    return @categories.unshift("all")
     # IF NEEDED UNCOMMENT self.retired_only IN MODEL
     # @retired_products = Product.get_products(a_category: params[:category], a_merchant: params[:merchant]) & Product.retired_only
 

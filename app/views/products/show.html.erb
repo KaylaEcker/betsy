@@ -1,6 +1,6 @@
-<h1><%= @product.name %></h1>
+<h1 class=heading><%= @product.name %></h1>
 <% if @product.status == "retired" %>
-  <h4>Retired product</h4>
+  <h4 class=heading>Retired product</h4>
 <% end %>
 
 <h3>List Price: US $<%= @product.price %></h3>

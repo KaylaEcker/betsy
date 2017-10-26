@@ -1,4 +1,8 @@
-<h1>treebae Products</h1>
+
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+<h1 class=heading>Popular treeBae Deals</h1>
+<%= form_tag(root_path, method: :get) do %>
+
 <section class = "row filter">
   <%= form_tag(root_path, method: :get) do %>
 
@@ -19,7 +23,7 @@
 
 <section class = "row full-width">
     <% @products.each do |product| %>
-    <article class = "product-card columns small-10 large-3">
+    <article class = "product-card columns small-10 medium-5 large-3">
       <% if product.photo_url %>
         <figure>
           <img src= "<%= product.photo_url %>" alt "<%= product.photo_url %>" height: "250" width: "250" />
@@ -30,4 +34,5 @@
       <%= link_to "Add to cart", add_order_item_path(session[:order_id], product.id), method: :patch, class: :button %>
     </article>
     <% end %>
+      <% end %>
 </section>

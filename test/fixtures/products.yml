@@ -16,6 +16,7 @@ tree2:
   categories: [outdoor]
   quantity: 10
   status: "active"
+  description: This is a tree
 
 tree3:
   name: Tree3

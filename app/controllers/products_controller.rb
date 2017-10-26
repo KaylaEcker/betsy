@@ -52,8 +52,8 @@ before_action :get_categories, only: [:index, :edit, :new]
   def new
     unless @merchant
       flash[:status] = :error
-      flash[:result_text] = "You need to be logged in to edit or create a product!"
-      redirect_back fallback_location: root_path, status: 403
+      flash[:result_text] = "You need to be logged in to create a product!"
+      redirect_back fallback_location: root_path
     end
 
     @product = Product.new(merchant_id: session[:merchant_id])
@@ -64,7 +64,7 @@ before_action :get_categories, only: [:index, :edit, :new]
     unless @merchant
       flash[:status] = :error
       flash[:result_text] = "You need to be logged in to create a product!"
-      return redirect_back fallback_location: root_path, status: 403
+      return redirect_back fallback_location: root_path
     end
 
     @product = Product.new(product_params)

@@ -35,6 +35,12 @@ body{
 
 header h2 {
   font-family: 'Calligraffitti';
+  text-shadow: 2px 2px black;
+}
+
+.heading {
+  font-family: 'Indie Flower', cursive;
+  text-shadow: 2px 2px black;
 }
 
 .row {
@@ -43,12 +49,15 @@ header h2 {
 
 .page-header {
   max-width: 100%;
-  background-color: #fbcea1;
-  opacity: 0.2;
-  box-shadow: 5px 5px 5px #d6b695;
+  box-shadow: 5px 5px 5px black;
   padding: 25px 20px 10px 20px;
   left: 0;
   top: 0;
+}
+
+.bg {
+  background-color: brown;
+  opacity: 0.4;
 }
 
 .content {
@@ -195,4 +204,3 @@ header h2 {
 
 .rating-labels label:hover ~ label::before {
   color: darkgray;
-}

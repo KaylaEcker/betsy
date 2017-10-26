@@ -52,7 +52,7 @@ describe Merchant do
       # verify that the pending order won't show up in the collection returned by join_orderitems(status)
       merchant_pending_orders.must_be :>, 0
       all_order_items = sappy1.join_orderitems("")
-      all_order_items.length.must_equal 2
+      all_order_items.length.must_equal 4
       all_order_items.each do |item|
         item.order.status.wont_equal "pending"
       end
@@ -61,7 +61,7 @@ describe Merchant do
 
     it "returns all orders when a status is an empty string or nil" do
       sappy1_orderitems = sappy1.join_orderitems("")
-      sappy1_orderitems.length.must_equal 2
+      sappy1_orderitems.length.must_equal 4
       sappy1.join_orderitems(nil).must_equal sappy1_orderitems
     end
 

@@ -77,10 +77,14 @@ describe ProductsController do
 
     it "must redirect to root path if a merchant is not signed in" do
       # With no mercant signed in
-      get edit_product_path(one.id)
+      post logout_path
+      get new_product_path
+      session[:merchant_id].must_equal nil
       must_respond_with :redirect
       flash[:status].must_equal :error
+      flash[:result_text].must_equal "You need to be logged in to create a product!"
       must_redirect_to root_path
+
     end
   end
 
@@ -138,7 +142,7 @@ describe ProductsController do
         post products_path, params: { name: "Name", price: 50, category: "new category", description: "This is a new product", photo_url: "www.google.com", quantity: 1, merchant_id: merchants(:sappy1).id }
       }.must_change 'Product.count', 0
 
-      must_respond_with :forbidden
+      must_respond_with :redirect
       flash[:status].must_equal :error
     end
   end

@@ -22,8 +22,17 @@ describe ReviewsController do
       }.must_change 'Review.count', 1
 
       must_respond_with :redirect
-
     end
+
+  it "a merchant can't access the review form for their own product" do
+    login(merchant, :github)
+    flash[:status] = :success
+    get new_review_path(product.id)
+    flash[:status] = :error
+    flash[:result_text] = "Merchant can't leave reviews of their own products, sorry! Wink-wink."
+    must_redirect_to product_path(product.id)
+  end
+
     it "should rerender the form and not update the review table if it can't create the review" do
       proc {
         post reviews_path, params: { review: { title: "", review_text: "Super duper review", rating: 4, product_id: products(:tree1).id } }

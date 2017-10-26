@@ -44,6 +44,15 @@ select {
   font-size: 1.5em;
 }
 
+.pdetails {
+  padding-left: 3%;
+}
+
+.pdetails h2 {
+  margin-right: 5%;
+  display: inline-block;
+}
+
 .heading {
   font-family: 'Indie Flower', cursive;
   text-shadow: 1px 2px 	#00008B;
@@ -64,6 +73,7 @@ font-family: 'Gloria Hallelujah', cursive;
 }
 
 .page-header {
+  margin-bottom: 50px;
   max-width: 100%;
   box-shadow: 5px 5px 5px black;
   padding: 25px 20px 10px 20px;
@@ -113,6 +123,11 @@ font-family: 'Gloria Hallelujah', cursive;
   margin-top: 15px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.review .button {
+  position: relative;
+  top: 8px;
 }
 
 .flash {
@@ -254,6 +269,15 @@ font-family: 'Gloria Hallelujah', cursive;
 
 .rating-labels label:hover ~ label::before {
   color: darkgray;
+<<<<<<< HEAD
+}
+
+.pshow {
+  box-shadow: 0px 5px 0px grey;
+  padding-bottom: 60px;
+  margin-bottom: 60px;
+}
+=======
 
 }
 
@@ -269,3 +293,4 @@ border-radius: 8px;
   background-color: #468c4f; /* Green */
   color: white;
   }
+>>>>>>> d3a8eb3616543fb758eaa77c81bd505b2c99a644

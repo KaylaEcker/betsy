@@ -19,7 +19,7 @@
 <body>
   <header class = "page-header row">
     <nav class = bg>
-      
+
     </nav>
     <nav class = row>
       <h2 class="column small-8">
@@ -30,15 +30,16 @@
 
       <section class = "column small-2">
         <% if session[:merchant_id] %>
-          <div class= "drop-down">
-            <span class = "button" >You</span>
+          <div class= "dropdown">
+            <h3>You</h3>
 
             <div class = "dropdown-content">
 
-              <%= link_to "Log Out", logout_path, method: :post, class: "button" %>
-              <%= link_to "My account", merchant_path(session[:merchant_id]), class: "button" %>
-              <%= link_to "Add new product", new_product_path, method: :get, class: "button" %>
-              <%= link_to "Fulfillment", merchant_fulfillment_path(session[:merchant_id]), method: :get, class: "button" %>
+            <h4><%= link_to "Log Out", logout_path, method: :post %></h4>
+            <h4><%= link_to "My account", merchant_path(session[:merchant_id])%></h4>
+            <h4><%= link_to "Add new product", new_product_path, method: :get %></h4>
+            <h4><%= link_to "Fulfillment", merchant_fulfillment_path(session[:merchant_id]) %></h4>
+
 
             </div>
           </div>

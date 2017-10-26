@@ -48,8 +48,6 @@ select {
   font-size: 1.5em;
 }
 
-
-
 .heading {
   font-family: 'Indie Flower', cursive;
   text-shadow: 2px 2px black;
@@ -87,9 +85,13 @@ select {
   width: 80%;
 }
 
-.nopadmar {
+.nomar {
   margin: 0;
-  padding: 0;
+}
+
+.filter .button {
+  position: relative;
+  top: 22px;
 }
 
 .product-card {
@@ -149,8 +151,9 @@ select {
   float: right;
 }
 
-.drop-down {
+.dropdown {
   position: relative;
+  display: inline-block;
 }
 
 .dropdown-content {
@@ -163,7 +166,7 @@ select {
   z-index: 1;
 }
 
-.drop-down:hover .dropdown-content {
+.dropdown:hover .dropdown-content {
   display: block;
 }
 

@@ -78,10 +78,10 @@
   <% if @product.reviews.count < 1  %>
     <p>Be the first to review this item</p>
   <% else %>
-  <section class = "pshow">
+  <section>
     <ul>
       <% @product.reviews.each do |review| %>
-        <li>
+        <li class = "pshow">
           <% review.rating.times do %>
             <span class="checked star">&#x2605</span>
           <% end %>

@@ -30,12 +30,14 @@ ul {
 body{
   position: relative;
   font-family: monospace;
-    background: #eef0f2;
+  background: #eef0f2;
   }
 
-header h2 {
+header h2 a{
   font-family: 'Calligraffitti';
   text-shadow: 2px 2px black;
+  color: #407c00;
+  font-size: 3.5rem;
 }
 
 select {
@@ -55,7 +57,7 @@ select {
 
 .heading {
   font-family: 'Indie Flower', cursive;
-  text-shadow: 1px 2px 	#00008B;
+  text-shadow: 1px 2px 	#7Da50f;
   text-align: center;
 }
 
@@ -285,7 +287,7 @@ font-family: 'Gloria Hallelujah', cursive;
 
 .rating-labels label:hover ~ label::before {
   color: darkgray;
-<<<<<<< HEAD
+
 }
 
 .pshow {
@@ -293,9 +295,7 @@ font-family: 'Gloria Hallelujah', cursive;
   padding-bottom: 60px;
   margin-bottom: 60px;
 }
-=======
 
-}
 
 .button {
 color: black;
@@ -309,4 +309,9 @@ border-radius: 8px;
   background-color: #468c4f; /* Green */
   color: white;
   }
->>>>>>> d3a8eb3616543fb758eaa77c81bd505b2c99a644
+
+
+.hugger {
+  width: 70px;
+}
+

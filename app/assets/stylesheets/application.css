@@ -30,11 +30,7 @@ ul {
 body{
   position: relative;
   font-family: monospace;
-    background: url("https://st.depositphotos.com/1020341/1966/i/950/depositphotos_19664225-stock-photo-white-wood-background.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background: #eef0f2;
   }
 
 header h2 {
@@ -264,4 +260,12 @@ font-family: 'Gloria Hallelujah', cursive;
 .button {
 color: black;
 font-family: 'Indie Flower', cursive;
+background-color: #7DD181;
+border: 2px solid #468c4f;
+border-radius: 8px;
+  }
+
+.button:hover {
+  background-color: #468c4f; /* Green */
+  color: white;
   }

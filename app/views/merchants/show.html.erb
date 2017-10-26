@@ -16,7 +16,7 @@
     </tr>
     <%  @merchant.products.each do |product| %>
       <tr>
-        <td><%= link_to product.name, product_path(product.id) %></td>
+        <td><%= link_to product.name.capitalize, product_path(product.id) %></td>
         <td><%= product.quantity %></td>
         <td><%= pretty_date(product.created_at) %></td>
         <td><%= link_to "Update", edit_product_path(product.id), class: "button" %></td>

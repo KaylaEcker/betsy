@@ -26,7 +26,7 @@
           <img src= "<%= product.photo_url %>" alt "<%= product.photo_url %>" height: "250" width: "250" />
         </figure>
       <% end %>
-      <h4 class=mini-heading><%= link_to(product.name, product_path(product.id)) %></h4>
+      <h4 class=mini-heading><%= link_to(product.name.capitalize, product_path(product.id)) %></h4>
       <h4 class=price-heading>US $<%= product.price%></h4>
       <%= link_to "Add to cart", add_order_item_path(session[:order_id], product.id), method: :patch, class: :button %>
     </article>

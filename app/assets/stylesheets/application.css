@@ -19,6 +19,10 @@
 
 /* FLASH NOTIFICATIONS */
 
+/** {
+  border: 1px solid black;
+}*/
+
 ul {
   list-style-type: none;
 }
@@ -44,7 +48,14 @@ select {
   font-size: 1.5em;
 }
 
+.pdetails {
+  padding-left: 3%;
+}
 
+.pdetails h2 {
+  margin-right: 5%;
+  display: inline-block;
+}
 
 .heading {
   font-family: 'Indie Flower', cursive;
@@ -56,6 +67,7 @@ select {
 }
 
 .page-header {
+  margin-bottom: 50px;
   max-width: 100%;
   box-shadow: 5px 5px 5px black;
   padding: 25px 20px 10px 20px;
@@ -240,3 +252,10 @@ select {
 
 .rating-labels label:hover ~ label::before {
   color: darkgray;
+}
+
+.pshow {
+  box-shadow: 5px 5px 5px black;
+  padding-bottom: 60px;
+  margin-bottom: 60px;
+}

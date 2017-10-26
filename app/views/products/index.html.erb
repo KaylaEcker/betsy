@@ -14,7 +14,7 @@
     <%= label_tag(:merchant, "Merchant") %>
     <%= select_tag "merchant", options_from_collection_for_select(Merchant.active_merchants, "id", "username", selected: params[:merchant].to_i), include_blank: "all" %>
   </div>
-  <div class = " column small-2">
+  <div class = "column small-2">
     <%= submit_tag("Submit", class: "button") %>
   </div>
 

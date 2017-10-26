@@ -19,6 +19,10 @@
 
 /* FLASH NOTIFICATIONS */
 
+/** {
+  border: 1px solid black;
+}*/
+
 ul {
   list-style-type: none;
 }
@@ -36,6 +40,12 @@ body{
 header h2 {
   font-family: 'Calligraffitti';
   text-shadow: 2px 2px black;
+}
+
+select {
+  -webkit-appearance: none;
+  height: 40px;
+  font-size: 1.5em;
 }
 
 .heading {
@@ -85,8 +95,13 @@ font-family: 'Gloria Hallelujah', cursive;
   width: 80%;
 }
 
-.filter div {
-  margin: 10px;
+.nomar {
+  margin: 0;
+}
+
+.filter .button {
+  position: relative;
+  top: 22px;
 }
 
 .product-card {
@@ -146,8 +161,9 @@ font-family: 'Gloria Hallelujah', cursive;
   float: right;
 }
 
-.drop-down {
+.dropdown {
   position: relative;
+  display: inline-block;
 }
 
 .dropdown-content {
@@ -160,7 +176,7 @@ font-family: 'Gloria Hallelujah', cursive;
   z-index: 1;
 }
 
-.drop-down:hover .dropdown-content {
+.dropdown:hover .dropdown-content {
   display: block;
 }
 

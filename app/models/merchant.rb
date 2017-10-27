@@ -15,8 +15,9 @@ class Merchant < ApplicationRecord
   end
 
   def self.active_merchants
-    merchants = Product.where(status: "active").pluck(:merchant_id).uniq
-    return merchants.map { |m| Merchant.find_by(id: m) }
+    products = Product.where(status: "active").pluck(:merchant_id).uniq
+    merchants = products.map { |m| Merchant.find_by(id: m) }
+    return merchants.sort_by{|m| m.username.downcase}
   end
 
 end

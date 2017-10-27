@@ -47,7 +47,8 @@ class Product < ApplicationRecord
   # end
 
   def self.categories
-    return Product.where(status: "active").pluck(:categories).flatten.uniq
+    categories = Product.where(status: "active").pluck(:categories).flatten.uniq
+    return categories.sort_by{|c| c.downcase}
   end
 
   def average_rating

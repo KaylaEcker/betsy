@@ -13,7 +13,7 @@ before_action :get_categories, only: [:index, :edit, :new]
       category = params[:category]
     end
 
-    @products = Product.get_products(a_category: category, a_merchant: merchant) & Product.active_only
+    @products = (Product.get_products(a_category: category, a_merchant: merchant) & Product.active_only).paginate(page: params[:page], per_page: 15)
 
     # IF NEEDED UNCOMMENT self.retired_only IN MODEL
     # @retired_products = Product.get_products(a_category: params[:category], a_merchant: params[:merchant]) & Product.retired_only

@@ -39,6 +39,10 @@
   overflow: hidden;
 }
 
+.page * {
+  float: left;
+}
+
 //SHOW//////////////////////////////////////////////////////////
 .product-show {
   figure {
@@ -58,15 +62,17 @@
 }
 
 //LEAVE A REVIEW BUTTON/////////////
-a.button {
-  margin-left: -7px;
-  margin-top: 5px;
-  margin-bottom: 50px;
-}
-section.bottom-space {
-  margin-bottom: 20px;
-}
-li.smaller {
-  font-size: 0.9rem;
-  margin-bottom: 2px;
+.reviews {
+  a.button {
+    margin-left: -7px;
+    margin-top: 5px;
+    margin-bottom: 50px;
+  }
+  section.bottom-space {
+    margin-bottom: 20px;
+  }
+  li.smaller {
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+  }
 }

@@ -17,15 +17,9 @@
   <%= label_tag(:category, "Category") %>
   <%= text_field_tag(:category) %>
 
-<<<<<<< HEAD
-  <%= radio_button_tag(:status, "active", (@product.status == "active")) %>
-  <%= label_tag(:status, "Active")%>
-  <%= radio_button_tag(:status, "retired", (@product.status == "retired")) %>
-=======
   <%= radio_button_tag(:status, "active", @product.status == "active") %>
   <%= label_tag(:status, "Active")%>
   <%= radio_button_tag(:status, "retired", @product.status == "retired") %>
->>>>>>> e4a31e57128655fa0bb1949cdf42aa0ac03a1d50
   <%= label_tag(:status, "Retired") %>
 
   <%= label_tag(:description) %>

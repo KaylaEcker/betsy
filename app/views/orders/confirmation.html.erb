@@ -6,8 +6,8 @@
     <li>
       <strong><%= link_to orderitem.product.name, product_path(orderitem.product_id) %></strong>
       Quantity: <%= orderitem.quantity %>
-      Subtotal: $<%= orderitem.quantity * orderitem.product.price %>
+      Subtotal: <%= number_to_currency(orderitem.quantity * orderitem.product.price) %>
     </li>
   <% end %>
 </ul>
-<strong>Total: $<%= sprintf('%.2f', @total) %></strong>
+<strong>Total: <%= number_to_currency(@total) %></strong>

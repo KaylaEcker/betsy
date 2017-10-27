@@ -1,4 +1,4 @@
-<div class=price-heading>
+<div class="columns small-12 medium-8 medium-offset-2 large-6 large-offset-3">
 <%= form_tag(path, method: method) do %>
 
   <%= hidden_field_tag(:merchant_id, @merchant.id) %>
@@ -27,7 +27,7 @@
 
   <%= label_tag(:photo_url, "Image URL: ") %>
   <%= text_field_tag(:photo_url, @product.photo_url) %>
-  
+
   <%= submit_tag(submit_name, class: "button", :maxlength => 30) %>
 
   <%= link_to "Cancel", root_path, method: :get, class: 'button' %>

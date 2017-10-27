@@ -106,7 +106,7 @@ describe ProductsController do
         post products_path, params: { name: "", price: 2, category: "new category", quantity: 1, merchant_id: merchants(:sappy1).id }
       }.must_change 'Product.count', 0
 
-      must_respond_with :redirect
+      must_respond_with :bad_request
       flash[:status].must_equal :error
     end
 
@@ -115,7 +115,7 @@ describe ProductsController do
         post products_path, params: { name: "Name", category: "new category", quantity: 1, merchant_id: merchants(:sappy1).id }
       }.must_change 'Product.count', 0
 
-      must_respond_with :redirect
+      must_respond_with :bad_request
       flash[:status].must_equal :error
     end
 
@@ -307,7 +307,7 @@ describe ProductsController do
 
         test_product.name.must_equal "Tree1"
         flash[:status].must_equal :error
-        must_redirect_to edit_product_path(one.id)
+        must_respond_with :bad_request
       end
     end
   end

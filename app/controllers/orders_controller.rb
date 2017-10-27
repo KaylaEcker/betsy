@@ -49,11 +49,10 @@ class OrdersController < ApplicationController
       flash[:result_text] = "Your order has been placed"
       return redirect_to order_confirmation_path(@cart.id)
     else
-      puts "NOT SAVING"
-      puts @cart.errors.messages
-      flash[:status] = :error
-      flash[:result_text] = "Your order could not be placed at this time"
-      return redirect_to show_cart_path
+      flash.now[:status] = :error
+      flash.now[:result_text] = "Your order could not be placed at this time"
+      flash.now[:messages] = @cart.errors.messages
+      render :checkout_form
     end
 
   end #checkout

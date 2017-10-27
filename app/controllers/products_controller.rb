@@ -35,7 +35,6 @@ before_action :get_categories, only: [:index, :edit, :new]
       flash[:result_text] = "Unauthorized user"
       return redirect_to root_path
     end
-
     @product.update_attributes(product_params)
     update_categories
 
@@ -44,8 +43,11 @@ before_action :get_categories, only: [:index, :edit, :new]
       flash[:result_text] = "#{@product.name} updated."
       redirect_to product_path(@product.id)
     else
-      flash[:status] = :error
-      redirect_to edit_product_path(@product.id)
+      @categories = @product.categories
+      flash.now[:status] = :error
+      flash.now[:result_text] = "Could not update product"
+      flash.now[:messages] = @product.errors.messages
+      render :edit, status: 400
     end
   end
 
@@ -74,10 +76,11 @@ before_action :get_categories, only: [:index, :edit, :new]
     if @product.save
       return redirect_to product_path(@product.id)
     else
-      flash[:status] = :error
-      flash[:result_text] = "Product failed to be added"
-      flash[:messages] = @product.errors.messages
-      return redirect_to new_product_path
+      @categories = @product.categories
+      flash.now[:status] = :error
+      flash.now[:result_text] = "Product failed to be added"
+      flash.now[:messages] = @product.errors.messages
+      render :new, status: 400
     end
   end
 

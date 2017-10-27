@@ -48,10 +48,25 @@
     }
   }
   article {
-    padding-left: 3%;
+    // padding-left: 3%;
+    padding: 0px;
     h2 {
-      margin-right: 5%;
+      // margin-right: 5%;
       display: inline-block;
     }
   }
+}
+
+//LEAVE A REVIEW BUTTON/////////////
+a.button {
+  margin-left: -7px;
+  margin-top: 5px;
+  margin-bottom: 50px;
+}
+section.bottom-space {
+  margin-bottom: 20px;
+}
+li.smaller {
+  font-size: 0.9rem;
+  margin-bottom: 2px;
 }

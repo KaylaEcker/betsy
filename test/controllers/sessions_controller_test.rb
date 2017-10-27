@@ -7,7 +7,7 @@ describe SessionsController do
     start_count = Merchant.count
     login(@merchant, :github)
     Merchant.count.must_equal start_count
-    must_redirect_to root_path
+    must_redirect_to merchant_path(@merchant.id)
     session[:merchant_id].must_equal @merchant.id
   end
 
@@ -21,7 +21,10 @@ describe SessionsController do
     @merchant = Merchant.new(oauth_provider: "github", oauth_uid: 9999, username: "toolazytomakeone", email: "toolazytomakeone@gmail.com")
 
     proc {login(@merchant, :github)}.must_change 'Merchant.count', +1
-    must_redirect_to root_path
+
+    merchant = Merchant.find_by(username: "toolazytomakeone")
+
+    must_redirect_to merchant_path(merchant.id)
     session[:merchant_id].must_equal Merchant.find_by(username: "toolazytomakeone").id
   end
 

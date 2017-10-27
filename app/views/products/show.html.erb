@@ -35,11 +35,21 @@
     <% if @product.quantity <= 5 %>
       <p>Limited - Only <%= @product.quantity %> left in stock </p>
     <% end %>
-    <p>Ships from and sold by: <%= @product.merchant.username%> </p>
+    <p>Ships from and sold by: <%= link_to(@product.merchant.username, products_path(:merchant => @product.merchant.id)) %> </p>
+
     <h3>Description:</h3>
     <p><%= product_description(@product) %></p>
     <% if @product.categories != nil %>
-      <p><strong>Categories: </strong><%= @product.categories.join(", ") %></p>
+      <span><strong>Categories: </strong></span>
+      <% count = 0 %>
+      <% @product.categories.each do |category| %>
+        <% count += 1 %>
+        <% if count < @product.categories.length %>
+          <span><%= link_to(category, products_path(:category => category)) %>, </span>
+        <% else %>
+          <span><%= link_to(category, products_path(:category => category)) %></span>
+        <% end %>
+      <% end %>
     <% end %>
   </article>
 </section>

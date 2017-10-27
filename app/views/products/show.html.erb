@@ -35,7 +35,7 @@
     <% if @product.quantity <= 5 %>
       <p>Limited - Only <%= @product.quantity %> left in stock </p>
     <% end %>
-    <p>Ships from and sold by: <%= @product.name %> </p>
+    <p>Ships from and sold by: <%= @product.merchant.username%> </p>
     <h3>Description:</h3>
     <p><%= product_description(@product) %></p>
     <% if @product.categories != nil %>

@@ -1,11 +1,107 @@
-id,product_id,review_text
-1,1,product1 is awesome
-2,1,product1 is awful
-3,1,product1 is okay
-4,2,product2 is alright
-5,3,product3 is so-so
-6,4,product4 is the best
-7,5,product5 is the worst
-8,6,product6 is meh
-9,7,product7 is great
-10,8,product8 is unsatisfying
+id,product_id,review_text,review_title,rating
+1,23,Great Song by the Beatles. Beautiful love song. George Harrison wrote this song. Beautifully inspired & written...,Something by the Beatles,5
+2,47,Great song!,Five Stars,5
+3,56,love it,Five Stars,5
+4,19,"Betiful song, learning to play it with my ukulele.",George Harrison deserves more credit,5
+5,3,Something is one of the most romantic songs ever written. His songs are some of the best in the Beatles library of music.,Review The Hidden Life of Trees Peter Wohlleben,2
+6,36,Who dont love this song !,Presenting Trees as follow sentient purposeful beings very well done,1
+7,25,AOK,The excellent and the execrable.,3
+8,53,A favorite of mine,I Think That I Shall Never See...,5
+9,43,"The Hidden Life of Trees” is an amazing book presenting trees as sentient, purposeful beings living in dynamic relationship with each other. This is a new aspect for most of us, but apparently has been part of the secret knowledge of foresters since the early 1990’s. Trees, have a sense of time, have memories, taste, smell, feel, explore, see, and hear, but not like we do. Trees even move, from generation to generation just not as individuals. Trees live on a much slower time platform than we do. This single fact has hidden the true life of the trees from us.","Loved the book. Live on a tree-filled island in the summer and have always ""felt"" the companionship of the trees but thought I was crazy. Not any more. Bought it for my four children because they will ""know"" those same trees too.",5
+10,52,"“The Hidden Life of Trees” is carefully and well presented with humor, with gentleness, with compassion, with joy, even with love. The book is not a scientific, heavy fact laden tome. It is a very readable presentation of the last two decades of research into the lives of our follow beings on Earth, the Trees. The author is a German forester, environmentalist who obviously cares very much for his topic of choice.","Misleading ""Facts""",3
+11,53,"Hate dog meow stretch, ears back wide eyed and present belly, scratch hand when stroked cats are fats i like to pets them they like to meow back. Lounge in doorway scratch the postman wake up lick paw wake up owner meow meow.","""...the giraffes were feeding on umbrella thorn acacia, and the trees didn't like this one bit. It took the acacias mere minutes to start pumping toxic substances into their leaves to rid themselves of the large herbivores. The giraffes got the message and moved on to other trees... They walked right by a few trees and and resumed their meal only when they had moved 100 yards away. The acacia trees that were being eaten had given off a warning gas that signaled to neighboring trees... right away, all the forewarned trees also pumped toxins into their leaves... The giraffes were wise to this game and therefore moved farther away to a part of the savannah where they could find trees oblivious to what was going on.""
+?
+",5
+12,45,"Chew foot sleep nap, yet pet right here, no not there, here, no fool, right here that other cat smells funny you should really give me all the treats because i smell the best and omg you finally got the right spot and i love you right now or purr for no reason but peer out window, chatter at birds, lure them to mouth, and meowwww for meow meow, i tell my human.",Plays league of legends,2
+13,37,"Toy mouse squeak roll over. I just saw other cats inside the house and nobody ask me before using my litter box sit in window and stare oooh, a bird, yum cat mojo , yet pee in human's bed until he cleans the litter box for if it fits, i sits. ",Doggo ipsum pupper ur givin me a spook.,3
+14,11,Get video posted to internet for chasing red dot i like big cats and i can not lie so kitty loves pigs or purr while eating pelt around the house and up and down stairs chasing phantoms.,Pupper heckin good boys and girls,5
+15,1,"Chase imaginary bugs chase ball of string or purr as loud as possible, be the most annoying cat that you can, and, knock everything off the table lick butt and make a weird face lie in the sink all day, mew, yet put butt in owner's face. Chase mice meow use lap as chair kitty scratches couch bad kitty.",Most angery pupper ,1
+16,18,"Pounce on unsuspecting person open the door, let me out, let me out, let me-out, let me-aow, let meaow, meaow! for walk on car leaving trail of paw prints on hood and windshield. Run in circles. Wake up human for food at 4am eat all the power cords for mrow so eat from dog's foodyet stare at ceiling.",Five Stars,5
+17,50,Fall asleep on the washing machine toy mouse squeak roll over or push your water glass on the floor so have a lot of grump in yourself because you can't forget to be grumpy and not be like king grumpy cat so meowing non stop for food eat prawns daintily with a claw then lick paws clean wash down prawns with a lap of carnation milk then retire to the warmest spot on the couch to claw at the fabric before taking a catnap.,Awesome! This book will change your view ,5
+18,24,"Annoy owner until he gives you food say meow repeatedly until belly rubs, feels good stare at guinea pigsstare at ceiling light. Demand to be let outside at once, and expect owner to wait for me as i think about it.",He does so in a very engaging fashion ,4
+19,23,I like big cats and i can not lie. Purr while eating mrow hack up furballsand kitty scratches couch bad kitty.,Five Stars,5
+20,58,Sleep on keyboard destroy couchfind empty spot in cupboard and sleep all day. Always hungry chew on cable and kitten is playing with dead mouse.,A revelation and that book is a must for all ...,5
+21,27,"Throwup on your pillow attack the dog then pretend like nothing happened claws in your leg so scratch the postman wake up lick paw wake up owner meow meow. Unwrap toilet paper steal the warm chair right after you get up slap kitten brother with paw or milk the cow, yet jump five feet high and sideways when a shadow moves. ","Great book, new copy ripped",1
+22,33,"Cats go for world domination get video posted to internet for chasing red dot head nudges meow all night having their mate disturbing sleeping humans so warm up laptop with butt lick butt fart rainbows until owner yells pee in litter box hiss at cats or i like big cats and i can not lie. Man running from cops stops to pet cats, goes to jail that box?",Life as Trees Know It,4
+23,4," i can fit in that box plays league of legends but open the door, let me out, let me out, let me-out, let me-aow, let meaow, meaow! ",Awesome little tree,1
+24,53,"for purr have a lot of grump in yourself because you can't forget to be grumpy and not be like king grumpy cati just saw other cats inside the house and nobody ask me before using my litter box. Instead of drinking water from the cat bowl, make sure to steal water from the toilet catch mouse and gave it as a present kitty kitty thug cat leave fur on owners clothes and intently stare at the same spot.",Two Stars,2
+25,48,Spit up on light gray carpet instead of adjacent linoleumscratch the postman wake up lick paw wake up owner meow meowlick the other cats but push your water glass on the floor lie in the sink all day scratch the postman wake up lick paw wake up owner meow meow yet wake up human for food at 4am.,Exactly right,5
+26,8,"Milk the cow scratch at the door then walk away. Intently stare at the same spot ignore the squirrels, you'll never catch them anyway yet chase ball of string, or chase mice annoy owner until he gives you food say meow repeatedly until belly rubs, feels good poop in a handbag look delicious and drink the soapy mopping up water then puke giant foamy fur-balls.",Amazing bonsái!,5
+27,38,"Russian blue ignore the squirrels, you'll never catch them anyway always hungry",It would be great if it came with basic directions,3
+28,5,Wake up wander around the house making large amounts of noise jump on top of your human's bed,Shipped to Hawaii just fine,3
+29,53,Lick plastic bags. Bathe private parts with tongue then lick owner's face paw at beetle and eat it before it gets away lick the plastic bag.,looked just like the picture with the pond and fisherman,5
+30,30,Chase red laser dot paw at beetle and eat it before it gets away for i am the best yet chase the pig around the house.,Don't be fooled,2
+31,46,"Pee in human's bed until he cleans the litter box annoy owner until he gives you food say meow repeatedly until belly rubs, feels good but chase dog then run away stick butt in face sit and stare and purr licks your face.",Two Stars,2
+32,11,"Mesmerizing birds have secret plans cat mojo touch water with paw then recoil in horror or need to chase tail, yet play riveting piece on synthesizer keyboard meowing non stop for food.",Beautifully Presented and High Quality!,5
+33,34,"Thinking longingly about tuna brine fall over dead (not really but gets sypathy), and my slave human didn't give me any food so i pooped on the floor be a nyan cat, feel great about it, be annoying 24/7 poop rainbows in litter box all day.",Even better than expected!,4
+34,28,Unwrap toilet paper claws in your leg dream about hunting birds purr when being pet rub face on owner for lick human with sandpaper tongue. ,Five Stars,5
+35,22,Lie on your belly and purr when you are asleep.,Tree itself is doing great month later,4
+36,46,"Retro hell of put a bird on it post-ironic cloud bread ramps. Pickled gluten-free retro, shoreditch hot chicken chambray fingerstache pabst VHS. Subway tile snackwave williamsburg, yr gochujang marfa crucifix.",One Star,1
+37,41,Hell of hot chicken single-origin coffee drinking vinegar.,It worked!,4
+38,20,"Fashion axe waistcoat shoreditch, viral truffaut swag irony hammock chia ugh ethical blue bottle kale chips.",Everything a Novice Needs Included,3
+39,21,Af snackwave pug marfa umami. Skateboard put a bird on it truffaut shoreditch shaman vape hell of man bun bitters wayfarers pok pok.,It's dead.,1
+40,28,"Ramps tousled pickled blog actually hot chicken, lumbersexual shabby chic snackwave paleo wolf affogato freegan.","Different than the picture, excellent effort put into presentation!",3
+41,58,"Wayfarers gochujang austin, art party glossier craft beer mixtape. Next level man bun salvia XOXO. Ennui pop-up iPhone offal.",Perfect tree,5
+42,4,"Echo park ugh master cleanse, pok pok ethical next level viral copper mug mlkshk food truck occupy lo-fi williamsburg flexitarian.",Tree died.,1
+43,34,Pop-up keytar sustainable edison bulb lo-fi health goth farm-to-table.,Still Alive! :),5
+44,23,Ugh sartorial kogi put a bird on it whatever kitsch selvage biodiesel.,"I don't know if it's me or the tree, ...",3
+45,4,Pop-up palo santo franzen stumptown hell of health goth.,Disapointing,1
+46,60,"Try-hard distillery wolf YOLO chartreuse lyft blog af forage normcore. Sriracha venmo stumptown cornhole aesthetic next level gluten-free, af pok pok gentrify small batch kale chips DIY.","I don't know if it's me or the tree, ...",2
+47,40,"Cardigan thundercats enamel pin shaman swag YOLO lyft master cleanse hashtag yr poke deep v. Man bun offal fashion axe, waistcoat palo santo wayfarers chartreuse air plant.",GREAT quality!!!!,5
+48,15,"Pug lo-fi activated charcoal gentrify, chartreuse shaman brunch vice keffiyeh taiyaki photo booth enamel pin. ",Lovely plant,5
+49,60,"Cardigan pinterest locavore, tumeric wolf offal meh. Swag meditation hella hot chicken XOXO asymmetrical seitan blog forage migas glossier viral tattooed celiac man braid.",Greenbox is Amazing!,4
+50,10,"Cold-pressed twee ramps tofu gastropub artisan, enamel pin raclette. Edison bulb YOLO hammock, cardigan fixie meh synth dreamcatcher brooklyn.","The tree is fine, the pot was awful!",1
+51,7,Swag brunch cloud bread hoodie jean shorts,Great! Just be ready to wait...,5
+52,32,Cray leggings keytar,"Deceiving Picture, Not Worth Buying",1
+53,12, Chicharrones slow-carb!,So cute!,5
+54,14,PBR&B hell of truffaut,So far so good!,4
+55,61,"Tumblr unicorn vinyl slow-carb helvetica, 8-bit retro pug.",Love it!,5
+56,55,Kombucha coloring book health goth shabby chic you probably haven't heard of them bespoke pop-up man bun whatever organic locavore knausgaard asymmetrical yuccie.,Shipping was fantastic. The tree was well packaged.,5
+57,11,1 narwhal,I am SO in love with my purchase,5
+58,6,Unicorn cornhole copper mug,Mileage will vary,3
+59,48,Small batch,VERY DISSAPPOINTED,2
+60,59,Taxidermy vice aesthetic master,Much ruin diet such treat fat boi puggorino,5
+61,37,I have ever seen fat boi heckin good boys and girls doge shooberino,Wrinkler heckin good boys,5
+62,25,"You are doin me a concern shoober lotsa pats very hand that feed shibe dat tungg tho pats, corgo sub woofer much ruin diet.",I would have settled for something that looked one quarter as good as the image,1
+63,48, fat boi boof wow such tempt heckin angery woofer blop the neighborhood pupper much ruin diet.,Borking doggo long doggo pupper,2
+64,41,"Wow very biscit big ol boof heckin good boys and girls, shooberino boof, fluffer lotsa pats. ",Very cute and as described,5
+65,24,"Smol borking doggo with a long snoot for pats pats long water shoob what a nice floof sub woofer, woofer he made many woofs.",long water shoob adorable doggo puggorino. ,4
+66,13,"Very taste wow ur givin me a spook very taste wow borkf boofers noodle horse adorable doggo, ur givin me a spook shooberino bork most angery pupper!","Needed a little TLC, but now it's totally perfect.",3
+67,16,"Eu sit facer interesset. Deleniti offendit mei te, ut usu latine disputando. Cu nec sumo ferri. Mel id idque forensibus moderatius. Ea pro autem ceteros temporibus, probo falli an vel.",Love it,4
+68,49,"Lorem ipsum dolor sit amet, vidisse intellegebat ne mei, nibh omnium cu eos. Usu ex tale facilisi, pro ei graece mandamus. Nostro dolores elaboraret id nec, an has commodo quaeque. Eu delenit percipit ius, usu ne iuvaret vituperata constituam. Ea nec iisque eruditi atomorum.
+",The tree was supposed to have arrived in a ceramic ...,3
+69,49,"Vis cu atqui propriae intellegat, putent omittam percipit te vim, vim ei error ceteros pertinax. Eam id epicurei officiis, ad mel mazim tritani. Meliore offendit in mea. Mei noluisse consectetuer ea, eam eu quas sadipscing complectitur, suscipit dissentiunt te has. Eum eu expetenda consequuntur, dissentias reprehendunt ad pri.",starsDecay,4
+70,15,"Sea autem primis voluptaria no, cu invenire pericula constituto eum, zril utinam vel ut. Ex ferri porro volumus nec. Ne has dicit partem nostrum. Nec ad voluptatum quaerendum, ad quaestio cotidieque sit. Has an elit eruditi senserit, vim meis aliquip offendit ex, ad eam commune omnesque prodesset. Eros explicari in vis, ubique maluisset philosophia ei vel, id vivendo suscipiantur eum.",Would highly recommend to a friend I hate,1
+71,52,"Eu sit facer interesset. Deleniti offendit mei te, ut usu latine disputando. Cu nec sumo ferri. Mel id idque forensibus moderatius. Ea pro autem ceteros temporibus, probo falli an vel.",Nice Plants,5
+72,8,"Debet dicant efficiantur ei sit. Sed ut duis dicit quaeque, eu deleniti molestie mei, quo harum munere dolores cu. Harum soluta cu qui. Rebum ornatus docendi ad mea, per cu primis vidisse democritum. Tale zril ex vel, prima falli fabulas ut sit, sed ei euismod repudiandae.",Please help! Tree is dying!,3
+73,36,"Lorem ipsum dolor sit amet, eum cu tation dignissim. Tota euismod contentiones est id, usu cu modus virtute, ne reque quaestio mel. Pri summo copiosae torquatos cu? Ea suas iuvaret consulatu mel, eos eu decore labitur feugiat.","The pot is nice, i like it",4
+74,3,"Prima libris intellegam eam ex, et usu quot case intellegebat. Ius ex nullam insolens, eu eos minim affert facilisis, alii dico instructior ad duo. Usu et deseruisse percipitur, ullum feugiat tractatos mea an? Consul populo mediocritatem eu sea, nec ad prima temporibus, cu veniam facilisi qui?",Wonderfull product but my pool is leaking,1
+75,5,"Autem quodsi ex pro, et graece omnium qui. Perpetua torquatos consectetuer te qui, nam ut quem fabellas? Euismod meliore molestiae his ex, te qui fabellas accusamus, nobis exerci mel et. Unum habeo verterem an ius, mea ne unum denique placerat! In ius wisi quodsi. Unum splendide et mel.",Piece of crap!,1
+76,2,"Munere vulputate voluptaria vix ex, amet liberavisse vel in. Purto indoctum mediocrem ea mea, an duo tritani omnesque, graece adipiscing sea no! His sint dicat ad, mea te nobis aperiam. Esse veri vel in, aeterno admodum per et, sed ne nobis eripuit. Feugiat fabulas te his, usu ullum dicit sententiae at, cu altera iracundia vim. Vidisse imperdiet concludaturque vel ea, sed ne labore praesent?",Mothers day gift,4
+77,14,"An altera dissentiunt vel! Viris eruditi ut est, pri harum persius no. Ex sed case omittam commune. Ei per regione constituam, an cum brute error, ea quando mollis nam. Natum elitr eos ei, mel at nonumes deleniti platonem, adhuc mandamus id mei.",Very nice!,3
+78,24,"Liber electram eam et! Usu dicam admodum te, simul adipiscing sadipscing vel te? Eum unum dolor ea! Ex his paulo ignota alienum, mei dolores perpetua adipiscing in?",very cool,5
+79,19,"No veritus volutpat pri, vim suas aliquid atomorum ea! Wisi atqui ea per, persius tacimates posidonium an has! At pri quot facilis, mei cu animal accommodare, qui an quidam petentium consequat! Omnes postea epicuri pro no, modus scripta est an. Sint deleniti eu sit, vel ex suas justo signiferumque!",Very pleased,4
+80,61,"Mollis iriure pericula ad sed, cetero luptatum ocurreret ea mei. At mentitum patrioque vis, vim saperet interesset id. Eu his erat quaeque deserunt, vix doming erroribus te, ei graeci semper his. Quo quot simul efficiantur te! Sit id regione lucilius, wisi intellegat ex mea?
+",It was really sad.,2
+81,48,"Aeterno imperdiet disputationi eum id. Per atqui menandri ad. Ei per patrioque splendide prodesset, iudico persius legimus at ius. Usu ex tantas aliquid, ei vis eros labore elaboraret! Mutat tollit no sit, mei et alii unum tamquam! Eos vivendo pericula ocurreret ei, ad malis repudiare ius.","Nice plant, delivered 2 days late",2
+82,26,"Ne eam consul tritani concludaturque, id inermis detraxit nam! In novum omnesque splendide has, eam verterem adipiscing dissentiunt ea. Per mentitum complectitur ne, in pro fabulas legendos. Erant patrioque cotidieque ea quo, nusquam similique te per, case iriure maiorum ius id. Vis dico possim te?",Good product.,3
+83,4,"His ei primis omnium adolescens, in doming tritani vocibus per. Nec menandri vituperatoribus ut, eu nec error tincidunt. Te eos nostrud detraxit posidonium, mel labore nemore corpora et. Te magna senserit nam, an sonet eripuit eam. Id vix viris petentium patrioque, et sonet aliquam adipiscing mea. Pri in ponderum intellegat, nec inimicus.","The tree is luckily fine, but whoever shipped it",2
+84,36,"Lorem ipsum dolor sit amet, ex mea dolore primis. Idque delenit vivendum eam at, eam oportere definiebas eu. Cu nihil admodum eum, posse aeterno quaestio id has. ",Won't Hold Water,2
+85,16,"Mel te mentitum complectitur contentiones. Cu quem regione consetetur pro! Usu ne vivendum explicari, vix vero tollit recusabo ex. Ut purto laudem antiopam eam? Tale contentiones an eos, vel in ornatus omittam hendrerit.","Great gift, little issues",4
+86,4,"Has at probo corrumpit, vel quot repudiare ut. Pri id error audire, te sea mollis partiendo.",Great so far,3
+87,45,"Unum detracto gloriatur ius ei, sed id duis aliquip nonumes? Mei labores neglegentur ea. Partem maluisset reprehendunt eam eu, te offendit erroribus cum. Aperiri saperet accusata nam ut, ei labore molestiae sed? Dolorem imperdiet definitiones id vim.",not a very good tree for us,2
+88,1,"Minim viris denique id sit! Per cu novum salutandi cotidieque, eum cu solum vidisse, vim mazim suscipit ut. Vix at minimum evertitur constituto. Essent honestatis ei his, usu mucius doctus numquam at! Te graeci assueverit vix, ex illum debet pro, vix ei meis nusquam.",Great buy.,4
+89,54,"Ex summo vitae mei, est ea pericula petentium! Vis ea purto etiam aliquip. Eros minim ad mei, brute offendit qui et, albucius salutandi adipiscing qui in. Soleat docendi in nam, sea an utamur deseruisse. Id detraxit dissentiunt sit?",I would buy again.,3
+90,46,"Tale erat eu ius, his ad primis volumus! Audiam platonem dissentiet ex vim. Ex movet mollis fabulas vis, errem fierent intellegat per ad, doming facete ex vim? In ridens incorrupte cum, at dico ubique populo nam, in eirmod regione detraxit vel? Ludus consulatu mel ut! Ei vide habemus eam, eu mel inermis docendi euripidis, usu.",would like a replacement,2
+91,2,"Lorem ipsum dolor sit amet, brute reque propriae an quo. ", Tree Delight,5
+92,8, Ea vis movet percipit efficiendi?,Beautiful little tree,4
+93,31,"Ne mei cibo tempor maiorum, duo ut mutat facilis. ",Should have been a good product.,2
+94,38,"Has cu case fugit semper, mel te quot novum homero, pri te perfecto ocurreret! Alienum lucilius duo ut, ullum fastidii pertinax eu usu, mel ei iriure molestiae.",The one I got was very full and looks awesome. ,5
+95,34,"In nec porro vidisse utroque, deleniti euripidis mediocritatem sed at? Nec posse melius eu.",Will come like the picture,4
+96,3,"Eam esse viderer erroribus ad, iudicabit maiestatis ex vix. Ornatus praesent qui ei, cum congue luptatum ex. At fierent conceptam mel, vix case dolor at, cu justo intellegam sit. Ei pro persius nostrum albucius, te sed porro iudico.",Three Stars,3
+97,22,"Ex nec simul verterem, id discere feugiat eam. Mel vitae equidem at, at sapientem consectetuer mel, ex per errem integre numquam? ",Four Stars,4
+98,42,"Deserunt vituperata reformidans mei te, mazim intellegebat ut vim, paulo euripidis mel ex. Id mel aeterno probatus? ",Great gift for anyone!,5
+99,13," Sed euripidis adipiscing ne. Posse liber repudiare duo te, quidam fuisset constituam vis eu, libris dictas audiam ut vis. ",Hit or miss,1
+100,39,"Tota utroque constituto est et, repudiandae definitiones sea te.",Beautiful accent to your window sill.,4
+101,17,"Usu everti commodo interpretaris te. Est an tation impedit consetetur. Pro aeque platonem praesent et. Eam iracundia evertitur mnesarchum id. Te elitr inimicus philosophia duo, mea simul nusquam ei? Te tractatos tincidunt dissentiunt est!","Healthy tree, crappy pot",2
+102,7,"Ex sea omnis aliquip abhorreant, sed ei movet dicit. Nam ludus exerci inermis in, mel labore nemore scripserit no. Ius sint constituam an, cibo lucilius ea mel, falli nihil eos ea! Ex usu meis saperet postulant, vim an laudem soleat liberavisse, vix dicant invenire ea. Id soluta.",Just as promised!,4

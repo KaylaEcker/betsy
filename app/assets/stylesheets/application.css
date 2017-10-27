@@ -37,10 +37,6 @@ body, h1, h2, h3, h4, h5, h6, div, article, section, p, span, .button {
   font-family: 'Roboto', sans-serif;
 }
 
-header h2{
-  font-size: 3.5rem;
-}
-
 a {
   color: #426421;
 }

@@ -42,7 +42,9 @@
     <p>Ships from and sold by: <%= @product.name %> </p>
     <h3>Description:</h3>
     <p><%= product_description(@product) %></p>
-    <p>Categories: <%= @product.categories.join(", ") %></p>
+    <% if @product.categories != nil %>
+      <p>Categories: <%= @product.categories.join(", ") %></p>
+    <% end %>
   </article>
 </section>
 

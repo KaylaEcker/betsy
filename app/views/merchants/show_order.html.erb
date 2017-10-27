@@ -22,10 +22,19 @@
 </ul>
 
 <h3>Purchased Items</h3>
-<% @orderitems.each do |item| %>
-  <ul>
-    <li>
-      <%= item.quantity %> <%= link_to item.product.name, product_path(item.product_id) %>: <%= item.product.price * item.quantity %>
-    </li>
-  </ul>
-<% end %>
+<table>
+  <tr>
+    <thead>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+    </thead>
+  </tr>
+  <% @orderitems.each do |item| %>
+    <tr>
+      <td><%= link_to item.product.name, product_path(item.product_id) %></td>
+      <td><%= item.quantity %></td>
+      <td><%= item.product.price * item.quantity %></td>
+    </tr>
+  <% end %>
+</table>

@@ -8,11 +8,13 @@
 <% if @merchant.products.count > 0 %>
   <table>
     <tr>
-      <th scope="columns">Product</th>
-      <th scope="columns">Quantities</th>
-      <th scope="columns">Launched</th>
-      <th scope="columns">Update</th>
-      <th scope="columns">Retire</th>
+      <thead>
+        <th scope="columns">Product</th>
+        <th scope="columns">Quantities</th>
+        <th scope="columns">Launched</th>
+        <th scope="columns">Update</th>
+        <th scope="columns">Retire</th>
+      </thead>
     </tr>
     <%  @merchant.products.each do |product| %>
       <tr>
@@ -29,4 +31,4 @@
   <% end %>
 </div>
 <%= link_to "Create a product", new_product_path, class: "button" %>
-<%= link_to "See orders", merchant_fulfillment_path(@merchant.id) ,class: "button" %> <%# TODO: ADD ORDER FUFILLEMENT PATH %>
+<%= link_to "Fulfillment", merchant_fulfillment_path(@merchant.id) ,class: "button" %> <%# TODO: ADD ORDER FUFILLEMENT PATH %>

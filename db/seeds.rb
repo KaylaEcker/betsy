@@ -30,7 +30,7 @@ CSV.foreach(REVIEW_FILE, :headers => true) do |row|
   review.id = row['id']
   review.product_id = row['product_id']
   review.review_text = row['review_text']
-  review.review_title = row['review_title']
+  review.title = row['review_title']
   review.rating = row['rating']
   puts "Created review: #{review.inspect}"
   successful = review.save

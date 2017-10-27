@@ -131,6 +131,13 @@ select {
   margin-right: auto;
 }
 
+.half-width {
+  width: 100%;
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .filter {
   width: 80%;
 }

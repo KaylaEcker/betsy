@@ -50,12 +50,6 @@
 
 
 <section class="full-width">
-    <div class="float-right review">
-      <% if @merchant != @product.merchant %>
-        <%= link_to("Leave a review", new_review_path(@product.id), method: :get, class: "button") %>
-      <% end %>
-    </div>
-
       <h3>Average Rating:</h3>
       <% if @product.reviews.count > 0 %>
       <div class="dynamic-star">
@@ -69,6 +63,10 @@
       <span>
         <%= @product.average_rating %>
       </span>
+      <% end %>
+      <% if @merchant != @product.merchant %>
+        <span class="space"></span>
+        <span class="review"><%= link_to("Leave a review", new_review_path(@product.id), method: :get, class: "button") %></span>
       <% end %>
 
   <section>

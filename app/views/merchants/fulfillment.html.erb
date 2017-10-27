@@ -1,5 +1,6 @@
 <h1>Manage Your Orders</h1>
-<h3>Total Revenue: <%= @total_revenue %></h3>
+<h3>Total Revenue: <%= number_to_currency(@total_revenue) %></h3>
+
 <table>
   <thead>
     <tr>
@@ -10,7 +11,8 @@
   <% @revenue_by_status.each do |status, revenue| %>
     <tr>
       <td><%= status %></td>
-      <td><%= revenue %></td>
+      <td><%= number_to_currency(@total_revenue) %></td></h3>
+
     </tr>
   <% end %>
 </table>

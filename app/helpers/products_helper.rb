@@ -6,4 +6,12 @@ module ProductsHelper
       return (product.description).html_safe
     end
   end
+
+  def product_photo(product)
+    if product.photo_url != ""
+      ("<img src='" + product.photo_url + "' alt='" + product.name + "'/>").html_safe
+    else
+      ("<img src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' alt='" + product.name + "'/>").html_safe
+    end
+  end
 end

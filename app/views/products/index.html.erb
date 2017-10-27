@@ -18,13 +18,26 @@
 <section class = "row full-width">
     <% @products.each do |product| %>
     <article class = "product-card columns small-10 medium-5 large-3 text-center">
-      <% if product.photo_url %>
-        <figure>
-          <a href="<%= product_path(product.id)%>"><img src= "<%= product.photo_url %>" alt "<%= product.photo_url %>" /></a>
-        </figure>
-      <% end %>
+      <figure>
+        <a href="<%= product_path(product.id)%>"><%= product_photo(product) %></a>
+      </figure>
       <div class="product-card-details">
         <h4><%= link_to(product.name.capitalize, product_path(product.id)) %></h4>
+        <% if product.reviews.count > 0 %>
+          <div class="dynamic-star">
+            <span class="dynamic-star overlay" style="<%= "width: #{product.average_rating / 5.0 * 100}%" %>" >
+              <span>&#x2605</span><span>&#x2605</span><span>&#x2605</span><span>&#x2605</span><span>&#x2605</span>
+            </span>
+            <div class="dynamic-star underlay" >
+              <span>&#x2605</span><span>&#x2605</span><span>&#x2605</span><span>&#x2605</span><span>&#x2605</span>
+            </div>
+          </div>
+          <span>
+            <%= product.reviews.count %>
+          </span>
+        <% else %>
+          <span>No reviews</span>
+        <% end %>
         <h5><%= number_to_currency(product.price) %></h4>
         <%= link_to "Add to cart", add_order_item_path(session[:order_id], product.id), method: :patch, class: :button %>
       </div>

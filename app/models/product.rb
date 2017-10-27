@@ -20,7 +20,7 @@ class Product < ApplicationRecord
   def self.get_products(a_category: "all", a_merchant: "all")
     if ["all", nil, ""].include?(a_category) && ["all", nil, ""].include?(a_merchant)
       return Product.all
-    elsif ["all", nil,""].include?(a_category)
+    elsif ["all", nil, ""].include?(a_category)
       return Product.where(merchant_id: a_merchant)
     elsif ["all", nil, ""].include?(a_merchant)
       return Product.where("categories @> ?", "{#{a_category}}")

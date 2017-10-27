@@ -43,52 +43,61 @@
     <h3>Description:</h3>
     <p><%= product_description(@product) %></p>
     <% if @product.categories != nil %>
-      <p>Categories: <%= @product.categories.join(", ") %></p>
+      <p><strong>Categories: </strong><%= @product.categories.join(", ") %></p>
     <% end %>
   </article>
 </section>
 
-
-<section class="full-width">
-      <h3>Average Rating:</h3>
-      <% if @product.reviews.count > 0 %>
-      <div class="dynamic-star">
-        <span class="dynamic-star overlay" style="<%= "width: #{@product.average_rating / 5.0 * 100}%" %>" >
-          <span>&#x2605</span><span>&#x2605</span><span>&#x2605</span><span>&#x2605</span><span>&#x2605</span>
-        </span>
-        <div class="dynamic-star underlay" >
-          <span>&#x2605</span><span>&#x2605</span><span>&#x2605</span><span>&#x2605</span><span>&#x2605</span>
-        </div>
-      </div>
-      <span>
-        <%= @product.average_rating %>
-      </span>
-      <% end %>
-      <% if @merchant != @product.merchant %>
-        <span class="space"></span>
-        <span class="review"><%= link_to("Leave a review", new_review_path(@product.id), method: :get, class: "button") %></span>
-      <% end %>
-
-  <section>
-    <h3>Reviews: </h3>
-    <% if @product.reviews.count < 1  %>
-      <p>Be the first to review this item</p>
-    <% else %>
-      <ul>
-        <% @product.reviews.each do |review| %>
-          <li>
-            <% review.rating.times do %>
-              <span class="checked star">&#x2605</span>
-            <% end %>
-            <% (5 - review.rating).times do %>
-              <span class="unchecked star">&#x2605</span>
-            <% end %>
-            <span class="space"></span>
-            <span><%=review.title%></span>
-          </li>
-          <li><%=review.review_text%></li>
+<hr />
+<section class="product-show row full-width">
+  <article class="column small-12 medium-12 large-6">
+        <h3>Average Rating:</h3>
+        <% if @product.reviews.count > 0 %>
+          <div class="dynamic-star">
+            <span class="dynamic-star overlay" style="<%= "width: #{@product.average_rating / 5.0 * 100}%" %>" >
+              <span>&#x2605</span><span>&#x2605</span><span>&#x2605</span><span>&#x2605</span><span>&#x2605</span>
+            </span>
+            <div class="dynamic-star underlay" >
+              <span>&#x2605</span><span>&#x2605</span><span>&#x2605</span><span>&#x2605</span><span>&#x2605</span>
+            </div>
+          </div>
+          <span>
+            <%= @product.average_rating %>
+          </span>
+        <% else %>
+          <p>No rating yet.</p>
         <% end %>
-      </ul>
-    <% end %>
-  </section>
+        <% if @merchant != @product.merchant %>
+          <span class="space"></span>
+          <span class="review"><%= link_to("Leave a review", new_review_path(@product.id), method: :get, class: "button") %></span>
+        <% end %>
+
+    <section>
+      <h3>Reviews: </h3>
+      <% if @product.reviews.count < 1  %>
+        <p>Be the first to review this item</p>
+      <% else %>
+        <ul>
+          <% @product.reviews.each do |review| %>
+          <section class="bottom-space">
+            <li>
+              <% review.rating.times do %>
+                <span class="checked star">&#x2605</span>
+              <% end %>
+              <% (5 - review.rating).times do %>
+                <span class="unchecked star">&#x2605</span>
+              <% end %>
+              <span class="space"></span>
+              <strong><%=review.title%></strong>
+              <li class="smaller">On: <%=review.created_at%></li>
+            </li>
+            <li><%=review.review_text%></li>
+          </section>
+
+          <% end %>
+        </ul>
+      <% end %>
+    </section>
+  </article>
+
 </section>

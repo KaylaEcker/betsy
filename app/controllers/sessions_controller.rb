@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
         flash[:result_text] = "Unable to save user :( "
       end
     end#ifelse
-    redirect_to root_path
+    redirect_to merchant_path(@merchant.id)
   end #create
 
   def logout

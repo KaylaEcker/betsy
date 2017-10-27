@@ -95,7 +95,7 @@
               <% end %>
               <span class="space"></span>
               <strong><%=review.title%></strong>
-              <li class="smaller">On: <%=review.created_at%></li>
+              <li class="smaller">On: <%=pretty_date(review.created_at)%></li>
             </li>
             <li><%=review.review_text%></li>
           </section>

@@ -68,7 +68,7 @@
           <span class="review"><%= link_to("Leave a review", new_review_path(@product.id), method: :get, class: "button") %></span>
         <% end %>
 
-    <section>
+    <section class="reviews">
       <h3>Reviews: </h3>
       <% if @product.reviews.count < 1  %>
         <p>Be the first to review this item</p>

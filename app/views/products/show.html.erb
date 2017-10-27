@@ -1,10 +1,6 @@
 <section class="product-show row full-width">
   <figure class="column small-12 medium-12 large-6 text-center">
-    <% if @product.photo_url %>
-      <img src= "<%= @product.photo_url %>" alt "<%= @product.photo_url %>"/>
-    <% else %>
-      Image not currently available
-    <% end %>
+    <a href="<%= product_path(@product.id)%>"><%= product_photo(@product) %></a>
   </figure>
 
   <article class="column small-12 medium-12 large-6">

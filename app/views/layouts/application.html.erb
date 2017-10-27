@@ -25,11 +25,11 @@
           <% if session[:merchant_id] %>
             <li class="dropdown">
               <h3>Menu</h3>
-              <div class="dropdown-content">
-                <h4><%= link_to "Log Out", logout_path, method: :post %></h4>
-                <h4><%= link_to "My account", merchant_path(session[:merchant_id])%></h4>
-                <h4><%= link_to "Add new product", new_product_path, method: :get %></h4>
-                <h4><%= link_to "Fulfillment", merchant_fulfillment_path(session[:merchant_id]) %></h4>
+              <div class="dropdown-content text-left">
+                <h5><%= link_to "My account", merchant_path(session[:merchant_id])%></h5>
+                <h5><%= link_to "Create product", new_product_path, method: :get %></h5>
+                <h5><%= link_to "Fulfillment", merchant_fulfillment_path(session[:merchant_id]) %></h5>
+                <h5><%= link_to "Log Out", logout_path, method: :post %></h5>
               </div>
             </li>
           <% else %>

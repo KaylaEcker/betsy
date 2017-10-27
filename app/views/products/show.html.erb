@@ -40,14 +40,14 @@
     <h3>Description:</h3>
     <p><%= product_description(@product) %></p>
     <% if @product.categories != nil %>
-      <p><strong>Categories: </strong></p>
+      <span><strong>Categories: </strong></span>
       <% count = 0 %>
       <% @product.categories.each do |category| %>
         <% count += 1 %>
         <% if count < @product.categories.length %>
-          <%= link_to(category, products_path(:category => category)) %>,
+          <span><%= link_to(category, products_path(:category => category)) %>, </span>
         <% else %>
-          <%= link_to(category, products_path(:category => category)) %>
+          <span><%= link_to(category, products_path(:category => category)) %></span>
         <% end %>
       <% end %>
     <% end %>

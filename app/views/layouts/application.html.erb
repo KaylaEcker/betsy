@@ -48,10 +48,10 @@
   </header>
 
   <section class="flash <%= flash[:status] %>">
-    <% if flash[:status] == "error" %>
+    <% if flash[:status] == :error || flash[:status] == "error" %>
     <p><strong>An error occured: </strong><%= flash[:result_text] %></p>
     <% end %>
-    <% if flash[:status] == "success" %>
+    <% if flash[:status] == :success || flash[:status] == "success" %>
     <p><strong>Well done! </strong><%= flash[:result_text] %></p>
     <% end %>
 

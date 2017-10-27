@@ -79,6 +79,15 @@ select {
   padding-right: 5%;
 }
 
+.dark-accent {
+  color: #2E4434;
+}
+
+.nav-bar small {
+  color: #F3FBEF;
+  font-size: 0.6em;
+}
+
 .nav-bar a {
   color: #F3FBEF;
 }

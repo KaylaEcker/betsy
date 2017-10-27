@@ -11,8 +11,8 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
- *= require_self
  *= require foundation_and_overrides
+ *= require_self
 
  */
 
@@ -28,45 +28,30 @@ ul {
 }
 
 body{
+  color: #2E4434;
   position: relative;
-  font-family: monospace;
-  background: #eef0f2;
-  }
-
-header h2 a{
-  font-family: 'Calligraffitti';
-  text-shadow: 2px 2px black;
-  color: #407c00;
-  font-size: 3.5rem;
+  background-color: #f3fbef;
 }
 
-header h2 a:hover {
-  color: #006400
+body, h1, h2, h3, h4, h5, h6, div, article, section, p, span, .button {
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  color: #426421;
+}
+
+a:hover {
+  color: #2E4434;
 }
 
 select {
-  -webkit-appearance: none;
+  border-radius: 10px;
   height: 40px;
-  font-size: 1.5em;
-}
-
-.pdetails {
-  padding-left: 3%;
-}
-
-.pdetails h2 {
-  margin-right: 5%;
-  display: inline-block;
-}
-
-.heading {
-  font-family: 'Indie Flower', cursive;
-  text-shadow: 1px 2px 	#7Da50f;
-  text-align: center;
+  -webkit-appearance: none;
 }
 
 .mini-heading a{
-  font-family: 'Gloria Hallelujah', cursive;
   color: black;
   text-shadow: 1px 2px 	#7Da50f;
 }
@@ -76,14 +61,46 @@ select {
 }
 
 .mini-heading{
-  font-family: 'Gloria Hallelujah', cursive;
   color: black;
   text-shadow: 1px 2px 	#7Da50f;
 }
 
-.price-heading a{
-  font-family: 'Roboto Slab', serif;
-  text-shadow: .1px 1px black;
+#nav-container {
+  margin-top: 0;
+  padding-top: 10px;
+  background-color: #86967D;
+  min-width: 100%;
+  box-shadow: 0 2px 2px gray;
+}
+
+.nav-bar {
+  color: #F3FBEF;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.nav-bar a {
+  color: #F3FBEF;
+}
+
+.nav-bar a:hover {
+  color: #426421;
+}
+
+.nav-bar h3 {
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+@media (max-width: 639px) {
+  .logo {
+    margin-top: 14px;
+  }
+}
+
+.inline-list li {
+  display: inline-block;
+  vertical-align: bottom;
 }
 
 .row {
@@ -92,9 +109,8 @@ select {
 
 .page-header {
   margin-bottom: 50px;
-  max-width: 100%;
-  box-shadow: 5px 5px 5px black;
-  padding: 25px 20px 10px 20px;
+  margin-top: 10px;
+  max-width: 95%;
   left: 0;
   top: 0;
 }
@@ -115,6 +131,13 @@ select {
   margin-right: auto;
 }
 
+.half-width {
+  width: 100%;
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .filter {
   width: 80%;
 }
@@ -128,37 +151,6 @@ select {
   top: 22px;
 }
 
-.product-card {
-  height: 550px;
-  border: 1px solid black;
-  background-color: white;
-  margin: 4.15%;
-  position: relative;
-}
-
-.product-card img {
-  display: block;
-  max-width: 100%;
-  max-height: 300px;
-  overflow: hidden;
-  margin-top: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 30px;
-}
-
-.product-card h4 {
-  text-align: center;
-  margin-bottom: 25px;
-}
-
-
-.product-card .button {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .review .button {
   position: relative;
   top: 8px;
@@ -167,7 +159,9 @@ select {
 .flash {
   border: 1px solid;
   border-radius: 3px;
-  margin: 5px;
+  margin: auto;
+  margin-bottom: 10px;
+  max-width: 80%;
   min-height: 50px;
   font-size: 1.1rem;
   display: none;
@@ -198,10 +192,6 @@ select {
   padding-bottom: 10px;
 }
 
-.cart {
-  float: right;
-}
-
 .float-right {
   float: right;
 }
@@ -213,10 +203,10 @@ select {
 
 .dropdown-content {
   display: none;
+  font-size: 0.4em;
   position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  background-color: #86967D;
+  min-width: 170px;
   padding: 12px 16px;
   z-index: 1;
 }
@@ -225,12 +215,31 @@ select {
   display: block;
 }
 
+.cart {
+  padding-left: 10px;
+}
+
 .space {
   display: inline-block;
   width: 0.385em;
 }
 
-/*star ratings for reviews*/
+
+.button {
+color: #F3FBEF;
+background-color: #426421;
+border-radius: 8px;
+  }
+
+.button:hover {
+  background-color: #2E4434;
+}
+
+.button:focus {
+  background-color: #2E4434;
+}
+
+/***********star ratings for reviews********************/
 .dynamic-star {
   color: #fcfcfc;
   display: inline-block;
@@ -241,7 +250,7 @@ select {
   position: relative;
   text-shadow: 0 1px 1.5px gray;
   unicode-bidi: bidi-override;
-  width: 65px;
+  width: 80px;
 }
 
 .overlay {
@@ -284,7 +293,7 @@ select {
   display: none;
 }
 .rating-labels input[type="radio"]:checked ~ label::before {
-  color: black;
+  color: #2E4434;
 }
 
 .rating-labels label {
@@ -292,41 +301,16 @@ select {
 }
 
 .rating-labels label::before {
-  color: #fcfcfc;
+  color: white;
   content: "\2605";
-  text-shadow: 0 1px 1.5px gray;
+  text-shadow: 0 1px 1.5px #2E4434;
 }
 
 .rating-labels label:hover::before {
-  color: darkgray;
+  color: #86967D;
 }
 
 .rating-labels label:hover ~ label::before {
-  color: darkgray;
+  color: #86967D;
 
-}
-
-.pshow {
-  box-shadow: 0px 5px 0px grey;
-  padding-bottom: 60px;
-  margin-bottom: 60px;
-}
-
-
-.button {
-color: black;
-font-family: 'Indie Flower', cursive;
-background-color: #7DD181;
-border: 2px solid #468c4f;
-border-radius: 8px;
-  }
-
-.button:hover {
-  background-color: #468c4f; /* Green */
-  color: white;
-  }
-
-
-.hugger {
-  width: 70px;
 }

@@ -1,35 +1,33 @@
-<h1 class=heading>Popular treeBae Deals</h1>
+<h1 class="text-center">treebae Deals</h1>
 <%= form_tag(root_path, method: :get) do %>
-<div class=price-heading>
-<section class = "row filter">
+<section class="row filter">
   <%= form_tag(root_path, method: :get) do %>
-
-  <div class = "column small-4">
-    <%= label_tag(:category, "Category") %>
-    <%= select_tag "category", options_for_select(@categories, params["category"]), include_blank: "all" %>
-  </div>
-  <div class = "column small-4">
-    <%= label_tag(:merchant, "Merchant") %>
-    <%= select_tag "merchant", options_from_collection_for_select(Merchant.active_merchants, "id", "username", selected: params[:merchant].to_i), include_blank: "all" %>
-  </div>
-  <div class = "column small-2">
-    <%= submit_tag("Submit", class: "button") %>
-  </div>
+    <div class="column small-5">
+      <%= label_tag(:category, "Category") %>
+      <%= select_tag "category", options_for_select(@categories, params["category"]), include_blank: "all" %>
+    </div>
+    <div class = "column small-5">
+      <%= label_tag(:merchant, "Merchant") %>
+      <%= select_tag "merchant", options_from_collection_for_select(Merchant.active_merchants, "id", "username", selected: params[:merchant].to_i), include_blank: "all" %>
+    </div>
+    <div class = "column small-2">
+      <%= submit_tag("Search", class: "button") %>
+    </div>
   <% end %>
 </section>
-</div>
 <section class = "row full-width">
     <% @products.each do |product| %>
-    <article class = "product-card columns small-10 medium-5 large-3">
-
+    <article class = "product-card columns small-10 medium-5 large-3 text-center">
       <% if product.photo_url %>
         <figure>
-          <img src= "<%= product.photo_url %>" alt "<%= product.photo_url %>" height: "250" width: "250" />
+          <a href="<%= product_path(product.id)%>"><img src= "<%= product.photo_url %>" alt "<%= product.photo_url %>" /></a>
         </figure>
       <% end %>
-      <h4 class=mini-heading><%= link_to(product.name.capitalize, product_path(product.id)) %></h4>
-      <h4 class=price-heading>US $<%= product.price%></h4>
-      <%= link_to "Add to cart", add_order_item_path(session[:order_id], product.id), method: :patch, class: :button %>
+      <div class="product-card-details">
+        <h4><%= link_to(product.name.capitalize, product_path(product.id)) %></h4>
+        <h5><%= number_to_currency(product.price) %></h4>
+        <%= link_to "Add to cart", add_order_item_path(session[:order_id], product.id), method: :patch, class: :button %>
+      </div>
     </article>
     <% end %>
       <% end %>

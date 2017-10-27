@@ -14,18 +14,28 @@
   <li>Email: <%= @order.customer_email %></li>
   <li>Credit Card: **** **** **** <%= @order.cc_number[-4..-1] %></li>
   <li>Expiration: <%= @order.cc_expiration %></li>
-  <h4>Mailing Address</h4>
-  <li>
-    <% address_connector = ((@order.address2 == "" || @order.address2 == nil) ? ", " : ", #{@order.address2}, ")%>
-    <%= @order.address1 + address_connector + @order.city + ", " + @order.state + " " +  @order.zipcode %>
-  </li>
 </ul>
 
+<h3>Mailing Address</h4>
+<p>
+  <% address_connector = ((@order.address2 == "" || @order.address2 == nil) ? ", " : ", #{@order.address2}, ")%>
+  <%= @order.address1 + address_connector + @order.city + ", " + @order.state + " " +  @order.zipcode %>
+<p>
+
 <h3>Purchased Items</h3>
-<% @orderitems.each do |item| %>
-  <ul>
-    <li>
-      <%= item.quantity %> <%= link_to item.product.name, product_path(item.product_id) %>: <%= item.product.price * item.quantity %>
-    </li>
-  </ul>
-<% end %>
+<table>
+  <tr>
+    <thead>
+      <th scope="columns">Product</th>
+      <th scope="columns">Quantity</th>
+      <th scope="columns">Subtotal</th>
+    </thead>
+  </tr>
+  <% @orderitems.each do |item| %>
+    <tr>
+      <td><%= link_to item.product.name, product_path(item.product_id) %></td>
+      <td><%= item.quantity %></td>
+      <td><%= number_to_currency(item.product.price * item.quantity) %></td>
+    </tr>
+  <% end %>
+</table>

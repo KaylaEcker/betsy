@@ -22,15 +22,15 @@
         <li class="cart large-2 small-2 columns">
           <div class="add-to-cart">
             <%= form_tag(update_quantity_path(@cart.id, order_item.product.id), method: :patch) do %>
-            <%= label_tag(:quantity, "(max #{order_item.product.quantity})") %>
-            <%= number_field_tag(:quantity, order_item.quantity, in: (1..(order_item.product.quantity))) %>
-            <%= submit_tag("Submit", class: "button", method: :patch) %>
+              <%= number_field_tag(:quantity, order_item.quantity, in: (1..(order_item.product.quantity))) %>
+              <%= label_tag(:quantity, "(max #{order_item.product.quantity})") %>
+              <%= submit_tag("Update", class: "button", method: :patch) %>
             <% end %>
           </div>
         </li>
         <li class="cart large-2 small-2 columns"><span class="big-red"><%= number_to_currency(order_item.subtotal) %></span></li>
         <li class="cart large-4 small-4 columns">
-          <%= link_to "Remove", remove_from_cart_path(@cart.id, order_item.product.id), method: :delete, class: "button" %>
+          <%= link_to "X", remove_from_cart_path(@cart.id, order_item.product.id), method: :delete, class: "button alert" %>
         </li>
       </ul>
       <% end %>

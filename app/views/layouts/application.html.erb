@@ -3,81 +3,72 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <% if @title != nil %>
-  <title>Treebae | <%= @title %></title>
+    <title>Treebae | <%= @title %></title>
   <% else %>
-  <title>Treebae | For the Modern Treehugger</title>
+    <title>Treebae | For the Modern Treehugger</title>
   <% end %>
-
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Calligraffitti' %>
   <%= favicon_link_tag %>
-  <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 </head>
 <body>
-  <header class = "page-header row">
-    <nav class = bg>
-
-    </nav>
-    <nav class = row>
-      <h2 class="column small-8">
-        <img src = https://files.slack.com/files-pri/T57TQUXU7-F7QDJLY4B/treehuggernobackground.png class=hugger></url>
-        <%= link_to "treebae", root_path%>
-      </h2>
-
-      <a class = cart "column small-2 float-right" href= <%=show_cart_path %> ><img src="https://cdn3.iconfinder.com/data/icons/christmas-vector-line-2/128/76-512.png"  alt = "Shopping Cart" height="42" width="42"/>
-
-      <section class = "column small-2">
-        <% if session[:merchant_id] %>
-          <div class= "dropdown">
-            <h3>You</h3>
-
-            <div class = "dropdown-content">
-
-            <h4><%= link_to "Log Out", logout_path, method: :post %></h4>
-            <h4><%= link_to "My account", merchant_path(session[:merchant_id])%></h4>
-            <h4><%= link_to "Add new product", new_product_path, method: :get %></h4>
-            <h4><%= link_to "Fulfillment", merchant_fulfillment_path(session[:merchant_id]) %></h4>
-
-
-            </div>
-          </div>
-        <% else %>
-            <%= link_to "Log in with Github", '/auth/github', class: "button" %>
-        <% end %>
+  <header class="page-header row" id="nav-container">
+    <nav class="row nav-bar">
+      <section class="column small-6 large-9 logo-container">
+        <h2 class="logo"><%= link_to "treebae", root_path%></h2>
+      </section>
+      <section class="column small-6 large-3 text-right">
+        <ul class="inline-list">
+          <% if session[:merchant_id] %>
+            <li class="dropdown">
+              <h3>Menu</h3>
+              <div class="dropdown-content text-left">
+                <h5><%= link_to "My account", merchant_path(session[:merchant_id])%></h5>
+                <h5><%= link_to "Create product", new_product_path, method: :get %></h5>
+                <h5><%= link_to "Fulfillment", merchant_fulfillment_path(session[:merchant_id]) %></h5>
+                <h5><%= link_to "Log Out", logout_path, method: :post %></h5>
+              </div>
+            </li>
+          <% else %>
+            <li>
+              <h3><%= link_to "Log in", '/auth/github' %></h3>
+            </li>
+          <% end %>
+          <li>
+            <a class="cart" href="<%= show_cart_path %>" >
+              <img src="https://cdn3.iconfinder.com/data/icons/christmas-vector-line-2/128/76-512.png"  alt="Shopping Cart" height="42" width="42"/>
+            </a>
+          </li>
+        </ul>
       </section>
     </nav>
   </header>
 
+  <section class="flash <%= flash[:status] %>">
+    <% if flash[:status] == "error" %>
+    <p><strong>An error occured: </strong><%= flash[:result_text] %></p>
+    <% end %>
+    <% if flash[:status] == "success" %>
+    <p><strong>Well done! </strong><%= flash[:result_text] %></p>
+    <% end %>
 
-    <section class="flash <%= flash[:status] %>">
-      <% if flash[:status] == "error" %>
-      <p><strong>An error occured: </strong><%= flash[:result_text] %></p>
+    <% if flash[:messages] %>
+    <ul class="error-messages">
+      <% flash[:messages].each do |name, problems| %>
+      <% problems.each do |problem| %>
+      <li><%= name %>: <%= problem %></li>
       <% end %>
-      <% if flash[:status] == "success" %>
-      <p><strong>Well done! </strong><%= flash[:result_text] %></p>
       <% end %>
+    </ul>
+    <% end %>
+  </section>
 
-      <% if flash[:messages] %>
-      <ul class="error-messages">
-        <% flash[:messages].each do |name, problems| %>
-        <% problems.each do |problem| %>
-        <li><%= name %>: <%= problem %></li>
-        <% end %>
-        <% end %>
-      </ul>
-      <% end %>
-    </section>
-
-    <secion class = "full-width">
-      <%= yield %>
-    </secion>
+  <section class="full-width">
+    <%= yield %>
+  </section>
 
   </body>
   </html>

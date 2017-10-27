@@ -1,18 +1,17 @@
-
-<section class= "pshow row full-width">
-  <figure class= "column small-12 medium-12 large-7">
+<section class="product-show row full-width">
+  <figure class="column small-12 medium-12 large-6 text-center">
     <% if @product.photo_url %>
-      <img src= "<%= @product.photo_url %>" alt "<%= @product.photo_url %>" height: "250" width: "250" />
+      <img src= "<%= @product.photo_url %>" alt "<%= @product.photo_url %>"/>
     <% else %>
       Image not currently available
     <% end %>
   </figure>
 
-  <article class= "pdetails column small-12 medium-12 large-5">
+  <article class="column small-12 medium-12 large-6">
     <div>
-      <h2 class=mini-heading><%= @product.name %></h2>
+      <h2><%= @product.name %></h2>
       <% if @product.status == "retired" %>
-        <h4 class=heading>Retired product</h4>
+        <h4>Retired product</h4>
       <% end %>
         <% if @product.reviews.count > 0 %>
           <div class="dynamic-star">
@@ -24,42 +23,33 @@
             </div>
           </div>
         <% end %>
-        <div class = "float-right">
+        <div class="float-right">
           <% if @merchant == @product.merchant %>
             <%= link_to "Edit Product", edit_product_path(@product.id), class: :button %>
           <% else %>
             <%= link_to "Add to cart", add_order_item_path(session[:order_id], @product.id), method: :patch, class: :button %>
           <% end %>
         </div>
-
     </div>
-
-
     <% if @product.status == "retired" %>
       <h4 class="heading">Retired product</h4>
     <% end %>
 
-    <h3>List Price: US $<%= @product.price %></h3>
+    <h3>List Price: <%= number_to_currency(@product.price) %></h3>
     <% if @product.quantity <= 5 %>
-      <li><span class="quant">Limited - Only <%= @product.quantity %> left in stock </span></li>
-      <li><span class="small">Ships from and sold by: <%= @product.merchant.username %> </span></li>
-    <% else %>
-      <span class="small">Ships from and sold by: <%= @product.name %> </span>
-        <% end %>
+      <p>Limited - Only <%= @product.quantity %> left in stock </p>
+    <% end %>
+    <p>Ships from and sold by: <%= @product.name %> </p>
     <h3>Description:</h3>
     <p><%= product_description(@product) %></p>
-    <p>Categories: <%= @product.categories.join(", ") %></p>
+    <% if @product.categories != nil %>
+      <p>Categories: <%= @product.categories.join(", ") %></p>
+    <% end %>
   </article>
 </section>
 
 
-<section class = "full-width">
-    <div class ="float-right review">
-      <% if @merchant != @product.merchant %>
-        <%= link_to("Leave a review", new_review_path(@product.id), method: :get, class: "button") %>
-      <% end %>
-    </div>
-
+<section class="full-width">
       <h3>Average Rating:</h3>
       <% if @product.reviews.count > 0 %>
       <div class="dynamic-star">
@@ -74,28 +64,31 @@
         <%= @product.average_rating %>
       </span>
       <% end %>
+      <% if @merchant != @product.merchant %>
+        <span class="space"></span>
+        <span class="review"><%= link_to("Leave a review", new_review_path(@product.id), method: :get, class: "button") %></span>
+      <% end %>
 
   <section>
     <h3>Reviews: </h3>
     <% if @product.reviews.count < 1  %>
       <p>Be the first to review this item</p>
     <% else %>
-    <ul>
-      <% @product.reviews.each do |review| %>
-        <li class = "pshow">
-          <% review.rating.times do %>
-            <span class="checked star">&#x2605</span>
-          <% end %>
-          <% (5 - review.rating).times do %>
-            <span class="unchecked star">&#x2605</span>
-          <% end %>
-          <span class="space"></span>
-          <span><%=review.title%></span>
-        </li>
-        <li><%=review.review_text%></li>
-      <% end %>
-    </ul>
+      <ul>
+        <% @product.reviews.each do |review| %>
+          <li>
+            <% review.rating.times do %>
+              <span class="checked star">&#x2605</span>
+            <% end %>
+            <% (5 - review.rating).times do %>
+              <span class="unchecked star">&#x2605</span>
+            <% end %>
+            <span class="space"></span>
+            <span><%=review.title%></span>
+          </li>
+          <li><%=review.review_text%></li>
+        <% end %>
+      </ul>
+    <% end %>
   </section>
-
-  <% end %>
 </section>

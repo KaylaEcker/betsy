@@ -51,7 +51,7 @@ select {
   -webkit-appearance: none;
 }
 
-.mini-heading a{
+.mini-heading a {
   color: black;
   text-shadow: 1px 2px 	#7Da50f;
 }
@@ -169,6 +169,7 @@ select {
 
 .success {
   background-color: #DFF0D8;
+  background-color: #D1EDC0;
   border-color: #D9ECCC;
   color: #4C7D45;
   display: block;
@@ -178,6 +179,8 @@ select {
   background-color: #F2DEDE;
   border-color: #DDB5B5;
   color: #AB4B4A;
+  color: #D38865;
+  background-color: #EFD2C6;
   display: block;
 }
 

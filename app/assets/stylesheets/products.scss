@@ -39,8 +39,13 @@
   overflow: hidden;
 }
 
-.page * {
-  float: left;
+.page {
+  * {
+    float: left;
+  }
+  em.current {
+    background-color: #426421;
+  }
 }
 
 //SHOW//////////////////////////////////////////////////////////

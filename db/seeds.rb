@@ -35,6 +35,7 @@ CSV.foreach(PRODUCT_FILE, :headers => true) do |row|
   product.quantity = row['quantity']
   product.status = row['status']
   product.photo_url = row['photo_url']
+  product.description = row['description']
   puts "Created product: #{product.inspect}"
   successful = product.save
   if !successful
@@ -90,6 +91,25 @@ CSV.foreach(ORDERITEM_FILE, :headers => true) do |row|
   end
 end
 
+REVIEW_FILE = Rails.root.join('db', 'review_seeds.csv')
+puts "Loading raw review data from #{REVIEW_FILE}"
+
+review_failures = []
+CSV.foreach(REVIEW_FILE, :headers => true) do |row|
+  review = Review.new
+  review.id = row['id']
+  review.product_id = row['product_id']
+  review.review_text = row['review_text']
+  review.title = row['review_title']
+  review.rating = row['rating']
+  puts "Created review: #{review.inspect}"
+  successful = review.save
+  if !successful
+    review_failures << review
+    errors = "!!!!Error!!!!"
+  end
+end
+
 
 
 
@@ -134,6 +154,9 @@ puts "#{order_failures.length} orders failed to save"
 puts "\n------------------------------------"
 puts "\nAdded #{Orderitem.count} order_item records"
 puts "#{order_item_failures.length} order_items failed to save"
+puts "\n------------------------------------"
+puts "\nAdded #{Review.count} reviews records"
+puts "#{review_failures.length} reviews failed to save"
 puts "\n------------------------------------"
 
 if merchant_failures.length > 0 || product_failures.length > 0 || order_failures.length > 0 || order_item_failures.length > 0

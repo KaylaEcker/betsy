@@ -65,6 +65,28 @@ select {
   text-shadow: 1px 2px 	#7Da50f;
 }
 
+#nav-container {
+  margin-top: 0;
+  padding-top: 10px;
+  background-color: #86967D;
+  min-width: 100%;
+  box-shadow: 0 2px 2px gray;
+}
+
+.nav-bar {
+  color: #F3FBEF;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.nav-bar a {
+  color: #F3FBEF;
+}
+
+.nav-bar a:hover {
+  color: #426421;
+}
+
 .inline-list li {
   display: inline-block;
 }
@@ -162,7 +184,7 @@ select {
   display: none;
   font-size: 0.5em;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: #86967D;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding: 12px 16px;

@@ -30,6 +30,10 @@
   }
 }
 
+.column:last-child:not(:first-child), .columns:last-child:not(:first-child) {
+    float: left;
+}
+
 .product-card-details {
   height: 150px;
   overflow: hidden;

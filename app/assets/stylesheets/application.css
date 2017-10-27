@@ -140,7 +140,8 @@ select {
 .flash {
   border: 1px solid;
   border-radius: 3px;
-  margin: 5px;
+  margin: auto;
+  max-width: 80%;
   min-height: 50px;
   font-size: 1.1rem;
   display: none;
